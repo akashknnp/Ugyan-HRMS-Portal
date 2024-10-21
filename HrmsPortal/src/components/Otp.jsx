@@ -37,7 +37,7 @@ const navigate1 = useNavigate();
     if (otp === generatedOtp) {
       setError('');
       alert('OTP verified successfully!');
-      
+      navigate1('/reset')
       
     } else {
       setError('Incorrect OTP. Please try again.');
