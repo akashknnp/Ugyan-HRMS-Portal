@@ -1,0 +1,58 @@
+/*otp verification start*/
+
+.Otp{
+    max-width:400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border:1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    align-items: center;
+    margin-top: 12vw;
+  }
+  .text1{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1vw;
+  }
+  .text2{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1vw;
+  }
+  .Submit{
+    background-color: #4CAF50;
+    color:white;
+    display: flex;
+    margin-left: 12vw; 
+    margin-top: 2vh;
+    padding: 10px;
+    font-size: 2vh;
+    font-weight: 600;
+    border-radius: 5px;
+  }
+  .l1{
+    color:blueviolet;
+    font-size: 1.5vw;
+    font-weight: 600;
+  }
+  .l2{
+    color: blueviolet;
+    font-size: 1.5vw;
+    font-weight: 600;
+    margin-left:1vw ;
+  }
+  .Otp h1{
+    font-size: 2vw;
+    color: brown;
+    font-weight: 500;
+    margin-bottom: 5vh;
+    text-align: center;
+    margin-top: 5vh;
+  }
+  .generated-otp{
+    display: none;
+  }
+  
+  
