@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard';
 import Employee from './components/Employee';
 import Categorie from './components/Categorie';
 import Profile from './components/Profile';
+import Forget from './components/Forget';
 import Counter from './components/Counter'
 import Fetch from './components/Fetch';
 
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/categorie" element={<Categorie/>}/>
         <Route path="/logout" element={<Login/>}/>
         <Route path="/profile" element={<Profile/>}/>
+        <Route path="/forget" element={<Forget/>}/>
       </Routes>
     </BrowserRouter>
   );

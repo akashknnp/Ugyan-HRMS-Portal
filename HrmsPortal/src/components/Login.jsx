@@ -1,6 +1,6 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom'
+import forget from '../components/Forget'
 const Login = () => {
     const navigate = useNavigate();
 
@@ -22,7 +22,9 @@ const Login = () => {
                         <label className='label2'>Password:</label>
                         <input type='password' htmlFor='password' className='input-field' required/>
                     </div>
+                    <div className=' font-semibold text-right pr-11  text-blue-800'><Link to={'/forget'}>Forget Password</Link></div>
                     <button className='submit' type='submit'>Submit</button>
+                    
                 </form>
             </div>
 
