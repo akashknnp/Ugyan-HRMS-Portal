@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import '../src/index.css'
 import React from 'react';
+import Reset from './components/Reset'
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Employee from './components/Employee';
@@ -12,6 +13,7 @@ import Fetch from './components/Fetch';
 
 const App = () => {
   return (
+  
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
@@ -21,6 +23,7 @@ const App = () => {
         <Route path="/logout" element={<Login/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/forget" element={<Forget/>}/>
+        <Route path="/reset" element={<Reset/>}/>    
       </Routes>
     </BrowserRouter>
   );

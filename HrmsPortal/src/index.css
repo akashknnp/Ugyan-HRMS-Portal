@@ -226,3 +226,45 @@ i-main{
   margin-top: 50px;
 }
 
+/* Reset css */
+
+.reset-main{
+  position: relative;
+  width:30vw;
+  height: 25vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: 75vh;
+  margin-top: 20vh;
+  border-radius: 10px;
+  font-weight: 800;
+  padding: 2vw;
+}
+.reset-main h1{
+  font-size: 30px;
+  text-align: center;
+  padding: 1vw;
+}
+
+.reset-inner-main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vh;
+}
+
+.pwd input{
+  border:none;
+  border-radius: 4px;
+  width:100%;
+  margin:3px;
+  padding:2px 2px 6px 6px;
+}
+
+.pwd label{
+  font-size: 3vh;
+  font-weight: 700;
+}
+
+/* close reset css */
