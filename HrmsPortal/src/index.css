@@ -2,6 +2,151 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+.main1{
+  position:relative;
+  width:30vw;
+  height: 25vw;
+  background-color: rgb(187, 184, 184);
+  display: flex;
+  flex-direction: column;
+  margin: 20vh;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+.login{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main1 h1{
+  font-size: 3vw;
+  color: black;
+  font-weight: 600;
+  margin-bottom: 5vh;
+  text-align: center;
+  margin-top: 5vh;
+
+}
+.label1{
+  color:black;
+  font-size: 1.4vw;
+  font-weight: 600;
+}
+.label2{
+  color: black;
+  font-size: 1.4vw;
+  font-weight: 600;
+  margin-left:3px ;
+}
+.input1{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1vw;
+}
+.input2{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1vw;
+}
+.input-field{
+  margin-left: 2vw;
+  border:1px solid#111;
+  border-radius: 5px;
+  color: black;
+  border-color: 2px black ;
+  font-weight: 500;
+  padding: 2px 1px;
+  width:15vw;
+  height: 5vh;
+  padding: 1vw;
+}
+
+.submit{
+  background-color: rgb(2, 255, 2);
+  color:white;
+  display: flex;
+  margin-left: 12vw; 
+  margin-top: 5vh;
+  padding: 8px 15px;
+  font-size: 3vh;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+@media (max-width:600px) {
+  .main1{
+    background-color:grey;
+  padding-left: 2vw;
+  padding-right: 2vw;
+
+  }
+  .main1 h1{
+    font-size: 3vw;
+    color: black;
+    font-weight: 500;
+    margin-bottom: 5vh;
+    text-align: center;
+    margin-top: 5vh;
+  
+}
+.main1{
+  position:relative;
+  width:30vw;
+  height: 40vw;
+  display: flex;
+  flex-direction: column;
+  margin: 20vh;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+
+.input-field{
+  margin-left: 2vw;
+  border:1px solid#111;
+  border-radius: 5px;
+  color: black;
+  border-color: 2px black ;
+  font-weight: 500;
+  padding: 2px 1px;
+  width:15vw;
+  height: 5vh;
+  padding: 1vw;
+}
+
+.label1{
+  color:black;
+  font-size: 2.5vw;
+  font-weight: 600;
+}
+.label2{
+  color: black;
+  font-size: 2.5vw;
+  font-weight: 600;
+  margin-left:3px ;
+}
+
+.submit{
+  background-color: rgb(2, 255, 2);
+  color:white;
+  display: flex;
+  margin-left: 5vw; 
+  margin-top: 2vh;
+  padding: 8px 15px;
+  font-size: 2vh;
+  font-weight: 600;
+  border-radius: 5px;
+}
+}
+
 .main{
   display: flex;
   justify-content: center;

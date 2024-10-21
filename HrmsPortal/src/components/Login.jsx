@@ -10,25 +10,23 @@ const Login = () => {
     }
 
     return (
-        <>  
-            <div className='container'>
-                <div className='main flex bg-blend-color-burn bg-zinc-600 w-1/4 h-400 justify-center align-center'>
-                    <div className='i-main py-4'>
-                        <h1 className='text-2xl text-center font-bold px-4 py-2 rounded-md'>LOGIN</h1>
-                        <form>
-                            <br/>
-                            <label htmlFor="username">Username:</label><br/>
-                            <input type="text" id="username" name="username" required className='rounded-xl mt-2 px-4 py-2 border-none'/><br/>
-                            <label htmlFor="password">Password:</label><br/>
-                            <input type="password" id="password" name="password" className='rounded-xl mt-2 px-4 py-2 border-none' required/><br/>
-                            <button type="submit" className='m-5 bg-green-800 px-4 py-2 rounded-md font-bold ml-16 text-white' onClick={handleButtonClick}>Login</button>
-                        </form>
+        <div className='login'>  
+            <div className='main1'>
+                <h1>Login Page</h1>
+                <form onSubmit={handleButtonClick}>
+                    <div className='input1'>
+                        <label className='label1'>Username:</label>
+                        <input type='text' htmlFor='username' className='input-field' required/>
                     </div>
-                </div>
+                    <div className='input2'>
+                        <label className='label2'>Password:</label>
+                        <input type='password' htmlFor='password' className='input-field' required/>
+                    </div>
+                    <button className='submit' type='submit'>Submit</button>
+                </form>
             </div>
-           
-       
-        </>
+
+        </div>
     )
 }
 
