@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import '../src/index.css'
 import '../src/reset.css'
+import "./forget.css";
 import React from 'react';
 import Reset from './components/Reset'
 import Login from './components/Login';
