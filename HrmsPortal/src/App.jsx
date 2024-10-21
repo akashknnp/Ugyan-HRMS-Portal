@@ -1,7 +1,10 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import '../src/index.css'
 import '../src/otp.css'
+import '../src/reset.css'
+import "./forget.css";
 import React from 'react';
+import Reset from './components/Reset'
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Employee from './components/Employee';
@@ -16,6 +19,7 @@ import Otp from './components/Otp';
 const App = () => {
   return (
     
+  
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
@@ -26,6 +30,7 @@ const App = () => {
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/forget" element={<Forget/>}/>
         <Route path="/otp" element={<Otp/>}/>
+        <Route path="/reset" element={<Reset/>}/>    
       </Routes>
     </BrowserRouter>
   );
