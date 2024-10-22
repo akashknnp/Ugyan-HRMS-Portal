@@ -58,7 +58,7 @@ const Reset = () => {
 
   return (
     <div>
-      <div className='reset-main bg-slate-200 shadow-xl'>
+      <div className='reset-main shadow-xl'>
         <h1 className='font-semibold tracking-wider '>Reset Password</h1>
         <div className='reset-inner-main flex flex-col'>
           <form onSubmit={handleSubmit}>
@@ -71,7 +71,7 @@ const Reset = () => {
               <input type="password" name="re-password" value={confirmPassword} onChange={handleConfirmPasswordChange} required />
             </div>
             <div>
-              <button className='font-semibold bg-green-600 text-white px-4 py-2 mt-5 rounded-md w-full '>Submit</button>
+              <button className=' submit-button font-semibold  text-white px-4 py-2 rounded-md w-full '>Submit</button>
             </div>
           </form>
           <div className='mt-5'>
