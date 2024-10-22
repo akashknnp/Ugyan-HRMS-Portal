@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { RiInformation2Line } from "react-icons/ri";
 
 const Reset = () => {
   const navigate = useNavigate();
 
+  const [ishover,setishover]=useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -56,6 +58,14 @@ const Reset = () => {
     setConfirmPassword(newCpwd);
   };
 
+  const handlemouse=()=>{
+    alert('Kindly include special characters and numbers in your password')
+  }
+
+  const handleleave=()=>{
+    setishover('')
+  }
+
   return (
     <div>
       <div className='reset-main shadow-xl'>
@@ -63,13 +73,15 @@ const Reset = () => {
         <div className='reset-inner-main flex flex-col'>
           <form onSubmit={handleSubmit}>
             <div className='pwd'>
-              <label htmlFor='password'> New Password :</label>
-              <input type="password" name="password" value={password} onChange={handlePasswordChange} required/>
+              <label htmlFor='password'> New Password : </label>
+              <input type="password" name="password" value={password} onChange={handlePasswordChange} required placeholder='Password'/>
+              
             </div>
             <div className='pwd mt-4'>
               <label>Re-enter password : </label>
-              <input type="password" name="re-password" value={confirmPassword} onChange={handleConfirmPasswordChange} required />
+              <input type="password" name="re-password" value={confirmPassword} onChange={handleConfirmPasswordChange} required placeholder='Re-enter password'/>
             </div>
+            <div className='  w-1/12 mt-1.5 ml-1 ' onMouseEnter={handlemouse} onMouseLeave={handleleave}><RiInformation2Line /></div>
             <div>
               <button className=' submit-button font-semibold  text-white px-4 py-2 rounded-md w-full '>Submit</button>
             </div>
