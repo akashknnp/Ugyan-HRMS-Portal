@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
+
 const Forget = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
+  const [email1, setEmail1] = useState('');
 
   const handleButtonClick = (event) => {
     event.preventDefault();  
-    if (email) {
-      navigate('/otp');
+    if (email1) {
+      navigate('/otp',{ state: { email1 } });
     } else {
       alert('Please enter your email address.');
     }
@@ -25,7 +26,7 @@ const Forget = () => {
   }
 
   const handleEmailChange = (event) => {
-    setEmail(event.target.value);
+    setEmail1(event.target.value);
   }
 
   return (
@@ -38,7 +39,7 @@ const Forget = () => {
             type='email' 
             name='mail' 
             placeholder='Email address' 
-            value={email} 
+            value={email1} 
             onChange={handleEmailChange}
             required
           />

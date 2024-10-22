@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const Otp = () => {
-const navigate1 = useNavigate();
+  const location = useLocation();
+  const navigate1 = useNavigate();
+  const { email1 } = location.state || {};
 
   const [otp, setOtp] = useState('');
   const [email, setEmail] = useState('');
@@ -51,7 +54,7 @@ const navigate1 = useNavigate();
         <form onSubmit={handleButtonClick}>
           <div className='text1'>
             <label className='l1'>Email:</label>
-            <input type='email' value={email} onChange={handleEmailChange} className='input-field' required />
+            <input type='email' value={email1} onChange={handleEmailChange} className='input-field' required />
           </div>
           <div className='text2'>
             <label className='l2'>OTP:</label>
