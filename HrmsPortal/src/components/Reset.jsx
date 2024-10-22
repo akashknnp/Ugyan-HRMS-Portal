@@ -58,7 +58,7 @@ const Reset = () => {
 
   return (
     <div>
-      <div className='reset-main bg-slate-400'>
+      <div className='reset-main bg-slate-200 shadow-xl'>
         <h1 className='font-semibold tracking-wider '>Reset Password</h1>
         <div className='reset-inner-main flex flex-col'>
           <form onSubmit={handleSubmit}>
