@@ -51,8 +51,15 @@
     text-align: center;
     margin-top: 5vh;
   }
-  .generated-otp{
-    
-  }
+
   
+.input-field1{
+  width:70%;
+  margin-left:5px;
+  padding:4px 6px;
+}
   
+.text2 .input-field1{
+  letter-spacing: 2vw;
+  font-weight: 700;
+}

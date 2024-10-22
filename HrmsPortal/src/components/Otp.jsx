@@ -13,7 +13,7 @@ const Otp = () => {
   const [error, setError] = useState('');
 
   const generateOtp = () => {
-    const otp = Math.floor(1000 + Math.random() * 9000).toString(); 
+    const otp = Math.floor(100000 + Math.random() * 9000).toString(); 
     setGeneratedOtp(otp);
   };
 
@@ -32,8 +32,8 @@ const Otp = () => {
   const handleButtonClick = (e) => {
     e.preventDefault();
 
-    if (otp.length !== 4) {
-      setError('OTP must be 4 digits long.');
+    if (otp.length !== 6) {
+      setError('OTP must be 6 digits long.');
       return;
     }
 
@@ -54,11 +54,11 @@ const Otp = () => {
         <form onSubmit={handleButtonClick}>
           <div className='text1'>
             <label className='l1'>Email:</label>
-            <input type='email' value={email1} onChange={handleEmailChange} className='input-field' required />
+            <input type='email' value={email1} onChange={handleEmailChange} className='input-field1' required />
           </div>
           <div className='text2'>
             <label className='l2'>OTP:</label>
-            <input type='text' value={otp} onChange={handleInputChange} className='input-field' required maxLength={4} pattern="\d{4}" />
+            <input type='text' value={otp} onChange={handleInputChange} className='input-field1' required maxLength={6} pattern="\d{6}" />
           </div>
           {error && <div className="error">{error}</div>}
           <button className='Submit' type='submit'>Submit</button>
