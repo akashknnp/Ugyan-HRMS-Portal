@@ -4,8 +4,10 @@
 
 /* Reset css */
 
+
+
 .reset-main{
-    position: relative;
+    position: absolute;
     width:30vw;
     height: 27vw;
     display: flex;
