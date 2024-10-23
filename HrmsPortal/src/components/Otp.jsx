@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import logo from "../assets/ugyan.png"
 
 const Otp = () => {
   const location = useLocation();
@@ -39,7 +40,6 @@ const Otp = () => {
 
     if (otp === generatedOtp) {
       setError('');
-      alert('OTP verified successfully!');
       navigate1('/reset')
       
     } else {
@@ -48,9 +48,13 @@ const Otp = () => {
   };
 
   return (
+    <div className='background-div1'>
     <div className='Otp'>
+      
       <div className='otp verify'>
-        <h1>OTP Verification</h1>
+      <div className='flex gap-1'>
+      <img src={logo}className='logo-bg bg-white ml-2'></img>
+        <h1>OTP Verification</h1></div>
         <form onSubmit={handleButtonClick}>
           <div className='text1'>
             <label className='l1'>Email:</label>
@@ -60,13 +64,14 @@ const Otp = () => {
             <label className='l2'>OTP:</label>
             <input type='text' value={otp} onChange={handleInputChange} className='input-field1' required maxLength={6} pattern="\d{6}" />
           </div>
-          {error && <div className="error">{error}</div>}
+          {error && <div className="popup-message bg-red-200 text-red-700 px-4 py-2 rounded-md shadow-md mt-4">{error}</div>}
           <button className='Submit' type='submit'>Submit</button>
         </form>
         <div className="generated-otp">
           <strong>Generated OTP:</strong> {generatedOtp}
         </div>
       </div>
+    </div>
     </div>
   );
 };
@@ -78,6 +83,4 @@ export default Otp;
 
 
 
-   
-   
-     
+

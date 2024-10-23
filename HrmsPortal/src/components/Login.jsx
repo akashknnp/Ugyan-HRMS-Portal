@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import forget from '../components/Forget'
+import logo from "../assets/ugyan.png"
 
 const Login = () => {
     const navigate = useNavigate();
@@ -11,9 +12,15 @@ const Login = () => {
     }
 
     return (
+        <div className='background-div1'>
+            {/* <div className='login-text text-center bg-slate-400'>
+             <h1 className='absolute text-white text-5xl '>Welcome to UGYAN Eductech</h1></div> */}
         <div className='login'>  
             <div className='main1'>
+                <div className='flex gap-1 space-x-6 mb-4 pl-4'>
+                <img src={logo}className='logo-bg bg-white ml-5'></img>
                 <h1>Login Page</h1>
+                </div>
                 <form onSubmit={handleButtonClick}>
                     <div className='input1'>
                         <label className='label1'>Username:</label>
@@ -23,12 +30,13 @@ const Login = () => {
                         <label className='label2'>Password:</label>
                         <input type='password' htmlFor='password' className='input-field' required/>
                     </div>
-                    <div className=' font-semibold text-right pr-11  text-blue-800'><Link to={'/forget'}>Forget Password</Link></div>
+                    <div className=' font-semibold text-right pr-11  text-yellow-700'><Link to={'/forget'}>Forget Password</Link></div>
                     <button className='submit' type='submit'>Submit</button>
                     
                 </form>
             </div>
 
+        </div>
         </div>
     )
 }
