@@ -29,7 +29,7 @@ const Otp = () => {
     setEmail(e.target.value);
   };
 
-  const handleButtonClick = (e) => {
+  const handleButtonClick = (e) => {  
     e.preventDefault();
 
     if (otp.length !== 6) {

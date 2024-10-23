@@ -8,7 +8,7 @@
   position:relative;
   width:30vw;
   height: 25vw;
-  background-color: #C4E9D7;
+  background-color: white;
   display: flex;
   flex-direction: column;
   margin: 20vh;
@@ -28,7 +28,7 @@
 
 .main1 h1{
   font-size: 3vw;
-  color: black;
+  color: #063970;;
   font-weight: 600;
   margin-bottom: 5vh;
   text-align: center;
@@ -36,12 +36,12 @@
 
 }
 .label1{
-  color:black;
+  color:#063970;;
   font-size: 1.4vw;
   font-weight: 600;
 }
 .label2{
-  color: black;
+  color:#063970;;
   font-size: 1.4vw;
   font-weight: 600;
   margin-left:3px ;
@@ -58,7 +58,7 @@
 }
 .input-field{
   margin-left: 2vw;
-  border:2px solid#111;
+  border:2px solid #063970;;
   border-radius: 5px;
   color: black;
   border-color: 2px black ;
@@ -70,7 +70,7 @@
 }
 
 .submit{
-  background-color: #216FDB;
+  background-color:#063970;;
   color:white;
   display: flex;
   margin-left: 12vw; 

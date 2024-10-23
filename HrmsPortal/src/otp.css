@@ -1,13 +1,18 @@
 /*otp verification start*/
 
+body {
+    background-color: #c6c2c2; 
+    background-image: url(D:\ugyan-hrms\Ugyan-HRMS-Portal\HrmsPortal\public\b2.jpeg);
+}
+
 .Otp{
     max-width:400px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #C4E9D7;
-    border:1px solid #ddd;
+    background-color:white;
+    border:1px solid #063970;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(174, 24, 144, 0.1);
     align-items: center;
     margin-top: 12vw;
   }
@@ -22,7 +27,7 @@
     margin-bottom: 1vw;
   }
   .Submit{
-    background-color: #216FDB;
+    background-color: #063970;
     color:white;
     display:flex;
     margin-top: 3vh;
@@ -33,23 +38,24 @@
     margin-left: 15.1vw;
   }
   .l1{
-    color:#111;
+    color:#063970;
     font-size: 1.5vw;
     font-weight: 600;
   }
   .l2{
-    color: #111;
+    color: #063970;
     font-size: 1.5vw;
     font-weight: 600;
     margin-left:1vw ;
   }
   .Otp h1{
     font-size: 2.2vw;
-    color: #111;
+    color: #063970;
     font-weight: 500;
     margin-bottom: 5vh;
     text-align: center;
     margin-top: 5vh;
+    letter-spacing: 0.1vw;
   }
 
   
@@ -58,12 +64,17 @@
   margin-left:5px;
   padding:4px 6px;
   border-radius: 5px;
-  border: 2px solid black;
+  border: 2px solid #063970;
 }
   
 .text2 .input-field1{
-  letter-spacing: 1.7vw;
+  letter-spacing: 1.6vw;
   font-weight: 700;
   border-radius: 5px;
-  border: 2px solid black;
+  border: 2px solid #063970;
 }
+.Submit:hover{
+    background-color: #2c3e50;
+    font-size: 2.4vh;
+    cursor: pointer;
+  }

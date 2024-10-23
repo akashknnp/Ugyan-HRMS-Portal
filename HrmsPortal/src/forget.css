@@ -16,7 +16,7 @@
     border-radius: 10px;
     text-align: center;
     padding: 4vh 4vw;
-    background-color: #C4E9D7;
+    background-color: white;
   }
   
   .forget h1{
@@ -41,7 +41,7 @@
     padding: 1vh 1vw;
     margin-top: 2.5vh;
     border-radius: 5px;
-    border:2px solid black;
+    border:2px solid #063970;;
     width: 22vw;
   }
   
@@ -62,11 +62,16 @@
   }
   
   .search-button{
-    background-color: #216FDB;
+    background-color: #063970;;
     padding: 1vh 1vw ;
     border-radius: 5px;
     color: #fff;
   }
-  
+  .forget h1{
+    color:#063970;
+  }
+  .forget p{
+    color:#063970;
+  }
   
   /* End Forget CSS*/
