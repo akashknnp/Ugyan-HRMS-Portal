@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from "../assets/ugyan.png"
+
 
 const Forget = () => {
   const navigate = useNavigate();

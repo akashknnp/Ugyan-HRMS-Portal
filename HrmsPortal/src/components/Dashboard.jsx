@@ -71,12 +71,12 @@ const Dashboard = () => {
                 <div><h3 className='features'><TfiDashboard className='dash'/><Link to="/dashboard">Dashboard</Link></h3></div>
                 <div><h3 className='features'><IoPeopleOutline className='dash' /><Link to="/employee">Employee </Link></h3></div>
                 <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Recruitment</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Calender</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Payroll</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Time off</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Performance</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Communication</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Settings</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/calender">Calender</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/payroll">Payroll</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/timeoff">Time off</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/performance">Performance</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/communication">Communication</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/settings">Settings</Link></h3></div>
 
 
 

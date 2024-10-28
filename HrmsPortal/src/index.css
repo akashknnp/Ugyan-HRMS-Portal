@@ -260,8 +260,7 @@ i-main{
 .menu{
   width:80%;
   display: flex;
-  flex-direction: column;
-  /* margin-top: 50px; */
+  justify-content:space-around;
   background-image: url(../public/b2.jpeg);
   object-fit: cover;
   padding: 0.5vw;
@@ -298,4 +297,12 @@ i-main{
   border-radius: 0.5vw;
 }
 
+.list{
+  color: #fff;
 
+}
+
+.list h4{
+  font-size: 4vh;
+  font-weight: 500;
+}

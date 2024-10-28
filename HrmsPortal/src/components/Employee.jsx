@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const Employee = () => {
+const Dashboard = () => {
     return (
     <div className='outer '>
         <div className='header shadow-2xl bg-gradient-to-br from-blue-900 to-blue1 flex justify-between'>
@@ -37,12 +37,12 @@ const Employee = () => {
                 <div><h3 className='features'><TfiDashboard className='dash'/><Link to="/dashboard">Dashboard</Link></h3></div>
                 <div><h3 className='features'><IoPeopleOutline className='dash' /><Link to="/employee">Employee </Link></h3></div>
                 <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Recruitment</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Calender</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Payroll</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Time off</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Performance</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Communication</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Settings</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/calender">Calender</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/payroll">Payroll</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/timeoff">Time off</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/performance">Performance</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/communication">Communication</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/settings">Settings</Link></h3></div>
 
 
 
@@ -50,11 +50,16 @@ const Employee = () => {
                 <div><h3 className='features'><IoLogOutOutline className='dash'/><Link to="/logout">Logout</Link></h3></div>
             </div>
             <div className='menu'>
-                   employe
+                  <div className='list'>
+                    <h4><Link to="/employeelist">Employee List</Link></h4>
+                    <h4><Link to="/leaders">Leaders Dashboard</Link></h4>
+                    <h4><Link to="/empsearch">Employee Search</Link></h4>
+                    <h4><Link to="/addemp">Add Employee</Link></h4>
+                  </div>
             </div>
         </div>
     </div>
     )
 }
 
-export default Employee
+export default Dashboard
