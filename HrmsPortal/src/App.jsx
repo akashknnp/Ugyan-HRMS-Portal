@@ -15,6 +15,12 @@ import Counter from './components/Counter'
 import Fetch from './components/Fetch';
 import Otp from './components/Otp';
 import About from './components/About';
+import Calender from './components/Calender';
+import Payroll from './components/Payroll';
+import Timeoff from './components/Timeoff';
+import Performance from './components/Performance';
+import Communication from './components/Communication';
+import Settings from './components/Settings';
 
 
 
@@ -28,6 +34,12 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/employee" element={<Employee />} />
         <Route path="/recruitment" element={<Recruitment/>}/>
+        <Route path="/calender" element={<Calender/>}/>
+        <Route path="/payroll" element={<Payroll/>}/>
+        <Route path="/timeoff" element={<Timeoff/>}/>
+        <Route path="/performance" element={<Performance/>}/>
+        <Route path="/communication" element={<Communication/>}/>
+        <Route path="/settings" element={<Settings/>}/>
         <Route path="/logout" element={<Login/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/forget" element={<Forget/>}/>

@@ -2,7 +2,6 @@ import React from 'react'
 import { TfiDashboard } from "react-icons/tfi";
 import { IoPeopleOutline } from "react-icons/io5";
 import { BiCategory } from "react-icons/bi";
-import { CgProfile } from "react-icons/cg";
 import { IoLogOutOutline } from "react-icons/io5";
 import logo from "../assets/ugyanlogobg.png"
 import { Link } from 'react-router-dom';
@@ -50,7 +49,7 @@ const Dashboard = () => {
                 <div><h3 className='features'><IoLogOutOutline className='dash'/><Link to="/logout">Logout</Link></h3></div>
             </div>
             <div className='menu'>
-                  recruitment
+                  Pay roll
                     
             </div>
         </div>
