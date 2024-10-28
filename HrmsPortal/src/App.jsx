@@ -14,6 +14,8 @@ import Forget from './components/Forget';
 import Counter from './components/Counter'
 import Fetch from './components/Fetch';
 import Otp from './components/Otp';
+import About from './components/About';
+
 
 
 const App = () => {
@@ -31,6 +33,7 @@ const App = () => {
         <Route path="/forget" element={<Forget/>}/>
         <Route path="/otp" element={<Otp/>}/>
         <Route path="/reset" element={<Reset/>}/>    
+        <Route path="/about" element={<About/>}/> 
       </Routes>
     </BrowserRouter>
   );
