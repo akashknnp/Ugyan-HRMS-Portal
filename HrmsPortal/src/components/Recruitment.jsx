@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const Employee = () => {
+const Recruitment = () => {
     return (
     <div className='outer '>
         <div className='header shadow-2xl bg-gradient-to-br from-blue-900 to-blue1 flex justify-between'>
@@ -50,11 +50,11 @@ const Employee = () => {
                 <div><h3 className='features'><IoLogOutOutline className='dash'/><Link to="/logout">Logout</Link></h3></div>
             </div>
             <div className='menu'>
-                   employe
+                   recuitment
             </div>
         </div>
     </div>
     )
 }
 
-export default Employee
+export default Recruitment

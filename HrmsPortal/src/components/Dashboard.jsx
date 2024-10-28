@@ -36,13 +36,13 @@ const Dashboard = () => {
                 {/* <h3 className='text-white text-6xl text-center bg-gradient-to-tl from-black to-slate-400 p-4'><img src={logo}className='bg-white'></img> */}
                 <div><h3 className='features'><TfiDashboard className='dash'/><Link to="/dashboard">Dashboard</Link></h3></div>
                 <div><h3 className='features'><IoPeopleOutline className='dash' /><Link to="/employee">Employee </Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/categorie">Recruitment</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/categorie">Calender</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/categorie">Payroll</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/categorie">Time off</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/categorie">Performance</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/categorie">Communication</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/categorie">Settings</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Recruitment</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Calender</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Payroll</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Time off</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Performance</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Communication</Link></h3></div>
+                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Settings</Link></h3></div>
 
 
 

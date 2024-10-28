@@ -8,7 +8,7 @@ import Reset from './components/Reset'
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Employee from './components/Employee';
-import Categorie from './components/Categorie';
+import Recruitment from './components/Recruitment';
 import Profile from './components/Profile';
 import Forget from './components/Forget';
 import Counter from './components/Counter'
@@ -27,7 +27,7 @@ const App = () => {
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/employee" element={<Employee />} />
-        <Route path="/categorie" element={<Categorie/>}/>
+        <Route path="/recruitment" element={<Recruitment/>}/>
         <Route path="/logout" element={<Login/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/forget" element={<Forget/>}/>
