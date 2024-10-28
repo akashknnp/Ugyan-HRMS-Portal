@@ -25,6 +25,15 @@ import EmployeeList from './components/EmployeeList';
 import Leaders from './components/Leaders';
 import EmpSearch from './components/EmpSearch';
 import AddEmp from './components/AddEmp';
+import PerformEval from './components/PerformEval';
+import PerformReview from './components/PerformReview';
+import Feedback from './components/Feedback';
+import GoalSetting from './components/GoalSetting';
+import ScheduleMeeting from './components/ScheduleMeeting';
+import ScheduleEvent from './components/ScheduleEvent';
+import ProfileManage from './components/ProfileManage';
+import IntegSetting from './components/IntegSetting';
+import NotifiRefer from './components/NotifiRefer';
 
 
 
@@ -46,8 +55,17 @@ const App = () => {
         <Route path="/payroll" element={<Payroll/>}/>
         <Route path="/timeoff" element={<Timeoff/>}/>
         <Route path="/performance" element={<Performance/>}/>
+        <Route path="/performeval" element={<PerformEval/>}/>
+        <Route path="/performreview" element={<PerformReview/>}/>
+        <Route path="/feedback" element={<Feedback/>}/>
+        <Route path="/goalsetting" element={<GoalSetting/>}/>
         <Route path="/communication" element={<Communication/>}/>
+        <Route path="/schedulemeeting" element={<ScheduleMeeting/>}/>
+        <Route path="/scheduleevent" element={<ScheduleEvent/>}/>
         <Route path="/settings" element={<Settings/>}/>
+        <Route path="/profilemanage" element={<ProfileManage/>}/>
+        <Route path="/integsetting" element={<IntegSetting/>}/>
+        <Route path="/notifirefer" element={<NotifiRefer/>}/>
         <Route path="/logout" element={<Login/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/forget" element={<Forget/>}/>

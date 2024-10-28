@@ -50,7 +50,12 @@ const Dashboard = () => {
                 <div><h3 className='features'><IoLogOutOutline className='dash'/><Link to="/logout">Logout</Link></h3></div>
             </div>
             <div className='menu'>
-                  Performance
+                <div className='list'>
+                    <h4><Link to="/performeval">Performance Evaluation</Link></h4>
+                    <h4><Link to="/performreview">Performance Review</Link></h4>
+                    <h4><Link to="/feedback">Feedback</Link></h4>
+                    <h4><Link to="/goalsetting">GoalSetting</Link></h4>
+                </div>
                     
             </div>
         </div>
