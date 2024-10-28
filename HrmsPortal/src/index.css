@@ -260,11 +260,42 @@ i-main{
 .menu{
   width:80%;
   display: flex;
-  justify-content:space-around;
+  flex-direction: column;
   /* margin-top: 50px; */
   background-image: url(../public/b2.jpeg);
   object-fit: cover;
+  padding: 0.5vw;
+}
 
+.first-box1{
+  width:19vw;
+  background-color: white;
+  height:15vh;
+  border-radius: 4px;
+  padding: 3px;
+}
+
+.second-box1{
+  width:60%;
+  height:25%;
+  margin-left: 1vw;
+  padding: 0.5vw;
+  border-radius: 1vw;
+}
+.second-box2{
+  margin:1vw;
+  padding: 1vw;
+  width:30%;
+  height:25%;
+  border-radius: 1vw;
+}
+.btn{
+  background-color: rgb(8, 55, 126);
+  font-size: 1vw;
+  color:white;
+  font-weight: 500;
+  padding: 3px;
+  border-radius: 0.5vw;
 }
 
 
