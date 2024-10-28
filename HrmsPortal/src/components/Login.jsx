@@ -27,7 +27,7 @@ const Login = () => {
                         <label className='label2'>Password:</label>
                         <input type='password' htmlFor='password' className='input-field' required/>
                     </div>
-                    <div className=' font-semibold text-right pr-11  text-yellow-700'><Link to={'/forget'}>Forget Password</Link></div>
+                    <div className=' font-semibold text-right pr-11  text-blue-700'><Link to={'/forget'}>Forget Password</Link></div>
                     <button className='submit' type='submit'>Submit</button>
                     
                 </form>

@@ -6,7 +6,8 @@ body {
 }
 
 .Otp{
-    max-width:400px;
+    height: 50vh;
+    width: 30vw;
     margin: 0 auto;
     padding: 20px;
     background-color:white;
@@ -38,7 +39,7 @@ body {
     font-size: 2.4vh;
     font-weight: 600;
     border-radius: 5px;
-    margin-left: 13vw;
+    margin-left: 18vw;
   }
   .l1{
     color:#063970;
@@ -56,6 +57,7 @@ body {
     color: #063970;
     font-weight: 500;
     margin-bottom: 5vh;
+    margin-left: 5vw;
     text-align: center;
     margin-top: 5vh;
     letter-spacing: 0.1vw;
@@ -71,7 +73,7 @@ body {
 }
   
 .text2 .input-field1{
-  letter-spacing: 1.6vw;
+  letter-spacing: 2.3vw;
   font-weight: 700;
   border-radius: 5px;
   border: 2px solid #063970;
