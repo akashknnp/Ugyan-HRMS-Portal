@@ -50,7 +50,10 @@ const Dashboard = () => {
                 <div><h3 className='features'><IoLogOutOutline className='dash'/><Link to="/logout">Logout</Link></h3></div>
             </div>
             <div className='menu'>
-                  calender
+            <div className='list'>
+                    <h4><Link to="/holidays">Holidays</Link></h4>
+                    <h4><Link to="/events">Events</Link></h4>
+                  </div>
                     
             </div>
         </div>

@@ -34,8 +34,15 @@ import ScheduleEvent from './components/ScheduleEvent';
 import ProfileManage from './components/ProfileManage';
 import IntegSetting from './components/IntegSetting';
 import NotifiRefer from './components/NotifiRefer';
-
-
+import JobPost from './components/JobPost';
+import AppliTrack from './components/AppliTrack';
+import Interview from './components/Interview';
+import OfferManage from './components/OfferManage';
+import Holidays from './components/Holidays';
+import Events from './components/Events';
+import Requests from './components/Requests';
+import Approval from './components/Approval';
+import Balance from './components/Balance';
 
 const App = () => {
   return (
@@ -51,9 +58,18 @@ const App = () => {
         <Route path="/empsearch" element={<EmpSearch />} />
         <Route path="/addemp" element={<AddEmp />} />
         <Route path="/recruitment" element={<Recruitment/>}/>
+        <Route path="/jobpost" element={<JobPost/>}/>
+        <Route path="/applitrack" element={<AppliTrack/>}/>
+        <Route path="/interview" element={<Interview/>}/>
+        <Route path="/offermanage" element={<OfferManage/>}/>
         <Route path="/calender" element={<Calender/>}/>
+        <Route path="/holidays" element={<Holidays/>}/>
+        <Route path="/events" element={<Events/>}/>
         <Route path="/payroll" element={<Payroll/>}/>
         <Route path="/timeoff" element={<Timeoff/>}/>
+        <Route path="/requests" element={<Requests/>}/>
+        <Route path="/approval" element={<Approval/>}/>
+        <Route path="/balance" element={<Balance/>}/>
         <Route path="/performance" element={<Performance/>}/>
         <Route path="/performeval" element={<PerformEval/>}/>
         <Route path="/performreview" element={<PerformReview/>}/>
