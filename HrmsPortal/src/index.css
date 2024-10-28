@@ -119,6 +119,13 @@
   cursor: pointer;
 }
 
+.list{
+  color:#fff;
+  font-size: 4vh;
+  text-align: center;
+}
+
+
 @media (max-width:600px) {
   .main1{
     background-color:grey;
