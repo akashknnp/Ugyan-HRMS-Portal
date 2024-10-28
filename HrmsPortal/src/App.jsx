@@ -21,6 +21,10 @@ import Timeoff from './components/Timeoff';
 import Performance from './components/Performance';
 import Communication from './components/Communication';
 import Settings from './components/Settings';
+import EmployeeList from './components/EmployeeList';
+import Leaders from './components/Leaders';
+import EmpSearch from './components/EmpSearch';
+import AddEmp from './components/AddEmp';
 
 
 
@@ -33,6 +37,10 @@ const App = () => {
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/employee" element={<Employee />} />
+        <Route path="/employeelist" element={<EmployeeList />} />
+        <Route path="/leaders" element={<Leaders />} />
+        <Route path="/empsearch" element={<EmpSearch />} />
+        <Route path="/addemp" element={<AddEmp />} />
         <Route path="/recruitment" element={<Recruitment/>}/>
         <Route path="/calender" element={<Calender/>}/>
         <Route path="/payroll" element={<Payroll/>}/>

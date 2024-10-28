@@ -261,10 +261,17 @@ i-main{
   width:80%;
   display: flex;
   justify-content:space-around;
-  /* margin-top: 50px; */
   background-image: url(../public/b2.jpeg);
   object-fit: cover;
 
 }
 
+.list{
+  color: #fff;
 
+}
+
+.list h4{
+  font-size: 4vh;
+  font-weight: 500;
+}
