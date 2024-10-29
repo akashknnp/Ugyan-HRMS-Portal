@@ -43,6 +43,7 @@ import Events from './components/Events';
 import Requests from './components/Requests';
 import Approval from './components/Approval';
 import Balance from './components/Balance';
+import Messagebox from './components/Messagebox';
 
 const App = () => {
   return (
@@ -88,6 +89,7 @@ const App = () => {
         <Route path="/otp" element={<Otp/>}/>
         <Route path="/reset" element={<Reset/>}/>    
         <Route path="/about" element={<About/>}/> 
+        <Route path="/messagebox" element={<Messagebox/>}/>
       </Routes>
     </BrowserRouter>
   );
