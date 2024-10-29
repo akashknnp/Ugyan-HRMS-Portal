@@ -3,7 +3,7 @@ import React from 'react'
 const AppliTrack = () => {
   return (
     <div>
-      Application Tracking
+      Applicant Tracking
     </div>
   )
 }

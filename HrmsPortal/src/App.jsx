@@ -11,8 +11,6 @@ import Employee from './components/Employee';
 import Recruitment from './components/Recruitment';
 import Profile from './components/Profile';
 import Forget from './components/Forget';
-import Counter from './components/Counter'
-import Fetch from './components/Fetch';
 import Otp from './components/Otp';
 import About from './components/About';
 import Calender from './components/Calender';
@@ -46,8 +44,6 @@ import Balance from './components/Balance';
 
 const App = () => {
   return (
-    
-  
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
