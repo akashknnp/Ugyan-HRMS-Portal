@@ -5,6 +5,18 @@ import { BiCategory } from "react-icons/bi";
 import { IoLogOutOutline } from "react-icons/io5";
 import logo from "../assets/ugyanlogobg.png"
 import { Link } from 'react-router-dom';
+import { BsFillPinAngleFill } from "react-icons/bs";
+import { CiMenuKebab } from "react-icons/ci";
+import { TbLayoutDashboardFilled } from "react-icons/tb";
+import { MdPerson } from "react-icons/md";
+import { IoIosPeople } from "react-icons/io";
+import { SlCalender } from "react-icons/sl";
+import { FaMoneyCheckDollar } from "react-icons/fa6";
+import { MdContacts } from "react-icons/md";
+import { GrDocumentPerformance } from "react-icons/gr";
+import { FaRegFileAlt } from "react-icons/fa";
+import { IoSettingsOutline } from "react-icons/io5";
+import { CgLogOut } from "react-icons/cg";
 
 
 
@@ -33,24 +45,23 @@ const Dashboard = () => {
         <div className='flex shadow-black'>
             <div className='side-bar w-1/5 bg-gradient-to-br from-blue1 to-blue-800 h-screen'>
                 {/* <h3 className='text-white text-6xl text-center bg-gradient-to-tl from-black to-slate-400 p-4'><img src={logo}className='bg-white'></img> */}
-                <div><h3 className='features'><TfiDashboard className='dash'/><Link to="/dashboard">Dashboard</Link></h3></div>
-                <div><h3 className='features'><IoPeopleOutline className='dash' /><Link to="/employee">Employee </Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/recruitment">Recruitment</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/calender">Calender</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/payroll">Payroll</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/timeoff">Time off</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/performance">Performance</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/communication">Communication</Link></h3></div>
-                <div><h3 className='features'><BiCategory className='dash' /><Link to="/settings">Settings</Link></h3></div>
+                <div><h3 className='features'><TbLayoutDashboardFilled className='dash'/><Link to="/dashboard">Dashboard</Link></h3></div>
+                <div><h3 className='features'><MdPerson className='dash'/><Link to="/employee">Employee </Link></h3></div>
+                <div><h3 className='features'><IoIosPeople className='dash'/><Link to="/recruitment">Recruitment</Link></h3></div>
+                <div><h3 className='features'><SlCalender className='dash'/><Link to="/calender">Calender</Link></h3></div>
+                <div><h3 className='features'><FaMoneyCheckDollar className='dash'/><Link to="/payroll">Payroll</Link></h3></div>
+                <div><h3 className='features'><MdContacts className='dash'/><Link to="/timeoff">Time off</Link></h3></div>
+                <div><h3 className='features'><GrDocumentPerformance className='dash'/><Link to="/performance">Performance</Link></h3></div>
+                <div><h3 className='features'><FaRegFileAlt className='dash'/><Link to="/communication">Communication</Link></h3></div>
+                <div><h3 className='features'><IoSettingsOutline className='dash'/><Link to="/settings">Settings</Link></h3></div>
 
 
 
                 {/* <div><h3 className='features'><CgProfile className='dash'/>profile</h3></div> */}
-                <div><h3 className='features'><IoLogOutOutline className='dash'/><Link to="/logout">Logout</Link></h3></div>
+                <div><h3 className='features'><CgLogOut className='dash'/><Link to="/logout">Logout</Link></h3></div>
             </div>
             <div className='menu'>
-                  Pay roll
-                    
+                Pay roll
             </div>
         </div>
     </div>
