@@ -93,20 +93,16 @@ const Dashboard = () => {
         <div className='flex shadow-black'>
             <div className='side-bar w-1/5 bg-gradient-to-br from-blue1 to-blue-800 h-screen'>
                 {/* <h3 className='text-white text-6xl text-center bg-gradient-to-tl from-black to-slate-400 p-4'><img src={logo}className='bg-white'></img> */}
-                <div><h3 className='features'><TbLayoutDashboardFilled className='dash'/><Link to="/dashboard">Dashboard</Link></h3></div>
-                <div><h3 className='features'><MdPerson className='dash'/><Link to="/employee">Employee </Link></h3></div>
-                <div><h3 className='features'><IoIosPeople className='dash'/><Link to="/recruitment">Recruitment</Link></h3></div>
-                <div><h3 className='features'><SlCalender className='dash'/><Link to="/calender">Calender</Link></h3></div>
-                <div><h3 className='features'><FaMoneyCheckDollar className='dash'/><Link to="/payroll">Payroll</Link></h3></div>
-                <div><h3 className='features'><BiCalendarExclamation className='dash'/><Link to="/timeoff">Time off</Link></h3></div>
-                <div><h3 className='features'><GrDocumentPerformance className='dash'/><Link to="/performance">Performance</Link></h3></div>
-                <div><h3 className='features'><FaRegFileAlt className='dash'/><Link to="/communication">Communication</Link></h3></div>
-                <div><h3 className='features'><IoSettingsOutline className='dash'/><Link to="/settings">Settings</Link></h3></div>
-
-
-
-                {/* <div><h3 className='features'><CgProfile className='dash'/>profile</h3></div> */}
-                <div><h3 className='features'><CgLogOut className='dash'/><Link to="/logout">Logout</Link></h3></div>
+                <Link to="/dashboard"> <div><h3 className='features'><TbLayoutDashboardFilled className='dash'/>Dashboard</h3></div></Link>
+                <Link to="/employee"><div><h3 className='features'><MdPerson className='dash'/>Employee </h3></div></Link>
+                <Link to="/recruitment"><div><h3 className='features'><IoIosPeople className='dash'/>Recruitment</h3></div></Link>
+                <Link to="/calender"><div><h3 className='features'><SlCalender className='dash'/>Calender</h3></div></Link>
+                <Link to="/payroll"><div><h3 className='features'><FaMoneyCheckDollar className='dash'/>Payroll</h3></div></Link>
+                <Link to="/timeoff"><div><h3 className='features'><BiCalendarExclamation className='dash'/>Time off</h3></div></Link>
+                <Link to="/performance"><div><h3 className='features'><GrDocumentPerformance className='dash'/>Performance</h3></div></Link>
+                <Link to="/communication"><div><h3 className='features'><FaRegFileAlt className='dash'/>Communication</h3></div></Link>
+                <Link to="/settings"><div><h3 className='features'><IoSettingsOutline className='dash'/>Settings</h3></div></Link>
+                <Link to="/logout"><div><h3 className='features'><CgLogOut className='dash'/>Logout</h3></div></Link>
             </div>
             <div className='menu'>
                     <div className='flex justify-evenly'>
