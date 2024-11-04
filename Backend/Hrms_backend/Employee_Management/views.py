@@ -5,7 +5,7 @@ from django.http import JsonResponse, HttpResponse
 from django.shortcuts import get_object_or_404
 from .models import Employee
 
-# List all employees
+# kwjbdefkjbwjhbf
 def employee_list(request):
     employees = Employee.objects.all().values('E_id', 'first_name', 'last_name', 'is_HR','email')
     return JsonResponse(list(employees), safe=False)
