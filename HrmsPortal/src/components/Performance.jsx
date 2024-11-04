@@ -59,11 +59,15 @@ const Dashboard = () => {
                 <Link to="/logout"><div><h3 className='features'><CgLogOut className='dash'/>Logout</h3></div></Link>
             </div>
             <div className='menu'>
-                <div className='list'>
-                    <h4><Link to="/performeval">Performance Evaluation</Link></h4>
-                    <h4><Link to="/performreview">Performance Review</Link></h4>
-                    <h4><Link to="/feedback">Feedback</Link></h4>
-                    <h4><Link to="/goalsetting">GoalSetting</Link></h4>
+            <div className=' h-full'>
+                    <div className='flex mt-2 gap-3 ml-2 '>
+                        <Link to="/performeval"><div className='list-items-div'><h1>Performance Evaluation Matrix</h1></div></Link>
+                        <Link to="/goalsetting"><div className='list-items-div'><h1>Goal Settings</h1></div></Link>
+                    </div>
+                    <div className='flex mt-2 gap-3 ml-2'>
+                    <Link to="/feedback"><div className='list-items-div'><h1>Feedback and coaching tools</h1></div></Link>
+                    <Link to="/performreview"><div className='list-items-div'><h1>Performance review</h1></div></Link>
+                    </div> 
                 </div>
                     
             </div>

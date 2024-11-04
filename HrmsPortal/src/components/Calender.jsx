@@ -64,7 +64,7 @@ const Dashboard = () => {
                         <Link to="/holidays"><div className='list-items-div-calender'><h1>Holidays</h1></div></Link>
                         <Link to="/events"><div className='list-items-div-calender'><h1>Events</h1></div></Link>
                     </div>
-                </div>    
+            </div>    
             </div>
         </div>
     </div>

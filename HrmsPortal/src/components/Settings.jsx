@@ -59,11 +59,15 @@ const Dashboard = () => {
                 <Link to="/logout"><div><h3 className='features'><CgLogOut className='dash'/>Logout</h3></div></Link>
             </div>
             <div className='menu'>
-                <div className='list'>
-                    <h4><Link to="/profilemanage">Profile Management</Link></h4>
-                    <h4><Link to="/integsetting">Integration Settings</Link></h4>
-                    <h4><Link to="/notifirefer">Notification reference</Link></h4>
-                </div>
+            <div className=' h-full'>
+                    <div className='flex mt-2 gap-3 ml-2 '>
+                        <Link to="/profilemanage"><div className='list-items-div-set'><h1>Profile Management Settings</h1></div></Link>
+                        <Link to="/integsetting"><div className='list-items-div-set'><h1>Integration Settings</h1></div></Link>
+                    </div>
+                    <div>
+                    <Link to="/notifirefer"><div className='list-items-div-set-b  mt-2 ml-2 mr-2'><h1>Notification Reference</h1></div></Link>
+                    </div>
+            </div>
                     
             </div>
         </div>
