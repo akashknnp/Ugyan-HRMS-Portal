@@ -204,7 +204,7 @@ const Dashboard = () => {
                             
                         </div>
 
-                        <div className='third-box2 bg-zinc-200 rounded-lg mt-2'>
+                        <div className='third-box2 bg-zinc-200 rounded-lg mt-2 mr-2'>
                              <div className='flex justify-between bg-white px-2 rounded'>
                                 <div><h6 className='text-xl font-semibold'>Upcoming Schedule</h6></div>
                                 <div><p>Today,13 Sep 2021</p></div>
@@ -260,7 +260,8 @@ const Dashboard = () => {
                                     maxHeight: '25vh',
                                     overflowY: 'scroll',
                                     display: 'flex',
-                                    flexDirection: 'column' // Keep order as column
+                                    flexDirection: 'column' ,
+                                    backgroundColor:'white'// Keep order as column
                                     }}
                                 >
                                     <h3>Messages</h3>

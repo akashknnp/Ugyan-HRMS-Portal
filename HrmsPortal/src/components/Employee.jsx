@@ -51,12 +51,16 @@ const Dashboard = () => {
                 <Link to="/logout"><div><h3 className='features'><CgLogOut className='dash'/>Logout</h3></div></Link>
             </div>
             <div className='menu'>
-                  <div className='list'>
-                    <h4><Link to="/employeelist">Employee List</Link></h4>
-                    <h4><Link to="/leaders">Leaders Dashboard</Link></h4>
-                    <h4><Link to="/empsearch">Employee Search</Link></h4>
-                    <h4><Link to="/addemp">Add Employee</Link></h4>
-                  </div>
+                <div className=' h-full'>
+                    <div className='flex mt-2 gap-3 ml-2 '>
+                        <Link to="/employeelist"><div className='list-items-div'><h1>Employee List</h1></div></Link>
+                        <Link to="/employeelist"><div className='list-items-div'><h1>Leaders dashboard</h1></div></Link>
+                    </div>
+                    <div className='flex mt-2 gap-3 ml-2'>
+                    <Link to="/employeelist"><div className='list-items-div'><h1>Employee Search</h1></div></Link>
+                    <Link to="/employeelist"><div className='list-items-div'><h1>Add Employee</h1></div></Link>
+                    </div> 
+                </div>
             </div>
         </div>
     </div>
