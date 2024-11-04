@@ -62,13 +62,16 @@ const Dashboard = () => {
                 <div><h3 className='features'><CgLogOut className='dash'/><Link to="/logout">Logout</Link></h3></div>
             </div>
             <div className='menu'>
-            <div className='list'>
-                    <h4><Link to="/jobpost">Job Posting</Link></h4>
-                    <h4><Link to="/applitrack">Application Tracking</Link></h4>
-                    <h4><Link to="/interview">Interview Scheduling</Link></h4>
-                    <h4><Link to="/offermanage">Offer Management</Link></h4>
-                  </div>
-                    
+            <div className=' h-full'>
+                    <div className='flex mt-2 gap-3 ml-2 '>
+                        <Link to="/jobpost"><div className='list-items-div-recruit'><h1>Job postings</h1></div></Link>
+                        <Link to="/applitrack"><div className='list-items-div-recruit'><h1>Applicant Tracking</h1></div></Link>
+                    </div>
+                    <div className='flex mt-2 gap-3 ml-2'>
+                    <Link to="/interview"><div className='list-items-div-recruit'><h1>Interview scheduling</h1></div></Link>
+                    <Link to="/offermanage"><div className='list-items-div-recruit'><h1>Offer Management</h1></div></Link>
+                    </div> 
+                </div>
             </div>
         </div>
     </div>

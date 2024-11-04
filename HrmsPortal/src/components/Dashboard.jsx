@@ -8,11 +8,11 @@ import { MdPerson } from "react-icons/md";
 import { IoIosPeople } from "react-icons/io";
 import { SlCalender } from "react-icons/sl";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
-import { MdContacts } from "react-icons/md";
 import { GrDocumentPerformance } from "react-icons/gr";
 import { FaRegFileAlt } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 import { CgLogOut } from "react-icons/cg";
+import { BiCalendarExclamation } from "react-icons/bi";
 
 
 
@@ -98,7 +98,7 @@ const Dashboard = () => {
                 <div><h3 className='features'><IoIosPeople className='dash'/><Link to="/recruitment">Recruitment</Link></h3></div>
                 <div><h3 className='features'><SlCalender className='dash'/><Link to="/calender">Calender</Link></h3></div>
                 <div><h3 className='features'><FaMoneyCheckDollar className='dash'/><Link to="/payroll">Payroll</Link></h3></div>
-                <div><h3 className='features'><MdContacts className='dash'/><Link to="/timeoff">Time off</Link></h3></div>
+                <div><h3 className='features'><BiCalendarExclamation className='dash'/><Link to="/timeoff">Time off</Link></h3></div>
                 <div><h3 className='features'><GrDocumentPerformance className='dash'/><Link to="/performance">Performance</Link></h3></div>
                 <div><h3 className='features'><FaRegFileAlt className='dash'/><Link to="/communication">Communication</Link></h3></div>
                 <div><h3 className='features'><IoSettingsOutline className='dash'/><Link to="/settings">Settings</Link></h3></div>

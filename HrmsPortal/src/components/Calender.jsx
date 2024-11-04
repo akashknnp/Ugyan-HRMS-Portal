@@ -62,11 +62,12 @@ const Dashboard = () => {
                 <div><h3 className='features'><CgLogOut className='dash'/><Link to="/logout">Logout</Link></h3></div>
             </div>
             <div className='menu'>
-            <div className='list'>
-                    <h4><Link to="/holidays">Holidays</Link></h4>
-                    <h4><Link to="/events">Events</Link></h4>
-                  </div>
-                    
+            <div className=' h-full'>
+                    <div className='flex mt-2 gap-3 ml-2 '>
+                        <Link to="/holidays"><div className='list-items-div-calender'><h1>Holidays</h1></div></Link>
+                        <Link to="/events"><div className='list-items-div-calender'><h1>Events</h1></div></Link>
+                    </div>
+                </div>    
             </div>
         </div>
     </div>

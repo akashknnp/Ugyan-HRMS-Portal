@@ -11,7 +11,8 @@
 } */
 
 .outer{
-  overflow:hidden;
+  height: 100vh;
+  overflow-y:hidden;
 }
 .logo{
   width: 19.8vw;
@@ -119,11 +120,12 @@
   cursor: pointer;
 }
 
-.list{
+/* .list{
   color:#fff;
   font-size: 4vh;
   text-align: center;
-}
+  background-color: red;
+} */
 
 
 @media (max-width:600px) {
@@ -209,7 +211,7 @@ i-main{
 
 .features{
   display: flex;
-  font-size: 28px;
+  font-size: 23px;
   margin-top: 9px;
   margin-left: 10px;
   right:0;
@@ -347,4 +349,38 @@ i-main{
 }
 .prior-other-div>div>p{
     font-size: 0.9vw;
+}
+
+.list-items-div{
+  background-color:rgba(207, 207, 207, 0.726);
+  width:38vw;
+  height:40vh;
+  border-radius: 0.5vw;
+  padding: 2vw;
+  text-align: center;
+  padding-top: 18vh;
+  font-size: large;
+  font-weight: 500;
+}
+.list-items-div-recruit{
+  background-color:rgba(207, 207, 207, 0.726);
+  width:38vw;
+  height:40vh;
+  border-radius: 0.5vw;
+  padding: 2vw;
+  text-align: center;
+  padding-top: 18vh;
+  font-size: large;
+  font-weight: 500;
+}
+.list-items-div-calender{
+  background-color:rgba(207, 207, 207, 0.726);
+  width:38vw;
+  height:80vh;
+  border-radius: 0.5vw;
+  padding: 2vw;
+  text-align: center;
+  padding-top: 35vh;
+  font-size: large;
+  font-weight: 500;
 }
