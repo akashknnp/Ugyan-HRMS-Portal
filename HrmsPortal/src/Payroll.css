@@ -1,0 +1,51 @@
+.menu-payroll{
+    width:80%;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../public/b2.jpeg);
+    object-fit: cover;
+    padding: 0.5vw;
+  }
+ 
+
+  .side-bar-payroll div{
+    color:white;
+  }
+  
+  .dash-payroll{
+    display: flex;
+    justify-content: flex-end;
+    top: 20px;
+    margin-right: 30px;
+    margin-top: 10px;
+  }
+  
+  .side-bar-payroll div:hover{
+    background-color: #607d99;
+    font-size: 50px;
+    cursor: pointer;
+  }
+  .title-bar-payroll{
+    font-size:2vw;
+    padding-top: 0.7vw;
+    color:white;
+    margin-right:2vw;
+  }
+  .outer-payroll{
+    height: 100vh;
+    overflow-y:hidden;
+  }
+  .logo-payroll{
+    width: 19.8vw;
+    height:12vh;
+    display: flex;
+    justify-content: start;
+    background-color: white;
+  }
+  .features-payroll{
+    display: flex;
+    font-size: 23px;
+    margin-top: 9px;
+    margin-left: 10px;
+    right:0;
+  }

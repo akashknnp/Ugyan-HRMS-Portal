@@ -3,8 +3,16 @@ import '../src/index.css'
 import '../src/otp.css'
 import '../src/reset.css'
 import "./forget.css";
+import "../src/Payroll.css";
 import React from 'react';
-import Reset from './components/Reset'
+import "../src/Employee.css";
+import "../src/Timeoff.css";
+import "../src/Performance.css";
+import "../src/Calender.css";
+import "../src/Recruitment.css";
+import Reset from './components/Reset';
+import "../src/Communication.css";
+import "../src/Settings.css";
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Employee from './components/Employee';
