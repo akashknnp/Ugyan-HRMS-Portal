@@ -23,41 +23,41 @@ import { BiCalendarExclamation } from "react-icons/bi";
 
 const Dashboard = () => {
     return (
-    <div className='outer '>
+    <div className='outer-payroll'>
         <div className='header shadow-2xl bg-gradient-to-br from-blue-900 to-blue1 flex justify-between'>
             
-                <img src={logo}className='logo'></img>
+                <img src={logo}className='logo-payroll'></img>
             
             <div>
-            <h1 className='title-bar-dashboard'><Link to="/dashboard">Home</Link></h1>
+            <h1 className='title-bar-payroll'><Link to="/dashboard">Home</Link></h1>
         </div>
         <div>
-            <p className='title-bar-dashboard'><Link to="/about">About</Link></p>
+            <p className='title-bar-payroll'><Link to="/about">About</Link></p>
         </div>
         <div>
-            <p className='title-bar-dashboard'>Designation</p>
+            <p className='title-bar-payroll'>Designation</p>
         </div>
         <div>
-            <p className='title-bar-dashboard'>Clock In/Out</p>
+            <p className='title-bar-payroll'>Clock In/Out</p>
         </div>
         
         </div>
         
         <div className='flex shadow-black'>
-            <div className='side-bar w-1/5 bg-gradient-to-br from-blue1 to-blue-800 h-screen'>
+            <div className='side-bar-payroll w-1/5 bg-gradient-to-br from-blue1 to-blue-800 h-screen'>
                 {/* <h3 className='text-white text-6xl text-center bg-gradient-to-tl from-black to-slate-400 p-4'><img src={logo}className='bg-white'></img> */}
-                <Link to="/dashboard"> <div><h3 className='features'><TbLayoutDashboardFilled className='dash'/>Dashboard</h3></div></Link>
-                <Link to="/employee"><div><h3 className='features'><MdPerson className='dash'/>Employee </h3></div></Link>
-                <Link to="/recruitment"><div><h3 className='features'><IoIosPeople className='dash'/>Recruitment</h3></div></Link>
-                <Link to="/calender"><div><h3 className='features'><SlCalender className='dash'/>Calender</h3></div></Link>
-                <Link to="/payroll"><div><h3 className='features'><FaMoneyCheckDollar className='dash'/>Payroll</h3></div></Link>
-                <Link to="/timeoff"><div><h3 className='features'><BiCalendarExclamation className='dash'/>Time off</h3></div></Link>
-                <Link to="/performance"><div><h3 className='features'><GrDocumentPerformance className='dash'/>Performance</h3></div></Link>
-                <Link to="/communication"><div><h3 className='features'><FaRegFileAlt className='dash'/>Communication</h3></div></Link>
-                <Link to="/settings"><div><h3 className='features'><IoSettingsOutline className='dash'/>Settings</h3></div></Link>
-                <Link to="/logout"><div><h3 className='features'><CgLogOut className='dash'/>Logout</h3></div></Link>
+                <Link to="/dashboard"> <div><h3 className='features-payroll'><TbLayoutDashboardFilled className='dash-payroll'/>Dashboard</h3></div></Link>
+                <Link to="/employee"><div><h3 className='features-payroll'><MdPerson className='dash-payroll'/>Employee </h3></div></Link>
+                <Link to="/recruitment"><div><h3 className='features-payroll'><IoIosPeople className='dash-payroll'/>Recruitment</h3></div></Link>
+                <Link to="/calender"><div><h3 className='features-payroll'><SlCalender className='dash-payroll'/>Calender</h3></div></Link>
+                <Link to="/payroll"><div><h3 className='features-payroll'><FaMoneyCheckDollar className='dash-payroll'/>Payroll</h3></div></Link>
+                <Link to="/timeoff"><div><h3 className='features-payroll'><BiCalendarExclamation className='dash-payroll'/>Time off</h3></div></Link>
+                <Link to="/performance"><div><h3 className='features-payroll'><GrDocumentPerformance className='dash-payroll'/>Performance</h3></div></Link>
+                <Link to="/communication"><div><h3 className='features-payroll'><FaRegFileAlt className='dash-payroll'/>Communication</h3></div></Link>
+                <Link to="/settings"><div><h3 className='features-payroll'><IoSettingsOutline className='dash-payroll'/>Settings</h3></div></Link>
+                <Link to="/logout"><div><h3 className='features-payroll'><CgLogOut className='dash-payroll'/>Logout</h3></div></Link>
             </div>
-            <div className='menu'>
+            <div className='menu-payroll'>
                 Pay roll
             </div>
         </div>

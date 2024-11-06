@@ -24,45 +24,45 @@ import { BiCalendarExclamation } from "react-icons/bi";
 
 const Dashboard = () => {
     return (
-    <div className='outer '>
+    <div className='outer-communicate'>
         <div className='header shadow-2xl bg-gradient-to-br from-blue-900 to-blue1 flex justify-between'>
             
-                <img src={logo}className='logo'></img>
+                <img src={logo}className='logo-communicate'></img>
             
             <div>
-            <h1 className='title-bar-dashboard'><Link to="/dashboard">Home</Link></h1>
+            <h1 className='title-bar-communicate'><Link to="/dashboard">Home</Link></h1>
         </div>
         <div>
-            <p className='title-bar-dashboard'><Link to="/about">About</Link></p>
+            <p className='title-bar-communicate'><Link to="/about">About</Link></p>
         </div>
         <div>
-            <p className='title-bar-dashboard'>Designation</p>
+            <p className='title-bar-communicate'>Designation</p>
         </div>
         <div>
-            <p className='title-bar-dashboard'>Clock In/Out</p>
+            <p className='title-bar-communicate'>Clock In/Out</p>
         </div>
         
         </div>
         
         <div className='flex shadow-black'>
-            <div className='side-bar w-1/5 bg-gradient-to-br from-blue1 to-blue-800 h-screen'>
+            <div className='side-bar-communicate w-1/5 bg-gradient-to-br from-blue1 to-blue-800 h-screen'>
                 {/* <h3 className='text-white text-6xl text-center bg-gradient-to-tl from-black to-slate-400 p-4'><img src={logo}className='bg-white'></img> */}
-                <Link to="/dashboard"> <div><h3 className='features'><TbLayoutDashboardFilled className='dash'/>Dashboard</h3></div></Link>
-                <Link to="/employee"><div><h3 className='features'><MdPerson className='dash'/>Employee </h3></div></Link>
-                <Link to="/recruitment"><div><h3 className='features'><IoIosPeople className='dash'/>Recruitment</h3></div></Link>
-                <Link to="/calender"><div><h3 className='features'><SlCalender className='dash'/>Calender</h3></div></Link>
-                <Link to="/payroll"><div><h3 className='features'><FaMoneyCheckDollar className='dash'/>Payroll</h3></div></Link>
-                <Link to="/timeoff"><div><h3 className='features'><BiCalendarExclamation className='dash'/>Time off</h3></div></Link>
-                <Link to="/performance"><div><h3 className='features'><GrDocumentPerformance className='dash'/>Performance</h3></div></Link>
-                <Link to="/communication"><div><h3 className='features'><FaRegFileAlt className='dash'/>Communication</h3></div></Link>
-                <Link to="/settings"><div><h3 className='features'><IoSettingsOutline className='dash'/>Settings</h3></div></Link>
-                <Link to="/logout"><div><h3 className='features'><CgLogOut className='dash'/>Logout</h3></div></Link>
+                <Link to="/dashboard"> <div><h3 className='features-communicate'><TbLayoutDashboardFilled className='dash-communicate'/>Dashboard</h3></div></Link>
+                <Link to="/employee"><div><h3 className='features-communicate'><MdPerson className='dash-communicate'/>Employee </h3></div></Link>
+                <Link to="/recruitment"><div><h3 className='features-communicate'><IoIosPeople className='dash-communicate'/>Recruitment</h3></div></Link>
+                <Link to="/calender"><div><h3 className='features-communicate'><SlCalender className='dash-communicate'/>Calender</h3></div></Link>
+                <Link to="/payroll"><div><h3 className='features-communicate'><FaMoneyCheckDollar className='dash-communicate'/>Payroll</h3></div></Link>
+                <Link to="/timeoff"><div><h3 className='features-communicate'><BiCalendarExclamation className='dash-communicate'/>Time off</h3></div></Link>
+                <Link to="/performance"><div><h3 className='features-communicate'><GrDocumentPerformance className='dash-communicate'/>Performance</h3></div></Link>
+                <Link to="/communication"><div><h3 className='features-communicate'><FaRegFileAlt className='dash-communicate'/>Communication</h3></div></Link>
+                <Link to="/settings"><div><h3 className='features-communicate'><IoSettingsOutline className='dash-communicate'/>Settings</h3></div></Link>
+                <Link to="/logout"><div><h3 className='features-communicate'><CgLogOut className='dash-communicate'/>Logout</h3></div></Link>
             </div>
-            <div className='menu'>
+            <div className='menu-communicate'>
             <div className=' h-full'>
                     <div className='flex mt-2 gap-3 ml-2 '>
-                        <Link to="/schedulemeeting"><div className='list-items-div-communication'><h1>Schedule Meetings</h1></div></Link>
-                        <Link to="/scheduleevent"><div className='list-items-div-communication'><h1>Schedule Events</h1></div></Link>
+                        <Link to="/schedulemeeting"><div className='list-items-div-communicate'><h1>Schedule Meetings</h1></div></Link>
+                        <Link to="/scheduleevent"><div className='list-items-div-communicate'><h1>Schedule Events</h1></div></Link>
                     </div>
             </div> 
             </div>
