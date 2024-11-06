@@ -71,7 +71,7 @@ const Dashboard = () => {
 
     return (
     <div className='outer '>
-        <div className='header shadow-2xl bg-gradient-to-br from-blue-900 to-blue1 flex justify-between'>
+        <div className='header'>
             
                 <img src={logo}className='logo'></img>
             
@@ -91,7 +91,7 @@ const Dashboard = () => {
         </div>
         
         <div className='flex shadow-black'>
-            <div className='side-bar w-1/5 bg-gradient-to-br from-blue1 to-blue-800 h-screen'>
+            <div className='side-bar'>
                 {/* <h3 className='text-white text-6xl text-center bg-gradient-to-tl from-black to-slate-400 p-4'><img src={logo}className='bg-white'></img> */}
                 <Link to="/dashboard"> <div><h3 className='features'><TbLayoutDashboardFilled className='dash'/>Dashboard</h3></div></Link>
                 <Link to="/employee"><div><h3 className='features'><MdPerson className='dash'/>Employee </h3></div></Link>
@@ -104,7 +104,7 @@ const Dashboard = () => {
                 <Link to="/settings"><div><h3 className='features'><IoSettingsOutline className='dash'/>Settings</h3></div></Link>
                 <Link to="/logout"><div><h3 className='features'><CgLogOut className='dash'/>Logout</h3></div></Link>
             </div>
-            <div className='menu'>
+            <div className='menu-dashboard'>
                     <div className='flex justify-evenly'>
                         <div className='first-box1'>
                             <div className='text-sm px-1'>Total employees</div>

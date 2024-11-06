@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import '../src/index.css'
+import'../src/Dashboard.css'
 import '../src/otp.css'
 import '../src/reset.css'
 import "./forget.css";
