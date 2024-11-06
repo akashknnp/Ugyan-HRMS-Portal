@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Employee(models.Model):
-    id=models.AutoField(max_length=10,primary_key=True)
+    id=models.IntegerField(max_length=10,primary_key=True)
     E_id=models.CharField(max_length=10)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)

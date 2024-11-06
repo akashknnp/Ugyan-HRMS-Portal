@@ -1,7 +1,8 @@
 from django.urls import path
-from . import views  
+from . import views
 
 urlpatterns = [
-    path('clockInOut/create/', views.create_clock_in_out, name='create_clock_in_out'),
-    path('clockInOut/max_attempts/', views.get_records_with_max_attempts, name='get_records_with_max_attempts')
+    path('clock-in/', views.clock_in_view, name='clock_in'),
+    path('clock-out/', views.clock_out_view, name='clock_out'),
+    path('reset-attempts/', views.reset_login_attempts_view, name='reset_login_attempts'),
 ]
