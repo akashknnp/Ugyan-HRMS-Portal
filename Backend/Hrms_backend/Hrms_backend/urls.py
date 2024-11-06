@@ -20,5 +20,6 @@ import Employee_Management.urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("",include('Employee_Management.urls'))
+    path("employees/",include('Employee_Management.urls')),
+    path("",include('dashboard.urls'))
 ]

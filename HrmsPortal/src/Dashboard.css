@@ -63,6 +63,7 @@
     height:15vh;
     border-radius: 4px;
     padding: 3px;
+    
   }
   
   .second-box1{
@@ -117,10 +118,10 @@
     width:40vw;
     padding: 0.5vw;
   }
-  .side-bar{
-    width: 20%;
+  /* .side-bar{
+    width: 22%;
     background-image: linear-gradient(to bottom right, #1C2043 , #1e40af);
-  }
+  } */
   .header{
     display: flex;
     justify-content: space-between;
@@ -152,5 +153,49 @@
         margin-top:0.7vw;
         margin-right: 1vw;
       }
+      .side-bar{
+        width: 20%;
+        background-image: linear-gradient(to bottom right, #1C2043 , #1e40af);
+      }
   }
+  /* Tablets (portrait and landscape) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .logo {
+      width: 40vw;
+  }
+  .title-bar-dashboard {
+      font-size: 3.5vw;
+      align-items: center;
+  }
+  .btn {
+      font-size: 5vw;
+  }
+  .first-box1, .third-box1 {
+      width: 40vw;
+      
+      height: auto;
+      margin: 1vw;
+  }
+  .features{
+    margin-left: 0vw;
+    padding-right: 30vw;
+    font-size: x-large;
+  }
+  .side-bar{
+    width: 23%;
+    background-image: linear-gradient(to bottom right, #1C2043 , #1e40af);
+    
+  }
+  .first-box1{
+    width: 15vw;
+    font-size: 50px;
+    
+  }
+  .second-box2{
+    width: 30vw;
+    margin-right: 5vw;
+  }
+}
+  
+
  

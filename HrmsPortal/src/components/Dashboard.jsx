@@ -13,6 +13,7 @@ import { FaRegFileAlt } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 import { CgLogOut } from "react-icons/cg";
 import { BiCalendarExclamation } from "react-icons/bi";
+import { GiHamburgerMenu } from "react-icons/gi";   
 
 
 
@@ -117,7 +118,7 @@ const Dashboard = () => {
                         </div>
                         <div className='first-box1'>
                             <div className='text-sm px-1'>On leaves</div>
-                            <div><p className='text-2xl text-center mt-2'>25</p></div>
+                            <div><p className='text-2x1 text-center mt-2'>25</p></div>
                             <div><p className='text-sm px-1 mt-3'>Compated on jan</p></div>
                         </div>
                         <div className='first-box1'><div className='text-sm px-1'>New joiners</div>
@@ -209,39 +210,6 @@ const Dashboard = () => {
                                 <div><h6 className='text-xl font-semibold'>Upcoming Schedule</h6></div>
                                 <div><p>Today,13 Sep 2021</p></div>
                             </div>
-                            {/*<div className='bg-zinc-200 px-2 py-2 rounded'>
-                                <div><p className='text-base'>Priority</p></div>
-                                <div className='prior-other-div flex justify-between'>
-                                    <div>
-                                        <h5>Team meeting regarding metrics</h5>
-                                        <p>Today - 11:30AM</p>
-                                    </div>
-                                    <div className='pin-menu'>
-                                    <CiMenuKebab />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='bg-zinc-200 px-2 py-2 rounded mt-1'>
-                                <div><p>Other</p></div>
-                                <div className='prior-other-div flex justify-between'>
-                                    <div>
-                                        <h5>Training SAMRAT-FM batch</h5>
-                                        <p>Today - 10:30AM</p>
-                                    </div>
-                                    <div className='pin-menu'>
-                                    <CiMenuKebab />
-                                    </div>
-                                </div>
-                                <div className='prior-other-div flex justify-between'>
-                                    <div>
-                                        <h5>Short meeting with product designer from IT Department</h5>
-                                        <p>Today - 11:30AM</p>
-                                    </div>
-                                    <div className='pin-menu'>
-                                    <CiMenuKebab />
-                                    </div>
-                                </div>
-                            </div> */}
 
                             <div style={{ padding: '20px', maxWidth: '100%', margin: '0 auto' }}>
                                 <input
