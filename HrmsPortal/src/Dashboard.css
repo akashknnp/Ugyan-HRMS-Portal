@@ -153,42 +153,4 @@
         margin-right: 1vw;
       }
   }
-  /* Small mobile view (small phones) */
-@media (max-width: 480px) {
-    .logo {
-        width: 100%;
-       
-    }
-    .title-bar-dashboard {
-        font-size: 5vw;
-    }
-    .btn {
-        font-size: 4vw;
-    }
-    .first-box1, .second-box1, .second-box2, .third-box1, .third-box2 {
-        width: 100vw;
-        margin: 3vw auto;
-    }
-    .features {
-        font-size: 4.5vw;
-    }
-    .flex {
-      
-      margin-right: 120vw;
-    }
-   
-}
-@media (min-width: 768px) and (max-width: 1023px) {
-  .logo {
-      width: 15vw;
-  }
-  .title-bar-dashboard {
-      font-size: 2.5vw;
-      top: 300vw;
-  }
-  .first-box1, .second-box1, .second-box2, .third-box1, .third-box2 {
-      width: 45 vw;
-      margin: 1vw;
-  }
  
-}
