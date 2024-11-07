@@ -91,10 +91,10 @@ const Dashboard = () => {
         
         </div>
         
-        <div className='flex shadow-black'>
+        <div className='main-dashboard'>
             <div className='side-bar'>
                 {/* <h3 className='text-white text-6xl text-center bg-gradient-to-tl from-black to-slate-400 p-4'><img src={logo}className='bg-white'></img> */}
-                <Link to="/dashboard"> <div><h3 className='features'><TbLayoutDashboardFilled className='dash'/>Dashboard</h3></div></Link>
+                {/* <Link to="/dashboard"> <div><h3 className='features'><TbLayoutDashboardFilled className='dash'/>Dashboard</h3></div></Link> */}
                 <Link to="/employee"><div><h3 className='features'><MdPerson className='dash'/>Employee </h3></div></Link>
                 <Link to="/recruitment"><div><h3 className='features'><IoIosPeople className='dash'/>Recruitment</h3></div></Link>
                 <Link to="/calender"><div><h3 className='features'><SlCalender className='dash'/>Calender</h3></div></Link>
@@ -106,47 +106,46 @@ const Dashboard = () => {
                 <Link to="/logout"><div><h3 className='features'><CgLogOut className='dash'/>Logout</h3></div></Link>
             </div>
             <div className='menu-dashboard'>
-                    <div className='flex justify-evenly'>
+                    <div className='menu-step1-dashboard'>
                         <div className='first-box1'>
-                            <div className='text-sm px-1'>Total employees</div>
-                            <div className='text-2xl text-center mt-2'>
+                            <div className='total-employee-dashboard '>Total employees</div>
+                            <div className='t-number'>
                                 <p>2500</p>
                             </div>
-                            <div className='text-sm px-1 mt-3'>
+                            <div className='t-text'>
                                 <p>compared to journey</p>
                             </div>
                         </div>
                         <div className='first-box1'>
-                            <div className='text-sm px-1'>On leaves</div>
-                            <div><p className='text-2x1 text-center mt-2'>25</p></div>
-                            <div><p className='text-sm px-1 mt-3'>Compated on jan</p></div>
+                            <div className='total-employee-dashboard'>On leaves</div>
+                            <div><p className='t-number'>25</p></div>
+                            <div><p className='t-text'>Compated on jan</p></div>
                         </div>
-                        <div className='first-box1'><div className='text-sm px-1'>New joiners</div>
-                            <div className='text-2xl text-center mt-2'>
+                        <div className='first-box1'><div className='total-employee-dashboard'>New joiners</div>
+                            <div className='t-number'>
                                 <p>48</p>
                             </div>
-                            <div className='text-sm px-1 mt-3'>
+                            <div className='t-text'>
                                 <p>compared to jan</p>
                             </div></div>
-                        <div className='first-box1'><div className='text-sm px-1'>Resigned Employee</div>
-                            <div className='text-2xl text-center mt-2'>
+                        <div className='first-box1'><div className='total-employee-dashboard'>Resigned Employee</div>
+                            <div className='t-number'>
                                 <p>56</p>
                             </div>
-                            <div className='text-sm px-1 mt-3'>
+                            <div className='t-text'>
                                 <p>compared to jan</p>
                             </div></div>
                     </div>
 
 
-                    <div className=' mt-1'>
-                        <div><p className='text-3xl text-white'>Statistics (Project Metrics)</p></div>
-                        <div className='flex justify-between mt-1'>
-                        
-                            <div className='second-box1 bg-white shadow-black'>
-                                <div><p className='text-center'>Clock-In-Out</p></div>
+                    <div>
+                        <div><p className='row2-text'>Statistics (Project Metrics)</p></div>
+                        <div className='row2'>
+                            <div className='second-box1 '>
+                                <div><p>Clock-In-Out</p></div>
                                 <div>
-                                <div className='text-center'style={{ fontSize: '2em', margin: '20px 0' }}>{formatTime()}</div>
-                                <div className='flex justify-evenly'>
+                                <div className='timer'>{formatTime()}</div>
+                                <div className='timer-btn'>
                                     <button className='btn' onClick={handleStart}>Login</button>
                                     <button className='btn' onClick={handleStop}>Stop</button>
                                     <button className='btn' onClick={handleReset}>Reset</button>
@@ -154,50 +153,50 @@ const Dashboard = () => {
                                 </div>
                             </div>
 
-                            <div className='second-box2 bg-white shadow-blue-500'>
-                                <div><p className='text-xl text-center'>Monthly Target</p></div>
+                            <div className='second-box2'>
+                                <div><p className='m-target'>Monthly Target</p></div>
                                 <div>
-                                    <p className='text-3xl text-center mt-1'>0/1,25,000</p>
+                                    <p className='m-number'>0/1,25,000</p>
                                 </div>
                                 <div>
-                                    <p className='text-sm text-center mt-2'>Add Target</p> 
+                                    <p className='add-target'>Add Target</p> 
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div className='flex mt-1'>
-                        <div className='third-box1 bg-white rounded px-2 py-2'>
-                            <div className='flex  justify-between'>
-                                <p className='text-xl font-semibold'>Announcement</p>
+                    <div className='third-row'>
+                        <div className='third-box1'>
+                            <div className='box1-heading'>
+                                <p>Announcement</p>
                                 <p>Today,13 Sep 2021</p>
                             </div>
-                            <div className='annonce-boxes flex justify-between'>
+                            <div className='annonce-boxes'>
                                 <div>
                                     <h6>Outing schedule for every department</h6>
                                     <p>5 minutes ago</p>
                                 </div>
-                                <div className='flex justify-evenly'>
+                                <div className='box1-divs'>
                                     <div className='pin-menu'><BsFillPinAngleFill /></div>
                                     <div className='pin-menu'><CiMenuKebab /></div>
                                 </div>
                             </div>
-                            <div className='annonce-boxes flex justify-between'>
+                            <div className='annonce-boxes'>
                                 <div>
                                     <h6>IT Department need two more talents for UX/UI</h6>
                                     <p>5 minutes ago</p>
                                 </div>
-                                <div className='flex justify-evenly'>
+                                <div className='box1-divs'>
                                     <div className='pin-menu'><BsFillPinAngleFill /></div>
                                     <div className='pin-menu'><CiMenuKebab /></div>
                                 </div>
                             </div>
-                            <div className='annonce-boxes flex justify-between'>
+                            <div className='annonce-boxes'>
                                 <div>
                                     <h6>Meeting HR Department</h6>
                                     <p>Yesterday,12:30 PM</p>
                                 </div>
-                                <div className='flex justify-evenly align-middle'>
+                                <div className='box1-divs'>
                                     <div className='pin-menu'><BsFillPinAngleFill /></div>
                                     <div className='pin-menu'><CiMenuKebab /></div>
                                 </div>
@@ -205,48 +204,37 @@ const Dashboard = () => {
                             
                         </div>
 
-                        <div className='third-box2 bg-zinc-200 rounded-lg mt-2 mr-2'>
-                             <div className='flex justify-between bg-white px-2 rounded'>
-                                <div><h6 className='text-xl font-semibold'>Upcoming Schedule</h6></div>
+                        <div className='third-box2'>
+                            <div className='box2-heading'>
+                                <div><h6>Upcoming Schedule</h6></div>
                                 <div><p>Today,13 Sep 2021</p></div>
                             </div>
 
-                            <div style={{ padding: '20px', maxWidth: '100%', margin: '0 auto' }}>
+                            <div className='wrapper'>
                                 <input
                                     type="text"
                                     placeholder="Type a message and press Enter"
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
                                     onKeyPress={handleKeyPress}
-                                    style={{ width: '100%', padding: '10px', marginBottom: '20px' }}
+                                    
                                 />
                                 <div
                                     ref={messageEndRef}
-                                    style={{
-                                    border: '1px solid #ddd',
-                                    padding: '10px',
-                                    maxHeight: '25vh',
-                                    overflowY: 'scroll',
-                                    display: 'flex',
-                                    flexDirection: 'column' ,
-                                    backgroundColor:'white'// Keep order as column
-                                    }}
+                                    className='chat-container'
                                 >
                                     <h3>Messages</h3>
                                     {messages.map((msg, index) => (
-                                    <p key={index} style={{ margin: '5px 0' }}>
+                                    <p key={index} className='message-box'>
                                         <strong>{msg.text}</strong>
                                         <br />
-                                        <small style={{ color: 'gray' }}>{msg.time}</small>
+                                        <small>{msg.time}</small>
                                     </p>
                                     ))}
                                 </div>
                                 </div>
-
                         </div>
-
                     </div>
-                    
             </div>
         </div>
     </div>

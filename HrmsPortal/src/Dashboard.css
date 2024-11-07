@@ -19,6 +19,10 @@
     color:white;
     margin-right:2vw;
   }
+
+  .main-dashboard{
+    display:flex;
+  }
   .features{
     display: flex;
     font-size: 23px;
@@ -57,6 +61,36 @@
     object-fit: cover;
     padding: 0.5vw;
   }
+  .menu-step1-dashboard{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .total-employee-dashboard{
+    font-size:medium;
+    line-height: 1.25rem;
+  }
+
+  .t-number{
+    font-size:1.8vw;
+    text-align: center;
+    padding-top: 0.5vw;
+  }
+
+  .t-text{
+    font-size: medium;
+    padding-top: 1vw;
+  }
+
+  .row2-text{
+    font-size: xx-large;
+    color:white;
+  }
+
+  .row2{
+    display:flex;
+    justify-content: space-between;
+  }
   .first-box1{
     width:19vw;
     background-color: white;
@@ -72,13 +106,46 @@
     margin-left: 1vw;
     padding: 0.5vw;
     border-radius: 1vw;
+    background-color: white;
   }
-  .second-box2{
+  .second-box1>div>p{
+    text-align: center;
+    font-weight: 500;
+  
+  }
+
+  .timer{
+    text-align: center;
+    font-size: 2vw;
     margin:1vw;
-    padding: 1vw;
+  }
+
+  .timer-btn{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .second-box2{
+    margin:0.5vw;
+    padding: 0.7vw;
     width:30%;
     height:25%;
     border-radius: 1vw;
+    background-color: white;
+  }
+
+  .m-target{
+    font-size:medium;
+    padding-bottom: 1vw;
+    text-align: center;
+  }
+  .m-number{
+    font-size:x-large;
+    text-align: center;
+  }
+  .add-target{
+    text-align: center;
+    padding-top: 0.5vw;
   }
   .btn{
     background-color: rgb(4, 30, 102);
@@ -88,17 +155,40 @@
     font-weight:500;
     border-radius: 0.5vw;
   }
+
+  .third-row{
+    display:flex;
+    margin-top:1vw;
+    margin-bottom: 1vw;
+  }
   .third-box1{
     width:42vw;
     margin:0.4vw;
     margin-top:1.5vw;
     margin-right: 1vw;
+    background-color: white;
+    padding:1vw 0.5vw;
+    border-radius: 0.3vw;
+  }
+  .box1-heading{
+    display:flex;
+    justify-content: space-between;
+  }
+  .box1-heading>p{
+    font-weight: 600;
+    font-size:large
+  }
+  .box1-divs{
+    display: flex;
+    justify-content: space-evenly;
   }
   .annonce-boxes{
     background-color: rgb(202, 198, 198);
     margin-top: 0.2vw;
     padding: 0.2vw;
     border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
     
   }
   .annonce-boxes>div>h6{
@@ -117,11 +207,46 @@
   .third-box2{
     width:40vw;
     padding: 0.5vw;
+    background-color: rgba(167, 163, 163, 0.904);
+    border-radius:0.5vw;
+    margin:0.5vw
   }
-  /* .side-bar{
-    width: 22%;
-    background-image: linear-gradient(to bottom right, #1C2043 , #1e40af);
-  } */
+  .box2-heading{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 0.5vw;
+    padding:0vw 0.5vw;
+  }
+
+  .box2-heading>div>h6{
+    font-size:1.5vw;
+    font-weight: 500;
+  }
+
+  .chat-container {
+    border: 1px solid #ddd;
+    padding: 10px;
+    max-height: 25vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.wrapper {
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.wrapper>input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.message-box{
+  margin: 5px 0;
+}
   .header{
     display: flex;
     justify-content: space-between;

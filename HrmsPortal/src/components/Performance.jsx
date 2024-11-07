@@ -47,7 +47,7 @@ const Dashboard = () => {
         <div className='flex shadow-black'>
             <div className='side-bar-performance w-1/5 bg-gradient-to-br from-blue1 to-blue-800 h-screen'>
                 {/* <h3 className='text-white text-6xl text-center bg-gradient-to-tl from-black to-slate-400 p-4'><img src={logo}className='bg-white'></img> */}
-                <Link to="/dashboard"> <div><h3 className='features-performance'><TbLayoutDashboardFilled className='dash-performance'/>Dashboard</h3></div></Link>
+                {/* <Link to="/dashboard"> <div><h3 className='features-performance'><TbLayoutDashboardFilled className='dash-performance'/>Dashboard</h3></div></Link> */}
                 <Link to="/employee"><div><h3 className='features-performance'><MdPerson className='dash-performance'/>Employee </h3></div></Link>
                 <Link to="/recruitment"><div><h3 className='features-performance'><IoIosPeople className='dash-performance'/>Recruitment</h3></div></Link>
                 <Link to="/calender"><div><h3 className='features-performance'><SlCalender className='dash-performance'/>Calender</h3></div></Link>
