@@ -99,3 +99,4 @@ def delete_employee_byId(request):
             return JsonResponse({"error":f'Raised exception {e}'})
     else:
         return JsonResponse({'error': 'Invalid HTTP method'}, status=405)
+

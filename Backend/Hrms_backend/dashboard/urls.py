@@ -5,4 +5,8 @@ urlpatterns = [
     path('clock-in/', views.clock_in_view, name='clock_in'),
     path('clock-out/', views.clock_out_view, name='clock_out'),
     path('reset-attempts/', views.reset_login_attempts_view, name='reset_login_attempts'),
+    path('timer/', views.timer_view, name='timer'),
+    path('target/',views.track_monthly_targets,name='target'),
+    path('add-target/',views.add_monthly_target,name='add-target'),
+    path('update-target/',views.update_monthly_target,name='update-target')
 ]
