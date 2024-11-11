@@ -47,7 +47,7 @@ const Forget = () => {
     <div className='background-div1'>
     <div className='forget-main'>
       <div className='forget'>
-        <div className='flex space-x-2'>
+        <div>
           {/* <img src={logo}className='logo-bg bg-white '></img> */}
           <h1>Find Your Account</h1>
         </div>
@@ -68,7 +68,7 @@ const Forget = () => {
         </form>
         {/* Pop-up message */}
         {showPopup && (
-          <div className="popup-message bg-red-200 text-red-700 px-4 py-2 rounded-md shadow-md mt-4">
+          <div className="popup-message">
             {popupMessage}
           </div>
         )}

@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RiInformation2Line } from "react-icons/ri";
 import logo from "../assets/ugyan.png";
+ // Import the new CSS file
 
-const Reset = () => {
+const Test = () => {
   const navigate = useNavigate();
-
   const [ishover, setishover] = useState(false);
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -14,7 +14,6 @@ const Reset = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (validatePassword()) {
       setSuccessMessage('Passwords match and contain special characters!');
       setErrorMessage('');
@@ -24,7 +23,7 @@ const Reset = () => {
 
   const validatePassword = () => {
     const specialCharRegex = /[@#!_]/;
-    const nonSpecialChar = /[$%^&*(),.?":{}|<>]/; // Exclude these special characters
+    const nonSpecialChar = /[$%^&*(),.?":{}|<>]/;
     const digitRegex = /\d/;
     const upperCaseRegex = /[A-Z]/;
 
@@ -83,73 +82,63 @@ const Reset = () => {
   };
 
   return (
-    <div>
-      <div className='background-div1'>
-        <div className='reset-main'>
-          <div className='flex'>
-            {/* <img src={logo} className='logo-bg bg-white ml-2' alt='logo'></img> */}
-            <h1 className='font-semibold tracking-wider text-black text-5xl'>Reset Password</h1>
-          </div>
-          <div className='reset-inner-main flex flex-col'>
-            <form onSubmit={handleSubmit}>
-              <div className='pwd'>
-                <div className='flex gap-x-3'>
-                  <label htmlFor='password'> New Password : </label>
-                  <div 
-                    className='w-1/12 mt-1.5 ml-1'
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <RiInformation2Line />
-                    {/* Pop-up message */}
-                    {ishover && (
-                      <div className="absolute bg-gray-300 text-black px-4 py-2 font-semibold rounded-md shadow-md">
-                        Kindly include at least one uppercase letter, digit, and special characters (@, #, !, _).
-                      </div>
-                    )}
+    <div className="background-div1-reset">
+      <div className="reset-main-reset">
+        <div className="header-reset">
+          <h1>Reset Password</h1>
+        </div>
+        <div className="reset-inner-main-reset">
+          <form onSubmit={handleSubmit}>
+            <div className="pwd-reset">
+              <label htmlFor="password">New Password:</label>
+              <div
+                className="info-icon-reset"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <RiInformation2Line />
+                {ishover && (
+                  <div className="info-popup-reset">
+                    Kindly include at least one uppercase letter, digit, and special characters (@, #, !, _).
                   </div>
-                </div>
-                <input 
-                  type="password" 
-                  name="password" 
-                  value={password} 
-                  onChange={handlePasswordChange} 
-                  required 
-                  placeholder='Password'
-                />
+                )}
               </div>
-
-              <div className='pwd mt-4'>
-                <label>Confirm password : </label>
-                <input 
-                  type="password" 
-                  name="re-password" 
-                  value={confirmPassword} 
-                  onChange={handleConfirmPasswordChange} 
-                  required 
-                  placeholder='Re-enter password'
-                />
-              </div>
-              
-              <div>
-                <button className='submit-button font-semibold text-white px-4 py-2 rounded-md w-full'>
-                  Submit
-                </button>
-              </div>
-            </form>
-
-            <div className='mt-10'>
-              {errorMessage && (
-                <div className="popup-message bg-red-100 text-red-700 px-4 py-2 font-mono rounded-md shadow-md mt-4">
-                  {errorMessage}
-                </div>
-              )}
-              {successMessage && (
-                <div className="popup-message bg-green-100 text-green-700 px-4 py-2 rounded-md shadow-md mt-4">
-                  {successMessage}
-                </div>
-              )}
+              <input
+                type="password"
+                name="password"
+                value={password}
+                onChange={handlePasswordChange}
+                required
+                placeholder="Password"
+              />
             </div>
+
+            <div className="pwd-reset">
+              <label>Confirm Password:</label>
+              <input
+                type="password"
+                name="re-password"
+                value={confirmPassword}
+                onChange={handleConfirmPasswordChange}
+                required
+                placeholder="Re-enter password"
+              />
+            </div>
+
+            <button className="submit-button-reset" type="submit">Submit</button>
+          </form>
+
+          <div className="messages-reset">
+            {errorMessage && (
+              <div className="popup-message-reset error-reset">
+                {errorMessage}
+              </div>
+            )}
+            {successMessage && (
+              <div className="popup-message-reset success-reset">
+                {successMessage}
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -157,4 +146,4 @@ const Reset = () => {
   );
 };
 
-export default Reset;
+export default Test;

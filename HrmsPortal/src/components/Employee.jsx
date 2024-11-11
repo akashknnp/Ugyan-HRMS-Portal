@@ -1,5 +1,6 @@
 import React from 'react'
-import logo from "../assets/ugyanlogobg.png"
+// import logo from "../assets/ugyanlogobg.png"
+import logo from "../assets/ugyanlogobg_enhanced-transformed.png";
 import { Link } from 'react-router-dom';
 import { TbLayoutDashboardFilled } from "react-icons/tb";
 import { MdPerson } from "react-icons/md";
@@ -11,13 +12,20 @@ import { FaRegFileAlt } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 import { CgLogOut } from "react-icons/cg";
 import { BiCalendarExclamation } from "react-icons/bi";
+import { GiHamburgerMenu } from "react-icons/gi";  
+import { useState,useEffect } from 'react';
 
 
+const Employee = () => {
 
-const Dashboard = () => {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Toggle mobile menu
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
     return (
     <div className='outer-employee'>
-        <div className='header shadow-2xl bg-gradient-to-br from-blue-900 to-blue1 flex justify-between'>
+        <div className='header-employee'>
             
                 <img src={logo}className='logo-employee'></img>
             
@@ -33,11 +41,13 @@ const Dashboard = () => {
         <div>
             <p className='title-bar-employee'>Clock In/Out</p>
         </div>
-        
+        <div className="mobile-menu-icon-employee" onClick={toggleMobileMenu}>
+            <GiHamburgerMenu />
+        </div>
         </div>
         
-        <div className='flex shadow-black'>
-            <div className='side-bar-employee w-1/5 bg-gradient-to-br from-blue1 to-blue-800 h-screen'>
+        <div className='main-employee'>
+            <div className='side-bar-employee'>
                 {/* <h3 className='text-white text-6xl text-center bg-gradient-to-tl from-black to-slate-400 p-4'><img src={logo}className='bg-white'></img> */}
                 {/* <Link to="/dashboard"> <div><h3 className='features-employee'><TbLayoutDashboardFilled className='dash-employee'/>Dashboard</h3></div></Link> */}
                 <Link to="/employee"><div><h3 className='features-employee'><MdPerson className='dash-employee'/>Employee </h3></div></Link>
@@ -50,13 +60,26 @@ const Dashboard = () => {
                 <Link to="/settings"><div><h3 className='features-employee'><IoSettingsOutline className='dash-employee'/>Settings</h3></div></Link>
                 <Link to="/logout"><div><h3 className='features-employee'><CgLogOut className='dash-employee'/>Logout</h3></div></Link>
             </div>
+            {isMobileMenuOpen && (
+          <div className="mobile-dropdown-employee">
+            <Link to="/employee" onClick={() => setIsMobileMenuOpen(false)}>Employee</Link>
+            <Link to="/recruitment" onClick={() => setIsMobileMenuOpen(false)}>Recruitment</Link>
+            <Link to="/calender" onClick={() => setIsMobileMenuOpen(false)}>Calendar</Link>
+            <Link to="/payroll" onClick={() => setIsMobileMenuOpen(false)}>Payroll</Link>
+            <Link to="/timeoff" onClick={() => setIsMobileMenuOpen(false)}>Time off</Link>
+            <Link to="/performance" onClick={() => setIsMobileMenuOpen(false)}>Performance</Link>
+            <Link to="/communication" onClick={() => setIsMobileMenuOpen(false)}>Communication</Link>
+            <Link to="/settings" onClick={() => setIsMobileMenuOpen(false)}>Settings</Link>
+            <Link to="/logout" onClick={() => setIsMobileMenuOpen(false)}>Logout</Link>
+          </div>
+        )}
             <div className='menu-employee'>
-                <div className=' h-full'>
-                    <div className='flex mt-2 gap-3 ml-2 '>
+                <div>
+                    <div className='employee-options'>
                         <Link to="/employeelist"><div className='list-items-div-employee'><h1>Employee List</h1></div></Link>
                         <Link to="/employeelist"><div className='list-items-div-employee'><h1>Leaders dashboard</h1></div></Link>
                     </div>
-                    <div className='flex mt-2 gap-3 ml-2'>
+                    <div className='employee-options'>
                     <Link to="/employeelist"><div className='list-items-div-employee'><h1>Employee Search</h1></div></Link>
                     <Link to="/employeelist"><div className='list-items-div-employee'><h1>Add Employee</h1></div></Link>
                     </div> 
@@ -67,4 +90,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default Employee

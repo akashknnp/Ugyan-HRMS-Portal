@@ -19,13 +19,20 @@ import { FaRegFileAlt } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 import { CgLogOut } from "react-icons/cg";
 import { BiCalendarExclamation } from "react-icons/bi";
+import { GiHamburgerMenu } from "react-icons/gi";  
+import { useState,useEffect } from 'react';
 
 
 
-const Dashboard = () => {
+const Settings = () => {
+
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Toggle mobile menu
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
     return (
     <div className='outer-settings'>
-        <div className='header shadow-2xl bg-gradient-to-br from-blue-900 to-blue1 flex justify-between'>
+        <div className='header-settings'>
             
                 <img src={logo}className='logo-settings'></img>
             
@@ -41,11 +48,13 @@ const Dashboard = () => {
         <div>
             <p className='title-bar-settings'>Clock In/Out</p>
         </div>
-        
+        <div className="mobile-menu-icon-settings" onClick={toggleMobileMenu}>
+            <GiHamburgerMenu />
+        </div>
         </div>
         
-        <div className='flex shadow-black'>
-            <div className='side-bar-settings w-1/5 bg-gradient-to-br from-blue1 to-blue-800 h-screen'>
+        <div className='main-settings'>
+            <div className='side-bar-settings'>
                 {/* <h3 className='text-white text-6xl text-center bg-gradient-to-tl from-black to-slate-400 p-4'><img src={logo}className='bg-white'></img> */}
                 {/* <Link to="/dashboard"> <div><h3 className='features-settings'><TbLayoutDashboardFilled className='dash-settings'/>Dashboard</h3></div></Link> */}
                 <Link to="/employee"><div><h3 className='features-settings'><MdPerson className='dash-settings'/>Employee </h3></div></Link>
@@ -58,9 +67,22 @@ const Dashboard = () => {
                 <Link to="/settings"><div><h3 className='features-settings'><IoSettingsOutline className='dash-settings'/>Settings</h3></div></Link>
                 <Link to="/logout"><div><h3 className='features-settings'><CgLogOut className='dash-settings'/>Logout</h3></div></Link>
             </div>
+            {isMobileMenuOpen && (
+          <div className="mobile-dropdown-settings">
+            <Link to="/employee" onClick={() => setIsMobileMenuOpen(false)}>Employee</Link>
+            <Link to="/recruitment" onClick={() => setIsMobileMenuOpen(false)}>Recruitment</Link>
+            <Link to="/calender" onClick={() => setIsMobileMenuOpen(false)}>Calendar</Link>
+            <Link to="/payroll" onClick={() => setIsMobileMenuOpen(false)}>Payroll</Link>
+            <Link to="/timeoff" onClick={() => setIsMobileMenuOpen(false)}>Time off</Link>
+            <Link to="/performance" onClick={() => setIsMobileMenuOpen(false)}>Performance</Link>
+            <Link to="/communication" onClick={() => setIsMobileMenuOpen(false)}>Communication</Link>
+            <Link to="/settings" onClick={() => setIsMobileMenuOpen(false)}>Settings</Link>
+            <Link to="/logout" onClick={() => setIsMobileMenuOpen(false)}>Logout</Link>
+          </div>
+        )}
             <div className='menu-settings'>
-            <div className=' h-full'>
-                    <div className='flex mt-2 gap-3 ml-2 '>
+            <div>
+                    <div className='settings-options'>
                         <Link to="/profilemanage"><div className='list-items-div-settings'><h1>Profile Management Settings</h1></div></Link>
                         <Link to="/integsetting"><div className='list-items-div-settings'><h1>Integration Settings</h1></div></Link>
                     </div>
@@ -75,4 +97,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default Settings

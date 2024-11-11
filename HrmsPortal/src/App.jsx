@@ -51,6 +51,8 @@ import Requests from './components/Requests';
 import Approval from './components/Approval';
 import Balance from './components/Balance';
 import Messagebox from './components/Messagebox';
+import "../src/About.css";
+// import "../src/Test.css";
 
 const App = () => {
   return (
@@ -58,6 +60,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        
         <Route path="/employee" element={<Employee />} />
         <Route path="/employeelist" element={<EmployeeList />} />
         <Route path="/leaders" element={<Leaders />} />

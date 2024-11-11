@@ -11,6 +11,7 @@
     height:12vh;
     display: flex;
     justify-content: start;
+    object-fit: cover;
     background-color: white;
   } 
   .title-bar-dashboard{
@@ -18,6 +19,9 @@
     padding-top: 0.7vw;
     color:white;
     margin-right:2vw;
+  }
+  .mobile-menu-icon{
+    display: none;
   }
 
   .main-dashboard{
@@ -146,6 +150,7 @@
   .add-target{
     text-align: center;
     padding-top: 0.5vw;
+    color:white;
   }
   .btn{
     background-color: rgb(4, 30, 102);
@@ -244,6 +249,14 @@
     padding: 10px;
     margin-bottom: 20px;
 }
+.mobile-menu-icon{
+  display: inline-block;
+  cursor: pointer;
+  font-size: 24px;
+  color:white;
+  margin-right: 2vw;
+  margin-top:2vw;
+}
 .message-box{
   margin: 5px 0;
 }
@@ -254,9 +267,9 @@
   }
   /* Large screens (laptops and desktops) */
 @media (min-width: 1024px) {
-    .logo {
+    .logo{
       width: 20vw;
-      background-color: gold;
+      /* background-color: gold; */
     }
     .title-bar-dashboard {
       font-size: 2vw;
@@ -323,4 +336,243 @@
 }
   
 
- 
+
+
+  /* Add styles for phones here */
+  /* Mobile Screen (max-width: 575.98px) */
+@media (max-width: 575.98px) {
+  .outer {
+    height: auto;
+    overflow-y: auto;
+  }
+  .mobile-dropdown{
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    width: 100%;
+  }
+
+  .mobile-dropdown a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid #eee;
+  }
+
+  .mobile-dropdown a:hover {
+    background-color: #f0f0f0;
+  }
+  .logo{
+    width: 100vw;
+    height: 12vh;
+    justify-content: center;
+    padding: 1vw;
+    background-color: white;
+  }
+
+  .title-bar-dashboard {
+    font-size: 4vw;
+    font-weight: 700;
+    padding:1vw;
+    text-align: center;
+    margin: 2vw 0;
+  }
+  .mobile-menu-icon{
+    padding-bottom: 1vh;
+    display: block;
+    color:white;
+  }
+
+  .main-dashboard {
+    display: block;
+  }
+
+  .features {
+    font-size: 5vw;
+    text-align: center;
+    margin: 2vw 0;
+  }
+  .side-bar{
+    display: none;
+  }
+  .side-bar div {
+    font-size: 4vw;
+  }
+
+  .dash {
+    justify-content: center;
+    margin: 0;
+  }
+
+  .timer{
+    font-size: 8vw;
+    font-weight: 500;
+  }
+  .side-bar div:hover {
+    font-size: 4.5vw;
+  }
+
+  .menu-dashboard {
+    width: 100%;
+    padding: 4vw;
+    background-size: cover;
+  }
+
+  .menu-step1-dashboard {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .total-employee-dashboard {
+    font-size: 4.5vw;
+    line-height: 1.5rem;
+    font-weight:450;
+  }
+
+  .t-number {
+    font-size: 6vw;
+    font-weight: 600;
+  }
+
+  .t-text {
+    font-size: 4vw;
+  }
+
+  .row2-text {
+    font-size: 5vw;
+  }
+
+  .row2 {
+    flex-direction: column;
+    gap: 2vw;
+  }
+
+  .first-box1 {
+    width: 95%;
+    height: 11vh;
+    padding: 1vw;
+    margin: 2vw auto;
+  }
+  .second-box1>div>p{
+    font-size: 5vw;
+  }
+  .second-box1, .second-box2 {
+    width: 100%;
+    margin: 2vw 0;
+    padding: 1vw;
+    font-size: 4vw;
+    padding-bottom: 2vh;
+  }
+
+  .m-target{
+    font-size: 5vw;
+  }
+  .m-number{
+    font-size: 10vw;
+    font-weight:400;
+  }
+  .add-target{
+      background-color: rgba(18, 18, 83, 0.918);
+      width:50vw;
+      border-radius: 1vw;
+      font-weight: 500;
+  }
+  .second-box2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .btn {
+    font-size: 4vw;
+    padding: 0.2vw;
+    height:3vh;
+    width:15vw;
+    border-radius: 1vw;
+    text-align: center;
+  }
+
+  .third-row {
+    flex-direction: column;
+  }
+
+  .third-box1, .third-box2 {
+    width: 100%;
+    margin: 2vw 0;
+    padding: 2vw;
+  }
+
+  .box2-heading > div > h6 {
+    font-size: 5vw;
+  }
+  .box1-heading>p{
+    font-size:4.6vw;
+  }
+  .box2-heading{
+    padding: 0.5vw 1vw;
+  }
+  .box1-divs{
+    flex-direction: row;
+    gap: 1vw;
+    padding: 1vw;
+  }
+
+  .annonce-boxes > div > h6 {
+    font-size: 4vw;
+  }
+  .annonce-boxes{
+    padding: 0.5vh;
+  }
+
+  .annonce-boxes > div > p {
+    font-size: 3vw;
+  }
+
+  .pin-menu {
+    width: 5vw;
+  }
+
+  .chat-container {
+    max-height: 50vh;
+    font-size: 4vw;
+  }
+
+  .wrapper > input {
+    width: 100%;
+    padding: 3vw;
+  }
+
+  .message-box {
+    font-size: 4vw;
+    padding: 1vw 0;
+  }
+
+  .header {
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 1vw;
+    align-items: center;
+  }
+}
+
+
+/* Medium Devices (tablets, 576px to 767.98px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  /* Add styles for tablets here */
+}
+
+/* Large Tablets and Small Laptops (768px to 1023.98px) */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  /* Add styles for large tablets and small laptops here */
+}
+
+/* Laptops (1024px to 1279.98px) */
+@media (min-width: 1024px){
+  /* Add styles for laptops here */
+  .mobile-menu-icon{
+    display: none;
+  }
+}

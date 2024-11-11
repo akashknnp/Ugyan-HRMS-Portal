@@ -1,5 +1,7 @@
 import React, { useState, useEffect,useRef } from 'react'
-import logo from "../assets/ugyanlogobg.png"
+import logo from "../assets/ugyanlogoo.jpg"; 
+// import logo1 from "../assets/ugyanlogobg.png"
+import logo1 from "../assets/ugyanlogobg_enhanced-transformed.png";
 import { Link } from 'react-router-dom';
 import { BsFillPinAngleFill } from "react-icons/bs";
 import { CiMenuKebab } from "react-icons/ci";
@@ -13,11 +15,16 @@ import { FaRegFileAlt } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 import { CgLogOut } from "react-icons/cg";
 import { BiCalendarExclamation } from "react-icons/bi";
-import { GiHamburgerMenu } from "react-icons/gi";   
+import { GiHamburgerMenu } from "react-icons/gi";  
 
 
 
 const Dashboard = () => {
+
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Toggle mobile menu
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
     const initialHours = 8;
   const initialTimeInSeconds = initialHours * 3600;
@@ -74,10 +81,10 @@ const Dashboard = () => {
     <div className='outer '>
         <div className='header'>
             
-                <img src={logo}className='logo'></img>
+                <img src={logo1}className='logo'></img>
             
-            <div>
-            <h1 className='title-bar-dashboard'><Link to="/dashboard">Home</Link></h1>
+        <div>
+            <h1 className='title-bar-dashboard '><Link to="/dashboard">Home</Link></h1>
         </div>
         <div>
             <p className='title-bar-dashboard'><Link to="/about">About</Link></p>
@@ -88,7 +95,9 @@ const Dashboard = () => {
         <div>
             <p className='title-bar-dashboard'>Clock In/Out</p>
         </div>
-        
+        <div className="mobile-menu-icon" onClick={toggleMobileMenu}>
+          <GiHamburgerMenu />
+        </div>
         </div>
         
         <div className='main-dashboard'>
@@ -105,6 +114,19 @@ const Dashboard = () => {
                 <Link to="/settings"><div><h3 className='features'><IoSettingsOutline className='dash'/>Settings</h3></div></Link>
                 <Link to="/logout"><div><h3 className='features'><CgLogOut className='dash'/>Logout</h3></div></Link>
             </div>
+            {isMobileMenuOpen && (
+          <div className="mobile-dropdown">
+            <Link to="/employee" onClick={() => setIsMobileMenuOpen(false)}>Employee</Link>
+            <Link to="/recruitment" onClick={() => setIsMobileMenuOpen(false)}>Recruitment</Link>
+            <Link to="/calender" onClick={() => setIsMobileMenuOpen(false)}>Calendar</Link>
+            <Link to="/payroll" onClick={() => setIsMobileMenuOpen(false)}>Payroll</Link>
+            <Link to="/timeoff" onClick={() => setIsMobileMenuOpen(false)}>Time off</Link>
+            <Link to="/performance" onClick={() => setIsMobileMenuOpen(false)}>Performance</Link>
+            <Link to="/communication" onClick={() => setIsMobileMenuOpen(false)}>Communication</Link>
+            <Link to="/settings" onClick={() => setIsMobileMenuOpen(false)}>Settings</Link>
+            <Link to="/logout" onClick={() => setIsMobileMenuOpen(false)}>Logout</Link>
+          </div>
+        )}
             <div className='menu-dashboard'>
                     <div className='menu-step1-dashboard'>
                         <div className='first-box1'>

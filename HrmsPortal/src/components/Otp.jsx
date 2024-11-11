@@ -52,9 +52,9 @@ const Otp = () => {
     <div className='Otp'>
       
       <div className='otp verify'>
-      <div className='flex gap-1'>
+      <div>
       {/* <img src={logo}className='logo-bg bg-white ml-2'></img> */}
-        <h1>OTP Verification</h1></div>
+        <h1 className='otp-heading'>OTP Verification</h1></div>
         <form onSubmit={handleButtonClick}>
           <div className='text1'>
             <label className='l1'>Email:</label>
@@ -64,7 +64,7 @@ const Otp = () => {
             <label className='l2'>OTP:</label>
             <input type='text' value={otp} onChange={handleInputChange} className='input-field1' required maxLength={6} pattern="\d{6}" />
           </div>
-          {error && <div className="popup-message bg-red-200 text-red-700 px-4 py-2 rounded-md shadow-md mt-4">{error}</div>}
+          {error && <div className="popup-message">{error}</div>}
           <button className='Submit' type='submit'>Submit</button>
         </form>
         <div className="generated-otp">

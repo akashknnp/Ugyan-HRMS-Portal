@@ -31,10 +31,14 @@
   align-items: center;
   flex-direction: column;
 }
-
+.forget-link{
+  text-align: end;
+  padding-right: 2vw;
+  font-weight: 600;
+}
 .main1 h1{
   font-size: 3vw;
-  color: #063970;;
+  color: #063970;
   font-weight: 600;
   margin-bottom: 5vh;
   text-align: center;
@@ -191,6 +195,7 @@ i-main{
   font-size: large;
   font-weight: 500;
 }
+
 .list-items-div-set{
   background-color:rgba(207, 207, 207, 0.726);
   width:38vw;
@@ -258,7 +263,7 @@ i-main{
 
 @media (min-width: 601px) and (max-width: 900px) {
   .main1 {
-    background-color: grey;
+    background-color: white;
     padding-left: 4vw;
     padding-right: 4vw;
     width: 70vw; 
@@ -288,7 +293,7 @@ i-main{
 
 @media (min-width: 901px) {
   .main1 {
-    background-color: grey; 
+    background-color: white; 
     width: 30vw; 
     height: auto; 
   }
@@ -311,7 +316,7 @@ i-main{
 }
   @media (min-width: 1000px) and (max-width:15000px) {
   .main1 {
-    background-color: grey; 
+    background-color: white; 
     width: 30vw; 
     height: auto; 
   }
@@ -336,4 +341,44 @@ i-main{
     
   }
 }
-  
+
+
+@media (max-width: 575.98px) {
+  /* Add styles for phones here */
+  .input1, .input2{
+    flex-direction: column;
+    margin-bottom: 2vh;
+  }
+  .input-field{
+    width: 100%;
+  }
+  .main1{
+    background-color: white;
+    padding: 2vh;
+    margin-bottom: 20vh;
+    border:1px solid rgb(0, 0, 0);
+  }
+  .main1>h1{
+    font-size: 13vw;
+    padding: 0;
+    margin: 1vh;
+  }
+  .submit{
+    width:100%;
+    margin:0;
+    padding-left: 33vw;
+  }
+  .background-div1{
+    height:96vh;
+    overflow-y: hidden;
+  }
+  .login{
+    margin-top: 8vh;
+    height:auto;
+  }
+  .forget-link{
+    text-align: end;
+    margin-bottom: 1vh;
+    margin-top: 0;
+  }
+}
