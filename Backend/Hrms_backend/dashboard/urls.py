@@ -8,5 +8,7 @@ urlpatterns = [
     path('timer/', views.timer_view, name='timer'),
     path('target/',views.track_monthly_targets,name='target'),
     path('add-target/',views.add_monthly_target,name='add-target'),
-    path('update-target/',views.update_monthly_target,name='update-target')
+    path('update-target/',views.update_monthly_target,name='update-target'),
+    path('reminders/', views.check_reminders_view, name='check_reminders_view'),
+    path('reset_reminders/', views.reset_reminders_view, name='reset_reminders_view'),
 ]

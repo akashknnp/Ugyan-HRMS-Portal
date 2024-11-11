@@ -7,6 +7,10 @@ from django.utils.timezone import now
 from .models import MonthlyTarget
 from django.views.decorators.csrf import csrf_exempt
 import json
+import logging
+
+# Set up logging
+logger = logging.getLogger(__name__)
 
 def clock_in_view(request):
     employee_id = request.GET.get('id')
@@ -35,36 +39,80 @@ def clock_in_view(request):
         "shift_end_time": clock_entry.shift_end_time
     })
 
+# def clock_out_view(request):
+#     employee_id = request.GET.get('id')
+#     clock_entry = get_object_or_404(ClockInOut, E_id=employee_id, date=timezone.now().date())
+
+#     # Check if the employee has already checked out today
+#     if clock_entry.logout_time and clock_entry.logout_time.date() == timezone.now().date():
+#         return JsonResponse({"status": "failed", "message": "Already checked out today."})
+
+#     # Check if the employee has clocked in
+#     if not clock_entry.login_time or clock_entry.login_time.date() != timezone.now().date():
+#         return JsonResponse({"status": "failed", "message": "Cannot check out without clocking in first."})
+
+#     # Ensure the 8-hour shift timer has ended
+#     now = timezone.now()
+#     if now < clock_entry.shift_end_time:
+#         remaining_time = clock_entry.shift_end_time - now
+#         hours, remainder = divmod(remaining_time.total_seconds(), 3600)
+#         minutes, seconds = divmod(remainder, 60)
+#         remaining_time_str = f"{int(hours)}:{int(minutes):02}:{int(seconds):02}"
+#         return JsonResponse({
+#             "status": "failed",
+#             "message": f"You cannot clock out until the shift ends. Remaining time: {remaining_time_str}"
+#         })
+
+#     # Record the current time as the logout time
+#     clock_entry.logout_time = now
+#     clock_entry.save()
+
+#     return JsonResponse({"status": "success", "message": "Check-out successful.", "logout_time": clock_entry.logout_time})
+
 def clock_out_view(request):
     employee_id = request.GET.get('id')
-    clock_entry = get_object_or_404(ClockInOut, E_id=employee_id, date=timezone.now().date())
+    
+    if not employee_id:
+        return JsonResponse({"status": "failed", "message": "Employee ID is required."})
+
+    # Try to get the ClockInOut object for today; return a friendly message if it doesn't exist
+    clock_entry = ClockInOut.objects.filter(E_id=employee_id, date=timezone.now().date()).first()
+    if not clock_entry:
+        return JsonResponse({"status": "failed", "message": "No clock-in entry found for today."})
 
     # Check if the employee has already checked out today
     if clock_entry.logout_time and clock_entry.logout_time.date() == timezone.now().date():
         return JsonResponse({"status": "failed", "message": "Already checked out today."})
 
-    # Check if the employee has clocked in
+    # Check if the employee clocked in today
     if not clock_entry.login_time or clock_entry.login_time.date() != timezone.now().date():
         return JsonResponse({"status": "failed", "message": "Cannot check out without clocking in first."})
 
-    # Ensure the 8-hour shift timer has ended
-    now = timezone.now()
-    if now < clock_entry.shift_end_time:
-        remaining_time = clock_entry.shift_end_time - now
-        hours, remainder = divmod(remaining_time.total_seconds(), 3600)
-        minutes, seconds = divmod(remainder, 60)
-        remaining_time_str = f"{int(hours)}:{int(minutes):02}:{int(seconds):02}"
+    # Enforce minimum working hours restriction
+    required_working_time = timedelta(hours=int(clock_entry.working_hours or 8))  # Default to 8 hours if None
+    actual_working_time = timezone.now() - clock_entry.login_time
+    remaining_time = required_working_time - actual_working_time
+    
+    # Logging for debugging purposes
+    logger.info(f"Employee {employee_id} working time info:")
+    logger.info(f"  - Required working time: {required_working_time}")
+    logger.info(f"  - Actual working time: {actual_working_time}")
+    logger.info(f"  - Remaining time to complete required hours: {remaining_time}")
+
+    if actual_working_time < required_working_time:
+        logger.info(f"Employee {employee_id} cannot check out yet. Needs {remaining_time} more.")
         return JsonResponse({
             "status": "failed",
-            "message": f"You cannot clock out until the shift ends. Remaining time: {remaining_time_str}"
+            "message": f"Cannot log out yet. You need to work {remaining_time} more to complete your working hours."
         })
 
     # Record the current time as the logout time
-    clock_entry.logout_time = now
+    clock_entry.logout_time = timezone.now()
     clock_entry.save()
 
-    return JsonResponse({"status": "success", "message": "Check-out successful.", "logout_time": clock_entry.logout_time})
+    logger.info(f"Employee {employee_id} clocked out at {clock_entry.logout_time}")
 
+    return JsonResponse({"status": "success", "message": "Check-out successful.", "logout_time": clock_entry.logout_time})
 
 def reset_login_attempts_view(request):
     # Get or create a ClockInOut object for the specified employee ID
@@ -274,3 +322,70 @@ def update_monthly_target(request):
             return JsonResponse({"status": "error", "message": f"An unexpected error occurred: {str(e)}"})
     else:
         return JsonResponse({"status": "error", "message": "Invalid request method. Use POST."})
+
+
+def check_reminders_view(request):
+    current_time = timezone.now()
+    reminder_5_min = timedelta(minutes=5)  # 5 minutes before expected logout
+
+    reminder_message = None  # To store the reminder message, not a list
+
+    # Fetch today's active clock-in entries without logout time
+    clock_entries = ClockInOut.objects.filter(
+        date=current_time.date(),
+        logout_time__isnull=True
+    )
+
+    for entry in clock_entries:
+        if entry.login_time:
+            # Set a very short required working time for testing, e.g., 36 seconds (0.01 hours)
+            required_working_time = timedelta(hours=8)
+            expected_logout_time = entry.login_time + required_working_time
+            time_remaining = expected_logout_time - current_time
+
+            # Check for the 5-minute reminder
+            if time_remaining <= reminder_5_min and not entry.reminder_5_min_sent:
+                reminder_message = {
+                    "employee_id": entry.E_id,
+                    "message": f"Reminder for Employee {entry.E_id}, only 5 minutes are left for logout."
+                }
+                entry.reminder_5_min_sent = True
+                entry.save()
+
+                break  # Exit loop once reminder is triggered for the employee
+
+    if reminder_message:
+        return JsonResponse({
+            "status": "success",
+            "message": "Reminders checked.",
+            "reminder": reminder_message  # Return the reminder as a single dictionary
+        })
+    else:
+        return JsonResponse({
+            "status": "success",
+            "message": "No reminders triggered."
+        })
+
+
+
+def reset_reminders_view(request):
+    employee_id = request.GET.get('id')  # Get the employee ID from the query parameters
+
+    if not employee_id:
+        return JsonResponse({"status": "failed", "message": "Employee ID is required."})
+
+    # Get today's clock entry for the specified employee without a logout time
+    clock_entry = ClockInOut.objects.filter(
+        E_id=employee_id, 
+        date=timezone.now().date(),
+        logout_time__isnull=True
+    ).first()
+
+    if not clock_entry:
+        return JsonResponse({"status": "failed", "message": "No active clock-in entry found for this employee today."})
+
+    # Reset reminder flags for this entry
+    clock_entry.reminder_5_min_sent = False
+    clock_entry.save()
+
+    return JsonResponse({"status": "success", "message": f"Reminder flags reset for employee {employee_id}."})
