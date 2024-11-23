@@ -2,22 +2,51 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RiInformation2Line } from "react-icons/ri";
 import logo from "../assets/ugyan.png";
+import { useLocation } from 'react-router-dom';
  // Import the new CSS file
 
 const Test = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [ishover, setishover] = useState(false);
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
+  // Retrieve email and OTP from location.state (passed from OTP verification)
+  const email = location.state?.email; 
+  const otp = location.state?.otp;
+
+  const handlePasswordReset = async () => {
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/employees/change-password/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, otp, new_password: password }),
+      });
+
+      const result = await response.json();
+      if (result.status === 'success') {
+        setSuccessMessage(result.message);
+        setErrorMessage('');
+        setTimeout(() => navigate('/'), 2000);
+        
+      } else {
+        setErrorMessage(result.message);
+        setSuccessMessage('');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setErrorMessage('Failed to reset password. Please try again.');
+      setSuccessMessage('');
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validatePassword()) {
-      setSuccessMessage('Passwords match and contain special characters!');
-      setErrorMessage('');
-      navigate('/logout');
+      handlePasswordReset();
     }
   };
 

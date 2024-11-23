@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import '../src/Login.css'
-import'../src/Dashboard.css'
+// import'../src/Dashboard.css'
 import '../src/otp.css'
 import '../src/reset.css'
 import "./forget.css";
@@ -52,9 +52,15 @@ import Approval from './components/Approval';
 import Balance from './components/Balance';
 import Messagebox from './components/Messagebox';
 import "../src/About.css";
+import AddRequest from "./components/AddRequest";
+import UpdateRequest from './components/UpdateRequest';
+import "../src/Approval.css";
+
+
 // import "../src/Test.css";
 
 const App = () => {
+
   return (
     <BrowserRouter>
       <Routes>
@@ -98,6 +104,8 @@ const App = () => {
         <Route path="/reset" element={<Reset/>}/>    
         <Route path="/about" element={<About/>}/> 
         <Route path="/messagebox" element={<Messagebox/>}/>
+        <Route path="/addrequest" element={<AddRequest/>}/>
+        <Route path="/UpdateRequest/:id" element={<UpdateRequest/>}/>
       </Routes>
     </BrowserRouter>
   );

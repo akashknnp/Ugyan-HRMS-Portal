@@ -5,47 +5,79 @@ import logo from "../assets/ugyan.png"
 
 const Otp = () => {
   const location = useLocation();
-  const navigate1 = useNavigate();
-  const { email1 } = location.state || {};
+  const navigate = useNavigate();
+  const email = location.state?.email; 
 
   const [otp, setOtp] = useState('');
-  const [email, setEmail] = useState('');
-  const [generatedOtp, setGeneratedOtp] = useState('');
-  const [error, setError] = useState('');
+  const [message, setMessage] = useState(''); 
+  const [isError, setIsError] = useState(false); 
+  const [isResending, setIsResending] = useState(false); 
 
-  const generateOtp = () => {
-    const otp = Math.floor(100000 + Math.random() * 9000).toString(); 
-    setGeneratedOtp(otp);
-  };
-
-  useEffect(() => {
-    generateOtp(); 
-  }, []);
-
-  const handleInputChange = (e) => {
-    setOtp(e.target.value);
-  };
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handleButtonClick = (e) => {  
+  const handleOtpVerification = async (e) => {
     e.preventDefault();
 
-    if (otp.length !== 6) {
-      setError('OTP must be 6 digits long.');
+    if (otp.length !== 6 || !/^\d+$/.test(otp)) {
+      setMessage('OTP must be a 6-digit number.');
+      setIsError(true);
       return;
     }
 
-    if (otp === generatedOtp) {
-      setError('');
-      navigate1('/reset')
-      
-    } else {
-      setError('Incorrect OTP. Please try again.');
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/employees/verify-otp/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, otp }),
+      });
+
+      const result = await response.json();
+
+      if (result.status === 'success') {
+        setMessage(result.message); 
+        setIsError(false);
+
+        setTimeout(() => {
+          navigate('/reset', { state: { email, otp } });
+        }, 2000);
+      } else {
+        setMessage(result.message); 
+        setIsError(true);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setMessage('OTP verification failed. Please try again.');
+      setIsError(true);
     }
   };
+
+  const handleResendOtp = async () => {
+    setIsResending(true); 
+    setMessage(''); 
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}employees/new-joiners/employees/resend-otp/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      const result = await response.json();
+
+      if (result.status === 'success') {
+        setMessage('A new OTP has been sent to your email.');
+        setIsError(false);
+      } else {
+        setMessage(result.message || 'Failed to resend OTP.');
+        setIsError(true);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setMessage('Error occurred while resending OTP. Please try again.');
+      setIsError(true);
+    } finally {
+      setIsResending(false); 
+    }
+  };
+
 
   return (
     <div className='background-div1'>
@@ -55,21 +87,37 @@ const Otp = () => {
       <div>
       {/* <img src={logo}className='logo-bg bg-white ml-2'></img> */}
         <h1 className='otp-heading'>OTP Verification</h1></div>
-        <form onSubmit={handleButtonClick}>
+        <form onSubmit={handleOtpVerification}>
           <div className='text1'>
             <label className='l1'>Email:</label>
-            <input type='email' value={email1} onChange={handleEmailChange} className='input-field1' required />
+            <input type='email' value={email} className='input-field1' required />
           </div>
           <div className='text2'>
             <label className='l2'>OTP:</label>
-            <input type='text' value={otp} onChange={handleInputChange} className='input-field1' required maxLength={6} pattern="\d{6}" />
+            <input  type='text'
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
+              className='input-field1'
+              required
+              maxLength={6}
+              pattern='\d{6}' />
           </div>
-          {error && <div className="popup-message">{error}</div>}
+          <div className={`message ${isError ? 'error' : 'success'}`}>
+              {message}
+            </div>
           <button className='Submit' type='submit'>Submit</button>
         </form>
-        <div className="generated-otp">
+        {/* <div className="generated-otp">
           <strong>Generated OTP:</strong> {generatedOtp}
-        </div>
+        </div> */}
+        <button
+          onClick={handleResendOtp}
+          className='resend-button'
+          type='button'
+          disabled={isResending}
+        >
+          {isResending ? 'Resending...' : 'Resend OTP'}
+        </button>
       </div>
     </div>
     </div>

@@ -142,6 +142,54 @@ body {
     font-size: 4vw;
   }
   
+}
+/* Media Query for iPads */
+@media (min-width: 700px) and (max-width: 1024px) {
+  .Otp {
+    width: 90%;
+    height: auto;
+    padding: 8vw 5vw;
+    margin: 25vw auto;
+    position: static;
+    box-shadow: 0 0 10px rgba(174, 24, 144, 0.1);    
+  }
+  .Otp h1 {
+    font-size: 6vw;
+    margin: 0;
+    font-weight: 800;
+  }
+
+  .text1, .text2 {
+    flex-direction: column; 
+    align-items:left;
+  }
+
+  .l1, .l2 {
+    font-size: 4vw; /* Adjust font size */
+  }
+
+  .Submit {
+    font-size: 4vw;
+    padding: 2vw;
+    margin: 5vw auto 0;
+    width: 90%;
+    margin-left: 1.5vw;
+    padding-left: 30vw;
+  }
+  .Submit:hover {
+    font-size: 4vw;
+  }
+
+  .input-field1 {
+    width: 90%; /* Increase width for a better fit */
+    font-size: 4vw; /* Increase font size */
+  }
+  .background-div1{
+    overflow: hidden;
+  }
+  .generated-otp{
+    font-size:x-large;
+  }
   
 }
 

@@ -11,4 +11,6 @@ urlpatterns = [
     path('update-target/',views.update_monthly_target,name='update-target'),
     path('reminders/', views.check_reminders_view, name='check_reminders_view'),
     path('reset_reminders/', views.reset_reminders_view, name='reset_reminders_view'),
+    path('save_message/', views.save_message, name='save_message'),
+    path('get_messages/', views.get_messages, name='get_messages'),
 ]

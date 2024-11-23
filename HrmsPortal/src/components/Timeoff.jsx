@@ -5,7 +5,9 @@ import { BiCategory } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import { IoLogOutOutline } from "react-icons/io5";
 // import logo from "../assets/ugyanlogobg.png"
-import logo from "../assets/ugyanlogobg_enhanced-transformed.png";
+// import logo from "../assets/ugyanlogobg_enhanced-transformed.png";
+import logo from "../assets/UGYAN1.png";
+import logo1 from "../assets/ugyanlogoo.jpg"
 import { Link } from 'react-router-dom';
 import { BsFillPinAngleFill } from "react-icons/bs";
 import { CiMenuKebab } from "react-icons/ci";
@@ -22,18 +24,27 @@ import { CgLogOut } from "react-icons/cg";
 import { BiCalendarExclamation } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";  
 import { useState,useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
+
 
 
 const Timeoff = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+    const navigate = useNavigate();
+
+    const gotoprofile = (event) => {
+        event.preventDefault();  
+        navigate('/profile');
+    }
     // Toggle mobile menu
     const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
     return (
     <div className='outer-timeoff'>
         <div className='header-timeoff'>
             
-                <img src={logo}className='logo-timeoff'></img>
+        <img src={logo}className='logo'></img> 
+        <img src={logo1}className='logo1-mobile'></img> 
             
             <div>
             <h1 className='title-bar-timeoff'><Link to="/dashboard">Home</Link></h1>
@@ -46,6 +57,9 @@ const Timeoff = () => {
         </div>
         <div>
             <p className='title-bar-timeoff'>Clock In/Out</p>
+        </div>
+        <div>
+            <p className='title-bar-dashboard-profile' onClick={gotoprofile}><CgProfile className='profile-icon-dashboard'/></p>
         </div>
         <div className="mobile-menu-icon-timeoff" onClick={toggleMobileMenu}>
             <GiHamburgerMenu />
@@ -76,6 +90,7 @@ const Timeoff = () => {
             <Link to="/performance" onClick={() => setIsMobileMenuOpen(false)}>Performance</Link>
             <Link to="/communication" onClick={() => setIsMobileMenuOpen(false)}>Communication</Link>
             <Link to="/settings" onClick={() => setIsMobileMenuOpen(false)}>Settings</Link>
+            <Link to="/profile" onClick={() => setIsMobileMenuOpen(false)}>Profile</Link>
             <Link to="/logout" onClick={() => setIsMobileMenuOpen(false)}>Logout</Link>
           </div>
         )}
@@ -84,10 +99,9 @@ const Timeoff = () => {
                     <div className='timeoff-options'>
                         <Link to="/requests"><div className='list-items-div-timeoff'><h1>Leave requests</h1></div></Link>
                         <Link to="/approval"><div className='list-items-div-timeoff'><h1>Approvals</h1></div></Link>
+                        <Link to="/balance"><div className='list-items-div-timeoff'><h1>Leave Balance</h1></div></Link>
                     </div>
-                    <div>
-                    <Link to="/balance"><div className='list-items-div-set-b'><h1>Leave Balance</h1></div></Link>
-                    </div>
+                   
             </div>     
             </div>
         </div>  

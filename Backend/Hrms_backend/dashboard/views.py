@@ -1,13 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
 from django.utils import timezone
-from .models import ClockInOut
+from .models import *
 from datetime import timedelta
-from django.utils.timezone import now
-from .models import MonthlyTarget
+from django.utils.timezone import now,timedelta
 from django.views.decorators.csrf import csrf_exempt
 import json
 import logging
+from datetime import datetime
 
 # Set up logging
 logger = logging.getLogger(__name__)
@@ -389,3 +389,50 @@ def reset_reminders_view(request):
     clock_entry.save()
 
     return JsonResponse({"status": "success", "message": f"Reminder flags reset for employee {employee_id}."})
+
+
+
+# -----------this view function is for text-messages which is in dashboard--------------
+
+
+
+
+@csrf_exempt
+def save_message(request):
+    if request.method == 'POST':
+        try:
+            # Parse the incoming JSON data
+            data = json.loads(request.body)
+            text = data.get('message')
+
+            if text:
+                timestamp = datetime.now()
+                # Create and save the message
+                message = Message.objects.create(text=text, timestamp=timestamp)
+                # Return the saved message with formatted timestamp
+                return JsonResponse({
+                    'message': message.text,
+                    'timestamp': message.timestamp.strftime('%Y-%m-%d %I:%M:%S %p')  # 12-hour format
+                })
+            else:
+                return JsonResponse({'error': 'Message text is required'}, status=400)
+
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Invalid JSON format'}, status=400)
+
+    return JsonResponse({'error': 'Invalid request method'}, status=405)
+
+
+def get_messages(request):
+    one_month_ago = datetime.now() - timedelta(days=30)
+    messages = Message.objects.filter(timestamp__gte=one_month_ago).order_by('-timestamp')  # Order by timestamp descending
+    message_list = []
+    
+    for msg in messages:
+        message_list.append({
+            'text': msg.text,
+            'timestamp': msg.timestamp.strftime('%Y-%m-%d %I:%M:%S %p')  # Format in 12-hour format
+        })
+    
+    return JsonResponse({'messages': message_list})
+

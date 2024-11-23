@@ -1,221 +1,221 @@
-.menu-calender{
-    width:80%;
-    display: flex;
-    flex-direction: column;
-    background-image: url(../public/b2.jpeg);
-    object-fit: cover;
-    padding: 0.5vw;
-  }
-  .list-items-div-calender{
-    background-color:rgba(207, 207, 207, 0.726);
-    width:38vw;
-    height:40vh;
-    border-radius: 0.5vw;
-    padding: 2vw;
-    text-align: center;
-    padding-top: 18vh;
-    font-size: large;
-    font-weight: 500;
-  }
+.menu-calender {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  background-image: url(../public/b2.jpeg);
+  object-fit: cover;
+  padding: 0.5vw;
+}
+.list-items-div-calender {
+  background-color: rgba(207, 207, 207, 0.726);
+  width: 38vw;
+  height: 40vh;
+  border-radius: 0.5vw;
+  padding: 2vw;
+  text-align: center;
+  padding-top: 18vh;
+  font-size: large;
+  font-weight: 500;
+}
 
-  .side-bar-calender div{
-    color:white;
-  }
-  
-  .dash-calender{
-    display: flex;
-    justify-content: flex-end;
-    top: 20px;
-    margin-right: 30px;
-    margin-top: 10px;
-  }
-  
-  .side-bar-calender div:hover{
-    background-color: #607d99;
-    font-size: 50px;
-    cursor: pointer;
-  }
-  .title-bar-calender{
-    font-size:2vw;
-    padding-top: 0.7vw;
-    color:white;
-    margin-right:2vw;
-  }
-  .outer-calender{
-    height: 100vh;
-    overflow-y:hidden;
-  }
-  .logo-calender{
-    width: 19.8vw;
-    height:12vh;
-    display: flex;
-    justify-content: start;
-    background-color: white;
-  }
-  .features-calender{
-    display: flex;
-    font-size: 23px;
-    margin-top: 9px;
-    margin-left: 10px;
-    right:0;
-  }
-  .header-calender{
-    display: flex;
+.side-bar-calender div {
+  color: white;
+}
+
+.dash-calender {
+  display: flex;
+  justify-content: flex-end;
+  top: 20px;
+  margin-right: 30px;
+  margin-top: 10px;
+}
+
+.side-bar-calender div:hover {
+  background-color: #607d99;
+  font-size: 50px;
+  cursor: pointer;
+}
+.title-bar-calender {
+  font-size: 2vw;
+  padding-top: 0.7vw;
+  color: white;
+  margin-right: 2vw;
+}
+.outer-calender {
+  height: 100vh;
+  overflow-y: hidden;
+}
+.logo-calender {
+  width: 19.8vw;
+  height: 12vh;
+  object-fit: cover;
+  padding-top: 1vh;
+  display: flex;
+  justify-content: start;
+  background-color: white;
+  background-image: linear-gradient(#1e40af, #1d2e73);
+}
+.features-calender {
+  display: flex;
+  font-size: 23px;
+  margin-top: 9px;
+  margin-left: 10px;
+  right: 0;
+}
+.header-calender {
+  display: flex;
   justify-content: space-between;
-  background-image: linear-gradient(to bottom right, #1e40af , #1C2043 );
-  }
-  .main-calender{
-    display:flex;
-    height:100vh;
-  }
-  .side-bar-calender{
-    width: 20%;
-    background-image: linear-gradient(to bottom right, #1C2043 , #1e40af);
-  }
+  background-image: linear-gradient(to bottom right, #1e40af, #1c2043);
+}
+.main-calender {
+  display: flex;
+  height: 100vh;
+}
+.side-bar-calender {
+  width: 20%;
+  background-image: linear-gradient(to bottom right, #1c2043, #1e40af);
+}
 
-  .calender-options{
-    display: flex;
-    margin-top: 1vw;
-    gap: 1vw;
-    margin-left: 1vw;
-    margin-bottom: 1vw;
+.calender-options {
+  display: flex;
+  margin-top: 1vw;
+  gap: 1vw;
+  margin-left: 1vw;
+  margin-bottom: 1vw;
+}
 
-  }
-
-   /*////////THiS is for responsive side-bar for mobiles*/
-   @media (max-width: 768px) {
-    .side-bar-calender {
-      display: none;
-    }
-  
-    .mobile-menu-icon-calender {
-      display: inline-block;
-      cursor: pointer;
-      font-size: 24px;
-      color:white;
-      margin-right: 2vw;
-      margin-top:2vw;
-    }
-  
-    .mobile-dropdown-calender {
-      position: absolute;
-      background-color: white;
-      border: 1px solid #ddd;
-      padding: 10px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-      z-index: 100;
-      width: 100%;
-    }
-  
-    .mobile-dropdown-calender a {
-      display: block;
-      padding: 8px;
-      text-decoration: none;
-      color: black;
-      border-bottom: 1px solid #eee;
-    }
-  
-    .mobile-dropdown-calender a:hover {
-      background-color: #f0f0f0;
-    }
-  }
-  
-  /* For larger screens, hide mobile menu icon */
-  @media (min-width: 769px) {
-    .mobile-menu-icon-calender {
-      display: none;
-    }
-  }
-  
-
-  /* Small Devices (phones, less than 576px) */
-@media (max-width: 575.98px) {
-  /* Add styles for phones here */
-  /* Mobile Screen (max-width: 575.98px) */
-@media (max-width: 575.98px) {
-  .menu-calender {
-    width: 100%;
-    padding: 4vw;
-    height:70vh;
-    background-size: cover;
-  }
-  
-  .list-items-div-calender {
-    width: 90vw; /* Adjust width for mobile */
-    height: auto;
-    padding: 4vw;
-    font-size: medium;
-    padding-top: 10vh;
-  }
-
+/*////////THiS is for responsive side-bar for mobiles*/
+@media (max-width: 768px) {
   .side-bar-calender {
-    width: 100%; /* Full width for mobile */
-    display: none; /* Hide sidebar for mobile */
+    display: none;
   }
 
-  .dash-calender {
-    justify-content: center;
-    margin-right: 5px;
-    margin-top: 10px;
+  .mobile-menu-icon-calender {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    margin-right: 2vw;
+    margin-top: 2vw;
   }
 
-  .side-bar-calender div {
-    font-size: 4vw; /* Adjust font size */
-  }
-
-  .side-bar-calender div:hover {
-    font-size: 4.5vw;
-  }
-
-  .title-bar-calender {
-    font-size: 4vw; /* Increase font size for readability */
-    text-align: center;
-    margin-right: 0;
-    font-weight: 700;
-    padding: 1vh;
-  }
-
-  .outer-calender {
-    height: auto;
-    overflow-y: auto;
-  }
-
-  .logo-calender {
+  .mobile-dropdown-calender {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
     width: 100%;
-    height: auto;
-    justify-content: center;
-    padding: 2vw;
-  }
-  .mobile-menu-icon-calender{
-    padding-bottom: 1vh;
   }
 
-  .features-calender {
-    font-size: 4vw;
-    margin: 0;
-    text-align: center;
+  .mobile-dropdown-calender a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid #eee;
   }
 
-  .header-calender {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    padding: 2vw;
-  }
-
-  .main-calender {
-    display: block; /* Stack elements vertically */
-    height: auto; /* Allow content to adjust height */
-  }
-
-  .calender-options {
-    flex-direction: column;
-    gap: 2vw;
-    margin: 2vw;
+  .mobile-dropdown-calender a:hover {
+    background-color: #f0f0f0;
   }
 }
 
+/* For larger screens, hide mobile menu icon */
+@media (min-width: 769px) {
+  .mobile-menu-icon-calender {
+    display: none;
+  }
+}
+
+/* Small Devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  /* Add styles for phones here */
+  /* Mobile Screen (max-width: 575.98px) */
+  @media (max-width: 575.98px) {
+    .menu-calender {
+      width: 100%;
+      padding: 4vw;
+      height: 70vh;
+      background-size: cover;
+    }
+
+    .list-items-div-calender {
+      width: 90vw; /* Adjust width for mobile */
+      height: auto;
+      padding: 4vw;
+      font-size: medium;
+      padding-top: 10vh;
+    }
+
+    .side-bar-calender {
+      width: 100%; /* Full width for mobile */
+      display: none; /* Hide sidebar for mobile */
+    }
+
+    .dash-calender {
+      justify-content: center;
+      margin-right: 5px;
+      margin-top: 10px;
+    }
+
+    .side-bar-calender div {
+      font-size: 4vw; /* Adjust font size */
+    }
+
+    .side-bar-calender div:hover {
+      font-size: 4.5vw;
+    }
+
+    .title-bar-calender {
+      font-size: 4vw; /* Increase font size for readability */
+      text-align: center;
+      margin-right: 0;
+      font-weight: 700;
+      padding: 1vh;
+    }
+
+    .outer-calender {
+      height: auto;
+      overflow-y: auto;
+    }
+
+    .logo-calender {
+      width: 100%;
+      height: auto;
+      justify-content: center;
+      padding: 2vw;
+    }
+    .mobile-menu-icon-calender {
+      padding-bottom: 1vh;
+    }
+
+    .features-calender {
+      font-size: 4vw;
+      margin: 0;
+      text-align: center;
+    }
+
+    .header-calender {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      padding: 2vw;
+    }
+
+    .main-calender {
+      display: block; /* Stack elements vertically */
+      height: auto; /* Allow content to adjust height */
+    }
+
+    .calender-options {
+      flex-direction: column;
+      gap: 2vw;
+      margin: 2vw;
+    }
+  }
 }
 
 /* Medium Devices (tablets, 576px to 767.98px) */
@@ -223,26 +223,70 @@
   /* Add styles for tablets here */
 }
 
-/* Large Tablets and Small Laptops (768px to 1023.98px) */
-@media (min-width: 768px) and (max-width: 1023.98px) {
-  /* Add styles for large tablets and small laptops here */
+/* Tablet and iPad Styles */
+@media (min-width: 700px) and (max-width: 1024px) {
+  .header-calender {
+    flex-wrap: wrap;
+    flex-direction: row; /* Stack elements vertically on tablets if needed */
+    align-items: center;
+    padding: 3vw;
+  }
+  .side-bar-calender {
+    width: 20%;
+    background-image: linear-gradient(to bottom right, #1c2043, #1e40af);
+  }
+  .list-items-div-calender {
+    width: 80%;
+    height: 10vh;
+    padding: 2vw;
+    margin: auto;
+    font-size: x-large;
+  }
+  .logo-calender {
+    width: 130vw; /* Increase logo size slightly for tablets */
+    height: 15vh;
+  }
+  .features-calender {
+    font-size: 22px;
+    margin: 5px;
+    text-align: center;
+  }
+  .calender-options {
+    flex-direction: column;
+    gap: 2vw;
+    margin: 1vw 0;
+  }
+  .dash-calender {
+    margin-top: 1vw;
+    margin-right: 2vw;
+  }
+
+  .side-bar-calender div:hover {
+    font-size: x-large;
+  }
+  .mobile-menu-icon-calender {
+    display: none;
+  }
+  .title-bar-calender {
+    font-size: xx-large;
+  }
 }
 
 /* Laptops (1024px to 1279.98px) */
-@media (min-width: 1024px){
+@media (min-width: 1024px) {
   /* Add styles for laptops here */
-  .menu-calender{
-    width:80%;
+  .menu-calender {
+    width: 80%;
     display: flex;
     flex-direction: column;
     background-image: url(../public/b2.jpeg);
     object-fit: cover;
     padding: 0.5vw;
   }
-  .list-items-div-calender{
-    background-color:rgba(207, 207, 207, 0.726);
-    width:38vw;
-    height:40vh;
+  .list-items-div-calender {
+    background-color: rgba(207, 207, 207, 0.726);
+    width: 38vw;
+    height: 40vh;
     border-radius: 0.5vw;
     padding: 2vw;
     text-align: center;
@@ -251,67 +295,66 @@
     font-weight: 500;
   }
 
-  .side-bar-calender div{
-    color:white;
+  .side-bar-calender div {
+    color: white;
   }
-  
-  .dash-calender{
+
+  .dash-calender {
     display: flex;
     justify-content: flex-end;
     top: 20px;
     margin-right: 30px;
     margin-top: 10px;
   }
-  
-  .side-bar-calender div:hover{
+
+  .side-bar-calender div:hover {
     background-color: #607d99;
     font-size: 50px;
     cursor: pointer;
   }
-  .title-bar-calender{
-    font-size:2vw;
+  .title-bar-calender {
+    font-size: 2vw;
     padding-top: 0.7vw;
-    color:white;
-    margin-right:2vw;
+    color: white;
+    margin-right: 2vw;
   }
-  .outer-calender{
+  .outer-calender {
     height: 100vh;
-    overflow-y:hidden;
+    overflow-y: hidden;
   }
-  .logo-calender{
+  .logo-calender {
     width: 19.8vw;
-    height:12vh;
+    height: 12vh;
     display: flex;
     justify-content: start;
     background-color: white;
   }
-  .features-calender{
+  .features-calender {
     display: flex;
     font-size: 23px;
     margin-top: 9px;
     margin-left: 10px;
-    right:0;
+    right: 0;
   }
-  .header-calender{
+  .header-calender {
     display: flex;
-  justify-content: space-between;
-  background-image: linear-gradient(to bottom right, #1e40af , #1C2043 );
+    justify-content: space-between;
+    background-image: linear-gradient(to bottom right, #1e40af, #1c2043);
   }
-  .main-calender{
-    display:flex;
-    height:100vh;
+  .main-calender {
+    display: flex;
+    height: 100vh;
   }
-  .side-bar-calender{
+  .side-bar-calender {
     width: 20%;
-    background-image: linear-gradient(to bottom right, #1C2043 , #1e40af);
+    background-image: linear-gradient(to bottom right, #1c2043, #1e40af);
   }
 
-  .calender-options{
+  .calender-options {
     display: flex;
     margin-top: 1vw;
     gap: 1vw;
     margin-left: 1vw;
     margin-bottom: 1vw;
-
   }
 }

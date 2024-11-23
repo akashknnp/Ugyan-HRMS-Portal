@@ -1,7 +1,7 @@
 import React, { useState, useEffect,useRef } from 'react'
-import logo from "../assets/ugyanlogoo.jpg"; 
-// import logo1 from "../assets/ugyanlogobg.png"
-import logo1 from "../assets/ugyanlogobg_enhanced-transformed.png";
+// import logo from "../assets/ugyanlogoo.jpg"; 
+import logo1 from "../assets/ugyanlogoo.jpg"
+import logo from "../assets/UGYAN1.png";
 import { Link } from 'react-router-dom';
 import { BsFillPinAngleFill } from "react-icons/bs";
 import { CiMenuKebab } from "react-icons/ci";
@@ -16,30 +16,148 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { CgLogOut } from "react-icons/cg";
 import { BiCalendarExclamation } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";  
+import { CgProfile } from "react-icons/cg";
+import "../Dashboard.css";
+import { useNavigate } from 'react-router-dom'
 
 
 
 const Dashboard = () => {
+    const navigate = useNavigate();
 
+    const gotoprofile = (event) => {
+        event.preventDefault();  
+        navigate('/profile');
+    }
+
+
+    //------ total number of emp---------//
+
+    const [totalEmployees, setTotalEmployees] = useState(0);
+  const [month, setMonth] = useState("");
+
+  const fetchTotalEmployees = async () => {
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}employees/total_employees/`);
+      if (response.ok) {
+        const data = await response.json();
+        setTotalEmployees(data.total); // Assuming the API returns { total: number, month: "November" }
+        setMonth(data.month);
+      } else {
+        console.error("Failed to fetch total employees");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  useEffect(() => {
+    // Fetch data immediately when the component loads
+    fetchTotalEmployees();
+
+    // Set up interval to refresh every 5 minutes
+    const interval = setInterval(() => {
+      fetchTotalEmployees();
+    }, 5 * 60 * 1000); // 5 minutes in milliseconds
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
+  }, []); // Empty dependency array ensures this runs only once
+
+
+//  --------- new joined on the currrent month ----------
+
+const [newJoiners, setNewJoiners] = useState(0);
+  const [joinMonth, setJoinMonth] = useState("");  // Renamed from 'month' to 'joinMonth'
+
+  const fetchNewJoiners = async () => {
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}employees/new-joiners/`);
+      if (response.ok) {
+        const data = await response.json();
+        setNewJoiners(data.new_joiners);
+        setJoinMonth(data.month);  // Set the current month for new joiners
+      } else {
+        console.error("Failed to fetch new joiners");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchNewJoiners();
+
+    const interval = setInterval(() => {
+      fetchNewJoiners();
+    }, 5 * 60 * 1000); // Refresh every 5 minutes
+
+    return () => clearInterval(interval);
+  }, []);
+
+
+    const [message, setMessage] = useState('');
+    const [messages, setMessages] = useState([]);
+
+    const fetchMessages = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}dashboard/messages/`);
+        const data = await response.json();
+        setMessages(data);
+      } catch (error) {
+        console.error('Error fetching messages:', error);
+      }
+    };
+
+    const handleKeyPress = async (e) => {
+      if (e.key === 'Enter' && message.trim()) {
+        e.preventDefault();  // Prevent the default action for Enter key (form submission)
+      
+        // Send message to Django backend
+        const response = await fetch(`${import.meta.env.VITE_API_URL}dashboard/save_message/`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',  // Send data in JSON format
+          },
+          body: JSON.stringify({ message: message }),  // Send the message as JSON
+        });
+    
+    const data = await response.json();
+    
+    if (data.message) {
+        // Update state with the new message
+      setMessages([{ text: data.message, time: data.timestamp }, ...messages]);
+      setMessage('');  // Clear input field after sending
+      }
+    }
+    };
+  
+    useEffect(() => {
+      const fetchMessages = async () => {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}dashboard/get_messages/`);
+        const data = await response.json();
+        if (data.messages) {
+          setMessages(data.messages);
+        }
+      };
+  
+      fetchMessages();
+    }, []);
+  
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [islaptopview,setislaptopview]=useState(false);
 
   // Toggle mobile menu
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  
 
     const initialHours = 8;
   const initialTimeInSeconds = initialHours * 3600;
 
-  const [message, setMessage] = useState('');
-  const [messages, setMessages] = useState([]);
+ 
   const messageEndRef = useRef(null); // Reference to auto-scroll
 
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter' && message.trim()) {
-      const timestamp = new Date().toLocaleString();
-      setMessages([{ text: message, time: timestamp }, ...messages]);
-      setMessage('');
-    }
-  };
+
 
   useEffect(() => {
     // Scroll to the top when a new message is added
@@ -81,7 +199,9 @@ const Dashboard = () => {
     <div className='outer '>
         <div className='header'>
             
-                <img src={logo1}className='logo'></img>
+            <img src={logo}className='logo'></img> 
+            <img src={logo1}className='logo1-mobile'></img> 
+
             
         <div>
             <h1 className='title-bar-dashboard '><Link to="/dashboard">Home</Link></h1>
@@ -94,6 +214,9 @@ const Dashboard = () => {
         </div>
         <div>
             <p className='title-bar-dashboard'>Clock In/Out</p>
+        </div>
+        <div>
+            <p className='title-bar-dashboard-profile' onClick={gotoprofile}><CgProfile className='profile-icon-dashboard'/></p>
         </div>
         <div className="mobile-menu-icon" onClick={toggleMobileMenu}>
           <GiHamburgerMenu />
@@ -124,13 +247,17 @@ const Dashboard = () => {
             <Link to="/performance" onClick={() => setIsMobileMenuOpen(false)}>Performance</Link>
             <Link to="/communication" onClick={() => setIsMobileMenuOpen(false)}>Communication</Link>
             <Link to="/settings" onClick={() => setIsMobileMenuOpen(false)}>Settings</Link>
+            <Link to="/profile" onClick={() => setIsMobileMenuOpen(false)}>Profile</Link>
             <Link to="/logout" onClick={() => setIsMobileMenuOpen(false)}>Logout</Link>
+            
+
+            
           </div>
         )}
             <div className='menu-dashboard'>
                     <div className='menu-step1-dashboard'>
                         <div className='first-box1'>
-                            <div className='total-employee-dashboard '>Total employees</div>
+                            <div className='total-employee-dashboard '>Resigned Employee</div>
                             <div className='t-number'>
                                 <p>2500</p>
                             </div>
@@ -139,23 +266,23 @@ const Dashboard = () => {
                             </div>
                         </div>
                         <div className='first-box1'>
-                            <div className='total-employee-dashboard'>On leaves</div>
-                            <div><p className='t-number'>25</p></div>
-                            <div><p className='t-text'>Compated on jan</p></div>
+                            <div className='total-employee-dashboard'>New joiners</div>
+                            <div><p className='t-number'>{newJoiners}</p></div>
+                            <div><p className='t-text'>Joined in {joinMonth}</p></div>
                         </div>
-                        <div className='first-box1'><div className='total-employee-dashboard'>New joiners</div>
+                        <div className='first-box1'><div className='total-employee-dashboard'>On leaves</div>
                             <div className='t-number'>
                                 <p>48</p>
                             </div>
                             <div className='t-text'>
                                 <p>compared to jan</p>
                             </div></div>
-                        <div className='first-box1'><div className='total-employee-dashboard'>Resigned Employee</div>
+                        <div className='first-box1'><div className='total-employee-dashboard'>Total employees</div>
                             <div className='t-number'>
-                                <p>56</p>
+                                <p>{totalEmployees} </p>
                             </div>
                             <div className='t-text'>
-                                <p>compared to jan</p>
+                                <p>compared to {month}</p>
                             </div></div>
                     </div>
 
@@ -195,7 +322,7 @@ const Dashboard = () => {
                             </div>
                             <div className='annonce-boxes'>
                                 <div>
-                                    <h6>Outing schedule for every department</h6>
+                                    <h5>Outing schedule for every department</h5>
                                     <p>5 minutes ago</p>
                                 </div>
                                 <div className='box1-divs'>
@@ -205,7 +332,7 @@ const Dashboard = () => {
                             </div>
                             <div className='annonce-boxes'>
                                 <div>
-                                    <h6>IT Department need two more talents for UX/UI</h6>
+                                    <h5>IT Department need two more talents for UX/UI</h5>
                                     <p>5 minutes ago</p>
                                 </div>
                                 <div className='box1-divs'>
@@ -215,7 +342,7 @@ const Dashboard = () => {
                             </div>
                             <div className='annonce-boxes'>
                                 <div>
-                                    <h6>Meeting HR Department</h6>
+                                    <h5>Meeting HR Department</h5>
                                     <p>Yesterday,12:30 PM</p>
                                 </div>
                                 <div className='box1-divs'>
@@ -228,33 +355,29 @@ const Dashboard = () => {
 
                         <div className='third-box2'>
                             <div className='box2-heading'>
-                                <div><h6>Upcoming Schedule</h6></div>
+                                <div><h2>Upcoming Schedule</h2></div>
                                 <div><p>Today,13 Sep 2021</p></div>
                             </div>
 
-                            <div className='wrapper'>
+                            <div className="wrapper">
                                 <input
                                     type="text"
                                     placeholder="Type a message and press Enter"
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
-                                    onKeyPress={handleKeyPress}
-                                    
+                                    onKeyDown={handleKeyPress}
                                 />
-                                <div
-                                    ref={messageEndRef}
-                                    className='chat-container'
-                                >
+                                <div className="chat-container">
                                     <h3>Messages</h3>
                                     {messages.map((msg, index) => (
-                                    <p key={index} className='message-box'>
+                                    <p key={index} className="message-box">
                                         <strong>{msg.text}</strong>
                                         <br />
-                                        <small>{msg.time}</small>
+                                        <small>{msg.timestamp}</small>
                                     </p>
                                     ))}
                                 </div>
-                                </div>
+                            </div>
                         </div>
                     </div>
             </div>

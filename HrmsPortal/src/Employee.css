@@ -1,250 +1,273 @@
-.header-employee{
+.header-employee {
   display: flex;
   justify-content: space-between;
-  background-image: linear-gradient(to bottom right, #1e40af , #1C2043 );
+  background-image: linear-gradient(to bottom right, #1e40af, #1c2043);
 }
 
-.menu-employee{
-    width:80%;
-    display: flex;
-    flex-direction: column;
-    background-image: url(../public/b2.jpeg);
-    object-fit: cover;
-    padding: 0.5vw;
-  }
-  .main-employee{
-    display:flex;
+.menu-employee {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  background-image: url(../public/b2.jpeg);
+  object-fit: cover;
+  padding: 0.5vw;
+}
+.main-employee {
+  display: flex;
+}
+
+.side-bar-employee {
+  width: 20%;
+  background-image: linear-gradient(to bottom right, #1c2043, #1e40af);
+}
+.list-items-div-employee {
+  background-color: rgba(207, 207, 207, 0.726);
+  width: 38vw;
+  height: 40vh;
+  border-radius: 0.5vw;
+  padding: 2vw;
+  text-align: center;
+  padding-top: 18vh;
+  font-size: large;
+  font-weight: 500;
+}
+
+.side-bar-employee div {
+  color: white;
+}
+.employee-options {
+  display: flex;
+  margin-top: 1vw;
+  gap: 1vw;
+  margin-left: 1vw;
+  margin-bottom: 1vw;
+}
+.dash-employee {
+  display: flex;
+  justify-content: flex-end;
+  top: 20px;
+  margin-right: 30px;
+  margin-top: 10px;
+}
+
+.side-bar-employee div:hover {
+  background-color: #607d99;
+  font-size: 50px;
+  cursor: pointer;
+}
+.title-bar-employee {
+  font-size: 2vw;
+  padding-top: 0.7vw;
+  color: white;
+  margin-right: 2vw;
+}
+.outer-employee {
+  height: 100vh;
+  overflow-y: hidden;
+}
+.title-bar-employee-profile {
+  font-size: 2vw;
+  padding-top: 0.7vw;
+  color: white;
+  margin-right: 2vw;
+}
+.logo-employee {
+  width: 19.8vw;
+  height: 12vh;
+  padding-top: 1vh;
+  display: flex;
+  object-fit: cover;
+  justify-content: start;
+  background-color: white;
+  background-image: linear-gradient(#1e40af, #1d2e73);
+}
+.logo1-mobile {
+  display: none;
+}
+.features-employee {
+  display: flex;
+  font-size: 23px;
+  margin-top: 9px;
+  margin-left: 10px;
+  right: 0;
+}
+/* Tablet and Mobile Styles */
+@media (max-width: 768px) {
+  /* Hide the dashboard text */
+  .dash-employee {
+    display: none; /* Hide the dashboard */
   }
 
-  .side-bar-employee{
-    width: 20%;
-    background-image: linear-gradient(to bottom right, #1C2043 , #1e40af);
+  /* Arrange boxes vertically in a column layout */
+  .menu-employee {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Arrange boxes in a column */
+    align-items: center; /* Center the boxes horizontally */
+    gap: 1vw; /* Add space between the boxes */
+    padding: 1vw;
   }
-  .list-items-div-employee{
-    background-color:rgba(207, 207, 207, 0.726);
-    width:38vw;
-    height:40vh;
-    border-radius: 0.5vw;
-    padding: 2vw;
+
+  .list-items-div-employee {
+    width: 50vw; /* Adjust width to fit mobile screens */
+    height: 20vh; /*Let height adjust naturally*/
+    padding: 5vw;
     text-align: center;
-    padding-top: 18vh;
     font-size: large;
     font-weight: 500;
+    margin-left: 20vw;
+    list-style: inside;
+  }
+}
+/*////////THiS is for responsive side-bar for mobiles*/
+@media (max-width: 768px) {
+  .side-bar-employee {
+    display: none;
   }
 
-  .side-bar-employee div{
-    color:white;
-  }
-  .employee-options{
-    display: flex;
-    margin-top: 1vw;
-    gap: 1vw;
-    margin-left: 1vw;
-    margin-bottom: 1vw;
-
-  }
-  .dash-employee{
-    display: flex;
-    justify-content: flex-end;
-    top: 20px;
-    margin-right: 30px;
-    margin-top: 10px;
-  }
-  
-  .side-bar-employee div:hover{
-    background-color: #607d99;
-    font-size: 50px;
+  .mobile-menu-icon-employee {
+    display: inline-block;
     cursor: pointer;
+    font-size: 24px;
+    color: white;
+    margin-right: 2vw;
+    margin-top: 2vw;
   }
-  .title-bar-employee{
-    font-size:2vw;
-    padding-top: 0.7vw;
-    color:white;
-    margin-right:2vw;
-  }
-  .outer-employee{
-    height: 100vh;
-    overflow-y:hidden;
-  }
-  .logo-employee{
-    width: 19.8vw;
-    height:12vh;
-    display: flex;
-    justify-content: start;
+
+  .mobile-dropdown-employee {
+    position: absolute;
     background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    width: 100%;
   }
-  .features-employee{
-    display: flex;
-    font-size: 23px;
-    margin-top: 9px;
-    margin-left: 10px;
-    right:0;
+
+  .mobile-dropdown-employee a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid #eee;
   }
-  /* Tablet and Mobile Styles */
-  @media (max-width: 768px) {
-    /* Hide the dashboard text */
-    .dash-employee {
-        display: none; /* Hide the dashboard */
-    }
-  
-    /* Arrange boxes vertically in a column layout */
-    .menu-employee {
-        width: 100%;
-        display: flex;
-        flex-direction: column; /* Arrange boxes in a column */
-        align-items: center; /* Center the boxes horizontally */
-        gap: 1vw; /* Add space between the boxes */
-        padding: 1vw;
-    }
-  
-    .list-items-div-employee {
-        width: 50vw; /* Adjust width to fit mobile screens */
-        height: 20vh; /*Let height adjust naturally*/
-        padding: 5vw;
-        text-align: center;
-        font-size: large;
-        font-weight: 500;
-        margin-left: 20vw;
-        list-style:inside;
-        
-    }
+
+  .mobile-dropdown-employee a:hover {
+    background-color: #f0f0f0;
   }
-  /*////////THiS is for responsive side-bar for mobiles*/
-  @media (max-width: 768px) {
-    .side-bar-employee {
-      display: none;
-    }
-  
-    .mobile-menu-icon-employee {
-      display: inline-block;
-      cursor: pointer;
-      font-size: 24px;
-      color:white;
-      margin-right: 2vw;
-      margin-top:2vw;
-    }
-  
-    .mobile-dropdown-employee {
-      position: absolute;
-      background-color: white;
-      border: 1px solid #ddd;
-      padding: 10px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-      z-index: 100;
-      width: 100%;
-    }
-  
-    .mobile-dropdown-employee a {
-      display: block;
-      padding: 8px;
-      text-decoration: none;
-      color: black;
-      border-bottom: 1px solid #eee;
-    }
-  
-    .mobile-dropdown-employee a:hover {
-      background-color: #f0f0f0;
-    }
+}
+
+/* For larger screens, hide mobile menu icon */
+@media (min-width: 769px) {
+  .mobile-menu-icon-employee {
+    display: none;
   }
-  
-  /* For larger screens, hide mobile menu icon */
-  @media (min-width: 769px) {
-    .mobile-menu-icon-employee {
-      display: none;
-    }
-  }
-  
+}
 
 /*------- settings responsive-------*/
 /* Base Styles (applied to all screen sizes) */
-
 
 /* Small Devices (phones, less than 576px) */
 @media (max-width: 575.98px) {
   /* Add styles for phones here */
   /* Mobile Screen (max-width: 575.98px) */
-@media (max-width: 575.98px) {
-  .header-employee {
-    flex-wrap:wrap;
-    flex-direction: row;
-    align-items: center;
-    padding: 1vw;
-  }
-  .mobile-menu-icon-employee{
-    padding-bottom: 1vh;
-  }
+  @media (max-width: 575.98px) {
+    .header-employee {
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      padding: 1vw;
+    }
+    .mobile-menu-icon-employee {
+      padding-bottom: 1vh;
+    }
 
-  .menu-employee {
-    width: 100%;
-    padding: 4vw;
-    height:auto;
-    background-size: cover;
-  }
+    .menu-employee {
+      width: 100%;
+      padding: 4vw;
+      height: auto;
+      background-size: cover;
+    }
 
-  .main-employee {
-    display: block;
-  }
+    .main-employee {
+      display: block;
+    }
 
-  .side-bar-employee {
-    width: 100%;
-    display: none; /* Hide sidebar on mobile */
-  }
+    .side-bar-employee {
+      width: 100%;
+      display: none; /* Hide sidebar on mobile */
+    }
 
-  .side-bar-employee div {
-    font-size: 4vw;
-  }
+    .side-bar-employee div {
+      font-size: 4vw;
+    }
 
-  .list-items-div-employee {
-    width: 80vw;
-    height: 15vh;
-    padding: 5vw;
-    margin: 2vw auto;
-    text-align: center;
-    font-size: 4vw;
-  }
+    .list-items-div-employee {
+      width: 80vw;
+      height: 15vh;
+      padding: 5vw;
+      margin: 2vw auto;
+      text-align: center;
+      font-size: 4vw;
+    }
+    .logo1-mobile {
+      width: 100vw;
+      height: 12vh;
+      justify-content: center;
+      padding: 1vw;
+      display: block;
+      background-color: white;
+      object-fit: cover;
 
-  .dash-employee {
-    justify-content: center;
-    margin: 0;
-  }
+      /* display: none; */
+    }
+    .logo-employee {
+      display: none;
+    }
+    .dash-employee {
+      justify-content: center;
+      margin: 0;
+    }
 
-  .side-bar-employee div:hover {
-    font-size: 4.5vw;
-  }
+    .side-bar-employee div:hover {
+      font-size: 4.5vw;
+    }
+    .title-bar-employee-profile {
+      display: none;
+    }
 
-  .title-bar-employee {
-    font-size: 4vw;
-    font-weight:700;
-    text-align: center;
-    margin: 2vw;
-  }
+    .title-bar-employee {
+      font-size: 4vw;
+      font-weight: 700;
+      text-align: center;
+      margin: 2vw;
+    }
 
-  .outer-employee {
-    height: auto;
-    overflow-y: auto;
-  }
+    .outer-employee {
+      height: auto;
+      overflow-y: auto;
+    }
 
-  .logo-employee {
-    width: 100%;
-    height: auto;
-    padding: 2vw;
-    justify-content: center;
-  }
+    .logo-employee {
+      width: 100%;
+      height: auto;
+      padding: 2vw;
+      justify-content: center;
+    }
 
-  .features-employee {
-    font-size: 4vw;
-    margin: 0;
-    text-align: center;
-  }
+    .features-employee {
+      font-size: 4vw;
+      margin: 0;
+      text-align: center;
+    }
 
-  .employee-options {
-    flex-direction: column;
-    gap: 2vw;
-    margin: 2vw 0;
-    text-align: center;
+    .employee-options {
+      flex-direction: column;
+      gap: 2vw;
+      margin: 2vw 0;
+      text-align: center;
+    }
   }
-}
-
 }
 
 /* Medium Devices (tablets, 576px to 767.98px) */
@@ -253,94 +276,146 @@
 }
 
 /* Large Tablets and Small Laptops (768px to 1023.98px) */
-@media (min-width: 768px) and (max-width: 1023.98px) {
-  /* Add styles for large tablets and small laptops here */
+@media (min-width: 700px) and (max-width: 1024px) {
+  .header-employee {
+    flex-wrap: wrap;
+    flex-direction: row; /* Stack elements vertically on tablets if needed */
+    align-items: center;
+    padding: 3vw;
+  }
+  .side-bar-employee {
+    width: 20%;
+    background-image: linear-gradient(to bottom right, #1c2043, #1e40af);
+  }
+
+  .list-items-div-employee {
+    width: 80%;
+    height: 10vh;
+    padding: 2vw;
+    margin: auto;
+    font-size: x-large;
+  }
+
+  .logo-employee {
+    width: 130vw; /* Increase logo size slightly for tablets */
+    height: 15vh;
+  }
+
+  .features-employee {
+    font-size: 22px;
+    margin: 5px;
+    text-align: center;
+  }
+
+  .employee-options {
+    flex-direction: column;
+    gap: 2vw;
+    margin: 1vw 0;
+  }
+
+  .dash-employee {
+    margin-top: 1vw;
+    margin-right: 2vw;
+  }
+
+  .outer-employee {
+    overflow-y: auto;
+  }
+
+  .side-bar-employee div:hover {
+    font-size: 35px; /* Scale hover effect down for tablets */
+  }
+
+  .mobile-menu-icon-employee {
+    display: none;
+  }
+  .title-bar-employee {
+    font-size: x-large;
+  }
 }
 
 /* Laptops (1024px to 1279.98px) */
-@media (min-width: 1024px){
+@media (min-width: 1024px) {
   /* Add styles for laptops here */
-  .header-employee{
+  .header-employee {
     display: flex;
     justify-content: space-between;
-    background-image: linear-gradient(to bottom right, #1e40af , #1C2043 );
+    background-image: linear-gradient(to bottom right, #1e40af, #1c2043);
   }
-  
-  .menu-employee{
-      width:80%;
-      display: flex;
-      flex-direction: column;
-      background-image: url(../public/b2.jpeg);
-      object-fit: cover;
-      padding: 0.5vw;
-    }
-    .main-employee{
-      display:flex;
-    }
-  
-    .side-bar-employee{
-      width: 20%;
-      background-image: linear-gradient(to bottom right, #1C2043 , #1e40af);
-    }
-    .list-items-div-employee{
-      background-color:rgba(207, 207, 207, 0.726);
-      width:38vw;
-      height:40vh;
-      border-radius: 0.5vw;
-      padding: 2vw;
-      text-align: center;
-      padding-top: 18vh;
-      font-size: large;
-      font-weight: 500;
-    }
-  
-    .side-bar-employee div{
-      color:white;
-    }
-    .employee-options{
-      display: flex;
-      margin-top: 1vw;
-      gap: 1vw;
-      margin-left: 1vw;
-      margin-bottom: 1vw;
-  
-    }
-    .dash-employee{
-      display: flex;
-      justify-content: flex-end;
-      top: 20px;
-      margin-right: 30px;
-      margin-top: 10px;
-    }
-    
-    .side-bar-employee div:hover{
-      background-color: #607d99;
-      font-size: 50px;
-      cursor: pointer;
-    }
-    .title-bar-employee{
-      font-size:2vw;
-      padding-top: 0.7vw;
-      color:white;
-      margin-right:2vw;
-    }
-    .outer-employee{
-      height: 100vh;
-      overflow-y:hidden;
-    }
-    .logo-employee{
-      width: 19.8vw;
-      height:12vh;
-      display: flex;
-      justify-content: start;
-      background-color: white;
-    }
-    .features-employee{
-      display: flex;
-      font-size: 23px;
-      margin-top: 9px;
-      margin-left: 10px;
-      right:0;
-    }
-}
 
+  .menu-employee {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../public/b2.jpeg);
+    object-fit: cover;
+    padding: 0.5vw;
+  }
+  .main-employee {
+    display: flex;
+  }
+
+  .side-bar-employee {
+    width: 20%;
+    background-image: linear-gradient(to bottom right, #1c2043, #1e40af);
+  }
+  .list-items-div-employee {
+    background-color: rgba(207, 207, 207, 0.726);
+    width: 38vw;
+    height: 40vh;
+    border-radius: 0.5vw;
+    padding: 2vw;
+    text-align: center;
+    padding-top: 18vh;
+    font-size: large;
+    font-weight: 500;
+  }
+
+  .side-bar-employee div {
+    color: white;
+  }
+  .employee-options {
+    display: flex;
+    margin-top: 1vw;
+    gap: 1vw;
+    margin-left: 1vw;
+    margin-bottom: 1vw;
+  }
+  .dash-employee {
+    display: flex;
+    justify-content: flex-end;
+    top: 20px;
+    margin-right: 30px;
+    margin-top: 10px;
+  }
+
+  .side-bar-employee div:hover {
+    background-color: #607d99;
+    font-size: 50px;
+    cursor: pointer;
+  }
+  .title-bar-employee {
+    font-size: 2vw;
+    padding-top: 0.7vw;
+    color: white;
+    margin-right: 2vw;
+  }
+  .outer-employee {
+    height: 100vh;
+    overflow-y: hidden;
+  }
+  .logo-employee {
+    width: 19.8vw;
+    height: 12vh;
+    display: flex;
+    justify-content: start;
+    background-color: white;
+  }
+  .features-employee {
+    display: flex;
+    font-size: 23px;
+    margin-top: 9px;
+    margin-left: 10px;
+    right: 0;
+  }
+}

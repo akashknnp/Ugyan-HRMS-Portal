@@ -5,8 +5,11 @@ import { BiCategory } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import { IoLogOutOutline } from "react-icons/io5";
 // import logo from "../assets/ugyanlogobg.png"
-import logo from "../assets/ugyanlogobg_enhanced-transformed.png";
+// import logo from "../assets/ugyanlogobg_enhanced-transformed.png";
+import logo from "../assets/UGYAN1.png";
+import logo1 from "../assets/ugyanlogoo.jpg"
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 import { BsFillPinAngleFill } from "react-icons/bs";
 import { CiMenuKebab } from "react-icons/ci";
 import { TbLayoutDashboardFilled } from "react-icons/tb";
@@ -26,6 +29,13 @@ import { useState,useEffect } from 'react';
 
 const Dashboard = () => {
 
+    const navigate = useNavigate();
+
+    const gotoprofile = (event) => {
+        event.preventDefault();  
+        navigate('/profile');
+    }
+
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     // Toggle mobile menu
@@ -34,7 +44,8 @@ const Dashboard = () => {
     <div className='outer-communicate'>
         <div className='header-communicate'>
             
-                <img src={logo}className='logo-communicate'></img>
+        <img src={logo}className='logo'></img> 
+        <img src={logo1}className='logo1-mobile'></img> 
             
             <div>
             <h1 className='title-bar-communicate'><Link to="/dashboard">Home</Link></h1>
@@ -47,6 +58,9 @@ const Dashboard = () => {
         </div>
         <div>
             <p className='title-bar-communicate'>Clock In/Out</p>
+        </div>
+        <div>
+            <p className='title-bar-dashboard-profile' onClick={gotoprofile}><CgProfile className='profile-icon-dashboard'/></p>
         </div>
         <div className="mobile-menu-icon-communicate" onClick={toggleMobileMenu}>
           <GiHamburgerMenu />
@@ -77,6 +91,7 @@ const Dashboard = () => {
             <Link to="/performance" onClick={() => setIsMobileMenuOpen(false)}>Performance</Link>
             <Link to="/communication" onClick={() => setIsMobileMenuOpen(false)}>Communication</Link>
             <Link to="/settings" onClick={() => setIsMobileMenuOpen(false)}>Settings</Link>
+            <Link to="/profile" onClick={() => setIsMobileMenuOpen(false)}>Profile</Link>
             <Link to="/logout" onClick={() => setIsMobileMenuOpen(false)}>Logout</Link>
           </div>
         )}

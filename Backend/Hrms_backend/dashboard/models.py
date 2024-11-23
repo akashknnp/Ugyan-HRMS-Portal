@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone 
+from django.utils.timezone import now
+
 
 class ClockInOut(models.Model):
       E_id=models.AutoField(primary_key=True)
@@ -21,3 +23,16 @@ class MonthlyTarget(models.Model):
       emp_id = models.CharField(max_length=50)
       created_at = models.DateTimeField(auto_now_add=True)
       updated_at = models.DateTimeField(auto_now=True)
+
+
+
+
+class Message(models.Model):
+    text = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)  # Automatically sets the timestamp when created
+
+    def __str__(self):
+        # You can adjust the string representation to fit your needs
+        return f"Message: {self.text[:50]} - {self.timestamp}"  # Adjusted to show more of the message text
+
+

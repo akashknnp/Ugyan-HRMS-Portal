@@ -236,3 +236,127 @@
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
   }
 }
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Full screen background container */
+  .background-div1-reset {
+    background-image: url(../public/b2.jpeg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Main container */
+  .reset-main-reset {
+    width: 70vw; 
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    margin-top: 3vh;
+  }
+
+  /* Header text */
+  .header-reset h1 {
+    font-size: 3rem; 
+    font-weight: bold;
+    color: #063970;
+    text-align: center;
+    margin-bottom: 1.2rem;
+  }
+
+  /* Inner form layout */
+  .reset-inner-main-reset {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+  }
+
+  /* Password input section */
+  .pwd-reset {
+    font-size: xx-large;
+    margin-bottom: 1rem;
+    
+  }
+
+  .pwd-reset label {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem; /* Larger font for labels */
+  }
+
+  /* Input fields */
+  .pwd-reset input {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem; /* Larger font size for readability */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  /* Submit button */
+  .submit-button-reset {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1.1rem; /* Larger button text */
+    font-weight: bold;
+    color: #ffffff;
+    font-size: xx-large;
+    background-color: #063970;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .submit-button-reset:hover {
+    background-color: #2c3e50;
+  }
+
+  /* Pop-up messages */
+  .popup-message-reset {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    font-size: 1rem; /* Increased font size */
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .error-reset {
+    background-color: #ffe6e6;
+    color: #ff2020;
+  }
+
+  .success-reset {
+    background-color: #e6ffed;
+    color: #2d8a40;
+  }
+
+  /* Info icon */
+  .info-icon-reset {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    color: #063970;
+    font-size: 1rem; /* Larger icon size */
+  }
+
+  /* Pop-up on hover */
+  .info-popup-reset {
+    position: absolute;
+    top: -30px;
+    left: 10px;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: 0.9rem; /* Larger font for better readability */
+    width: 50vw; /* Adjusted width for iPad */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+  }
+}

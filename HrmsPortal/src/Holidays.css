@@ -1,0 +1,121 @@
+/* Holidays.css */
+.background-div-holidays {
+  background-image: url(../public/b2.jpeg);
+  height: auto;
+}
+/* .month-holidays > h2,
+h3 {
+  font-size: larger;
+  font-weight: 500;
+  color: white;
+  margin: 2vh;
+} */
+
+/* .yearly-holidays > h2,
+p {
+  color: white;
+  font-size: large;
+  font-weight: 500;
+  margin: 2vh;
+} */
+.month-holidays {
+  margin-bottom: 5vh;
+}
+.input-holiday-detail {
+  background-color: rgba(212, 204, 204, 0.911);
+  margin-left: 1vw;
+  padding: 1vh;
+  width: 90%;
+  border-radius: 1vh;
+  padding: 1vh 1vw;
+  margin-top: 5vh;
+}
+.input-holiday-detail > input {
+  margin-top: 1vh;
+}
+.input-holiday-detail > h1 {
+  font-size: large;
+  margin-left: 1vw;
+  font-weight: 500;
+}
+.input-holiday-detail > button {
+  margin-top: 1vh;
+  font-size: large;
+}
+.calender-table {
+  display: flex;
+  flex-wrap: wrap;
+}
+.holiday-view-table {
+  /* background-color: rgba(0, 0, 255, 0.267); */
+  width: 60%;
+}
+.calender-container-add-holiday {
+  background-color: rgba(0, 0, 136, 0.185);
+  width: 40%;
+  height: 120vh;
+  border-right: 1px solid white;
+}
+/* .t-head-holiday {
+  color: antiquewhite;
+} */
+.holiday {
+  background-color: rgba(
+    29,
+    138,
+    201,
+    0.568
+  ) !important; /* Use !important to override any conflicting styles */
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  padding: 5px;
+}
+
+.react-calendar {
+  width: 80%; /* Take 80% of the screen width */
+  height: auto; /* Flexible height */
+  background: #fff; /* White background */
+  border: 1px solid #ddd; /* Subtle border for the container */
+  border-radius: 20px; /* Smooth rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a light shadow for depth */
+  margin-top: 2vh; /* Center the calendar horizontally */
+  padding: 10px; /* Internal padding */
+  margin-left: 3vw;
+}
+
+.react-calendar__tile {
+  width: calc(12% - 6px); /* Dynamically size tiles for 7 columns */
+  height: 35px; /* Further reduce the height of each tile */
+}
+
+.react-calendar__month-view__days__day {
+  margin: 3px; /* Smaller gap between tiles */
+  padding: 5px; /* Compact padding for tiles */
+  font-size: 18px;
+  font-weight: 600; /* Reduce font size for day numbers */
+  border-radius: 8px; /* Smaller rounded tiles */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+.react-calendar__month-view__weekdays {
+  padding: 3px 0; /* Reduce space above weekdays */
+  font-size: 14px; /* Smaller font size for weekday names */
+  font-weight: 500;
+}
+
+.react-calendar__navigation {
+  padding: 5px; /* Less padding for navigation */
+}
+
+.react-calendar__navigation button {
+  padding: 4px 6px; /* Further reduce button padding */
+  font-size: 15px; /* Adjust button font size */
+}
+
+/* Adjust calendar responsiveness */
+@media (min-width: 768px) {
+  .react-calendar__tile {
+    height: 50px; /* Slightly larger tiles on larger screens */
+  }
+}

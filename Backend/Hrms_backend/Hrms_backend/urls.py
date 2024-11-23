@@ -17,9 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 import Employee_Management.urls
+import Calender.urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("employees/",include('Employee_Management.urls')),
-    path("clock/",include('dashboard.urls'))
+    path("dashboard/",include('dashboard.urls')),
+    path("calender/",include('Calender.urls')),
+    path("leave/",include('Leave.urls')),
 ]

@@ -1,0 +1,164 @@
+.main-addrequest {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.form-addrequest {
+  height: 97.5vh;
+  width: 98.5vw;
+  background-color: #ebeef3;
+  border-radius: 8px;
+}
+.simple-nav {
+  height: 10vh;
+  width: 98.5vw;
+  background-color: #ffffff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+.simple-nav h1 {
+  font-size: 5vh;
+  font-weight: 450;
+  margin-left: 2vw;
+  margin-top: 1vh;
+}
+.simple-nav-icon {
+  margin-top: 2.6vh;
+  font-size: 4.5vh;
+  margin-right: 1.5vw;
+  border-radius: 5px;
+}
+.leave-addrequest {
+  margin-top: 4vh;
+  margin-left: 1.8vw;
+  height: 60vh;
+  background-color: #ffffff;
+  width: 65vw;
+  border-radius: 7px;
+  position: relative;
+}
+.leave-addrequest h1 {
+  font-size: 3vh;
+  padding: 12px 20px;
+}
+.leave-addrequest hr {
+  margin-bottom: 4vh;
+}
+.dropdown-leavetype {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2vh;
+}
+.form-input-leave {
+  width: 44vw;
+  border-radius: 5px;
+  margin-left: 2vw;
+}
+.form-input-email {
+  width: 44vw;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin-left: 9.4vw;
+  height: 6vh;
+  padding: 0.5vh 0.7vw;
+  outline-color: #0088ff;
+}
+.form-input-reason {
+  width: 44vw;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin-right: 5.8vw;
+  height: 15vh;
+  padding: 0.5vh 0.7vw;
+  outline-color: #0088ff;
+}
+.form-date-1 {
+  border: 1px solid lightgray;
+  outline-color: #0088ff;
+  width: 21vw;
+  border-radius: 5px;
+  margin-left: 11.25vw;
+  height: 6vh;
+  padding: 0.5vh 0.7vw;
+}
+.form-date-2 {
+  border: 1px solid lightgray;
+  outline-color: #0088ff;
+  width: 21vw;
+  border-radius: 5px;
+  height: 6vh;
+  margin-left: 2vw;
+  padding: 0.5vh 0.7vw;
+}
+.form-label {
+  font-size: 2.5vh;
+  font-weight: 500;
+  margin-left: 1.4vw;
+  color: #777;
+}
+.form-label-reason {
+  font-size: 2.5vh;
+  font-weight: 500;
+  margin-left: 1.5vw;
+  color: #777;
+  text-align: center;
+  margin-bottom: 2vh;
+  text-align: start;
+}
+.form-label-textbox {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+.bottom-nav {
+  height: 10vh;
+  width: 98.5vw;
+  background-color: #ffffff;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  position: absolute;
+  bottom: 1.25vh;
+  padding: 2vh 2vw;
+}
+.bottom-nav-submit {
+  background-color: #0088ff;
+  border: 2px solid #ebeef3;
+  border-radius: 5px;
+  font-size: 2.4vh;
+  color: #ffffff;
+  padding: 0.7vh 1vw;
+  font-weight: 450;
+}
+.bottom-nav-cancel {
+  border: 2px solid #ebeef3;
+  border-radius: 5px;
+  font-size: 2.4vh;
+  font-weight: 450;
+  padding: 0.7vh 1vw;
+  margin-left: 1vw;
+}
+.message {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
