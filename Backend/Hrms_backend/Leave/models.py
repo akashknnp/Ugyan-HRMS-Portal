@@ -36,3 +36,15 @@ class LeaveRequest(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created At")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated At")
+
+
+class LeaveBalance(models.Model):
+    E_id = models.CharField(max_length=20, unique=True)  
+    total_sick_leave = models.FloatField(default=0)      
+    total_casual_leave = models.FloatField(default=0)    
+    taken_sick_leave = models.FloatField(default=0)      
+    taken_casual_leave = models.FloatField(default=0)    
+    difference_sick = models.FloatField(default=0)       
+    difference_casual = models.FloatField(default=0)     
+    others = models.FloatField(default=0)                
+    updated_at = models.DateTimeField(auto_now=True)
