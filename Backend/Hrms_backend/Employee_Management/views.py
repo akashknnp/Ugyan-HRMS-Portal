@@ -173,6 +173,24 @@ def new_joiners(request):
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
     
+# ----------------getting the user-role-----------------------
+
+# @csrf_exempt
+# def get_role(request):
+#     if request.method == 'POST':
+#         try:
+#             data = json.loads(request.body)
+#             username = data.get('username')
+
+#             # Fetch user and role from the database
+#             user = Employee.objects.get(email=username)
+#             return JsonResponse({'role': user.role}, status=200)
+
+#         except Employee.DoesNotExist:
+#             return JsonResponse({'message': 'User not found'}, status=404)
+#         except Exception as e:
+#             return JsonResponse({'message': str(e)}, status=500)
+#     return JsonResponse({'message': 'Invalid request method'}, status=405)
 
 
 @csrf_exempt
@@ -388,6 +406,12 @@ def change_password(request):
 
 
 
+# from django.contrib.auth.hashers import check_password
+# from django.http import JsonResponse
+# from django.views.decorators.csrf import csrf_exempt
+# import json
+# from .models import Employee
+
 @csrf_exempt
 def login(request):
     if request.method != 'POST':
@@ -409,6 +433,46 @@ def login(request):
         return JsonResponse({"status": "error", "message": "Invalid username or password."}, status=401)
 
     if check_password(password, employee.password):
-        return JsonResponse({"status": "success", "message": "Login successful."}, status=200)
+        # On successful login, return role info
+        role = None
+        if employee.is_emp:
+            role = 'employee'
+        elif employee.is_HR:
+            role = 'HR'
+        elif employee.is_admin:
+            role = 'admin'
+        
+        return JsonResponse({"status": "success", "message": "Login successful.", "role": role}, status=200)
     else:
         return JsonResponse({"status": "error", "message": "Invalid username or password."}, status=401)
+
+@csrf_exempt
+def get_user_role(request):
+    if request.method != 'POST':
+        return JsonResponse({"status": "error", "message": "Invalid request method. Use POST."}, status=405)
+
+    try:
+        data = json.loads(request.body)
+        username = data.get("username")
+    except json.JSONDecodeError:
+        return JsonResponse({"status": "error", "message": "Invalid JSON format."}, status=400)
+
+    if not username:
+        return JsonResponse({"status": "error", "message": "Username is required."}, status=400)
+
+    try:
+        employee = Employee.objects.get(email=username)  # Assuming username is the email
+    except Employee.DoesNotExist:
+        return JsonResponse({"status": "error", "message": "User not found."}, status=404)
+
+    # Return role based on the employee's status
+    role = None
+    if employee.is_emp:
+        role = 'employee'
+    elif employee.is_HR:
+        role = 'HR'
+    elif employee.is_admin:
+        role = 'admin'
+
+    return JsonResponse({"status": "success", "role": role}, status=200)
+

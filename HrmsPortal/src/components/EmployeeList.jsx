@@ -11,6 +11,18 @@ const EmployeeList = () => {
   const [employeeToDelete, setEmployeeToDelete] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [employeeToUpdate, setEmployeeToUpdate] = useState(null);
+  const [userRole, setUserRole] = useState('');  // Logged-in user's role
+
+  // Simulate fetching user role from authentication/session
+  useEffect(() => {
+    const roleFromSession = localStorage.getItem('userRole'); // Simulate getting from session
+    if (roleFromSession) {
+      setUserRole(roleFromSession);  // Set role from session/local storage
+    } else {
+      // If no role found, set default or handle authentication redirection
+      setUserRole(''); 
+    }
+  }, []);
 
   useEffect(() => {
     async function fetchData() {
@@ -142,8 +154,12 @@ const EmployeeList = () => {
                 <td>{employee.phone_number}</td>
                 <td>
                   <div className='edit-delete-button-list'>
-                    <FaEdit className="update-icon button-emp-list" onClick={() => openUpdateModal(employee)} />
-                    <FaTrash className="delete-icon button-emp-list" onClick={() => handleDelete(employee.E_id)} />
+                    {(userRole === 'HR' || userRole === 'Admin') && (
+                      <FaEdit className="update-icon button-emp-list" onClick={() => openUpdateModal(employee)} />
+                    )}
+                    {(userRole === 'HR' || userRole === 'Admin') && (
+                      <FaTrash className="delete-icon button-emp-list" onClick={() => handleDelete(employee.E_id)} />
+                    )}
                   </div>
                 </td>
               </tr>
@@ -193,16 +209,13 @@ const EmployeeList = () => {
               <input type="date" name="date_of_birth" value={employeeToUpdate.date_of_birth} onChange={handleInputChange} />
               <label>Role:</label>
               <select name="role" value={employeeToUpdate.role} onChange={handleInputChange}>
-                <option value="None">None</option>
                 <option value="HR">HR</option>
-                <option value="Employee">Employee</option>
                 <option value="Admin">Admin</option>
+                <option value="Employee">Employee</option>
               </select>
-              <div className="modal-buttons">
-                <button type="submit">Save Changes</button>
-                <button type="button" onClick={() => setIsModalOpen(false)}>Cancel</button>
-              </div>
+              <button type="submit" className="update-button-list">Update</button>
             </form>
+            <button className="close-modal" onClick={() => setIsModalOpen(false)}>Close</button>
           </div>
         </div>
       )}

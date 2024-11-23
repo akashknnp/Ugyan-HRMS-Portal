@@ -30,11 +30,13 @@ const Dashboard = () => {
         navigate('/profile');
     }
 
+    
 
     //------ total number of emp---------//
 
-    const [totalEmployees, setTotalEmployees] = useState(0);
+  const [totalEmployees, setTotalEmployees] = useState(0);
   const [month, setMonth] = useState("");
+  
 
   const fetchTotalEmployees = async () => {
     try {
@@ -191,8 +193,8 @@ const [newJoiners, setNewJoiners] = useState(0);
   const handleStart = () => setIsCounting(true);
   const handleStop = () => setIsCounting(false);
   const handleReset = () => {
-    setIsCounting(false);
-    setTimeLeft(initialTimeInSeconds);
+  setIsCounting(false);
+  setTimeLeft(initialTimeInSeconds);
   };
 
     return (
@@ -249,9 +251,6 @@ const [newJoiners, setNewJoiners] = useState(0);
             <Link to="/settings" onClick={() => setIsMobileMenuOpen(false)}>Settings</Link>
             <Link to="/profile" onClick={() => setIsMobileMenuOpen(false)}>Profile</Link>
             <Link to="/logout" onClick={() => setIsMobileMenuOpen(false)}>Logout</Link>
-            
-
-            
           </div>
         )}
             <div className='menu-dashboard'>
