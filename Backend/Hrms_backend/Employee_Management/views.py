@@ -10,6 +10,8 @@ from django.core.mail import send_mail
 from Employee_Management import *
 from django.contrib.auth.hashers import check_password,make_password
 from django.conf import settings
+import random
+
 
 logger=logging.getLogger(__name__)
 # ------------------List all employees-------------------
@@ -52,9 +54,7 @@ def employee_detail(request):
 
 
 #------------------ Create a new employee------------------------
-from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
-import json
+
 
 @csrf_exempt
 def create_employee(request):
@@ -322,7 +322,6 @@ def resend_otp(request):
 
 def generate_otp():
     """Generate a 6-digit OTP."""
-    import random
     return str(random.randint(100000, 999999))
 
 
