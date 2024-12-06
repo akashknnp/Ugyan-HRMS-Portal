@@ -28,6 +28,16 @@ import { useState,useEffect } from 'react';
 
 
 const Recruitment = () => {
+    const [userName, setUserName] = useState('');
+    useEffect(() => {
+        const storedUserDetails = localStorage.getItem('userDetails');
+        if (storedUserDetails) {
+          const userDetails = JSON.parse(storedUserDetails); // Parse userDetails from JSON
+          if (userDetails && userDetails.first_name) {
+            setUserName(userDetails.first_name); // Update the userName with the name from userDetails
+          }
+        }
+      }, []);
 
     const navigate = useNavigate();
 
@@ -61,6 +71,7 @@ const Recruitment = () => {
         </div>
         <div>
             <p className='title-bar-dashboard-profile' onClick={gotoprofile}><CgProfile className='profile-icon-dashboard'/></p>
+            <p className="login-user-name-profile">Hi {userName}</p>
         </div>
         <div className="mobile-menu-icon-recruitment" onClick={toggleMobileMenu}>
           <GiHamburgerMenu />

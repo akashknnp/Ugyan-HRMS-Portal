@@ -21,6 +21,7 @@ import { CgProfile } from "react-icons/cg";
 
 
 const Employee = () => {
+    const [userName, setUserName] = useState('');
 
     const navigate = useNavigate();
 
@@ -33,6 +34,42 @@ const Employee = () => {
 
   // Toggle mobile menu
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+  const [userRole, setUserRole] = useState('');  // Logged-in user's role
+
+  // Simulate fetching user role from authentication/session
+  useEffect(() => {
+    const roleFromSession = localStorage.getItem('userRole');// Simulate getting from session
+    if (roleFromSession) {
+      setUserRole(roleFromSession);  // Set role from session/local storage
+    } else {
+      // If no role found, set default or handle authentication redirection
+      setUserRole(''); 
+    }
+  }, []);
+
+
+  useEffect(() => {
+    const storedUserDetails = localStorage.getItem('userDetails');
+    if (storedUserDetails) {
+      const userDetails = JSON.parse(storedUserDetails); // Parse userDetails from JSON
+      if (userDetails && userDetails.first_name) {
+        setUserName(userDetails.first_name); // Update the userName with the name from userDetails
+      }
+    }
+  }, []);
+
+  const navigate1 = new useNavigate();
+    useEffect(() => {
+      // Check the login status from localStorage
+      const loginFlag = localStorage.getItem("loginFlag");
+  
+      // If the loginFlag is not set or false, redirect to the login page
+      console.log("login flag in dashboard",loginFlag)
+      if (loginFlag=="false") {
+        navigate1('/logout1');
+      }
+    }, [navigate1]); 
 
     return (
     <div className='outer-employee'>
@@ -51,10 +88,11 @@ const Employee = () => {
             <p className='title-bar-employee'>Designation</p>
         </div>
         <div>
-            <p className='title-bar-employee'>Clock In/Out</p>
+        <p className='title-bar-dashboard'><Link to="/clock-in-out">Clock-In/Out</Link></p>
         </div>
         <div>
             <p className='title-bar-employee-profile' onClick={gotoprofile}><CgProfile className='profile-icon-dashboard'/></p>
+            <p className="login-user-name-profile">Hi {userName}</p>
         </div>
         <div className="mobile-menu-icon-employee" onClick={toggleMobileMenu}>
             <GiHamburgerMenu />
@@ -97,7 +135,7 @@ const Employee = () => {
                     </div>
                     <div className='employee-options'>
                     <Link to="/empsearch"><div className='list-items-div-employee'><h1>Employee Search</h1></div></Link>
-                    <Link to="/addemp"><div className='list-items-div-employee'><h1>Add Employee</h1></div></Link>
+                    {(userRole === 'HR' || userRole === 'Admin') && (<Link to="/addemp"><div className='list-items-div-employee'><h1>Add Employee</h1></div></Link>)}
                     </div> 
                 </div>
             </div>

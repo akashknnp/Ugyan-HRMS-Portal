@@ -29,7 +29,27 @@ import { useState,useEffect } from 'react';
 
 const Settings = () => {
 
-
+    const navigate1 = new useNavigate();
+    useEffect(() => {
+      // Check the login status from localStorage
+      const loginFlag = localStorage.getItem("loginFlag");
+  
+      // If the loginFlag is not set or false, redirect to the login page
+      console.log("login flag in dashboard",loginFlag)
+      if (loginFlag=="false") {
+        navigate1('/logout1');
+      }
+    }, [navigate1]); 
+    const [userName, setUserName] = useState('');
+    useEffect(() => {
+        const storedUserDetails = localStorage.getItem('userDetails');
+        if (storedUserDetails) {
+          const userDetails = JSON.parse(storedUserDetails); // Parse userDetails from JSON
+          if (userDetails && userDetails.first_name) {
+            setUserName(userDetails.first_name); // Update the userName with the name from userDetails
+          }
+        }
+      }, []);
     const navigate = useNavigate();
 
     const gotoprofile = (event) => {
@@ -57,10 +77,11 @@ const Settings = () => {
             <p className='title-bar-settings'>Designation</p>
         </div>
         <div>
-            <p className='title-bar-settings'>Clock In/Out</p>
+        <p className='title-bar-dashboard'><Link to="/clock-in-out">Clock-In/Out</Link></p>
         </div>
         <div>
             <p className='title-bar-dashboard-profile' onClick={gotoprofile}><CgProfile className='profile-icon-dashboard'/></p>
+            <p className="login-user-name-profile">Hi {userName}</p>
         </div>
         <div className="mobile-menu-icon-settings" onClick={toggleMobileMenu}>
             <GiHamburgerMenu />

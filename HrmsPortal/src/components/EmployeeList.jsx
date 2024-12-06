@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import "../EmployeeList.css";
+import { useNavigate } from 'react-router-dom';
 
 const EmployeeList = () => {
   const [data, setData] = useState([]);
@@ -15,7 +16,7 @@ const EmployeeList = () => {
 
   // Simulate fetching user role from authentication/session
   useEffect(() => {
-    const roleFromSession = localStorage.getItem('userRole'); // Simulate getting from session
+    const roleFromSession = localStorage.getItem('userRole');// Simulate getting from session
     if (roleFromSession) {
       setUserRole(roleFromSession);  // Set role from session/local storage
     } else {
@@ -114,6 +115,18 @@ const EmployeeList = () => {
     }
   };
 
+  const navigate = new useNavigate();
+    useEffect(() => {
+      // Check the login status from localStorage
+      const loginFlag = localStorage.getItem("loginFlag");
+  
+      // If the loginFlag is not set or false, redirect to the login page
+      console.log("login flag in dashboard",loginFlag)
+      if (loginFlag=="false") {
+        navigate('/logout1');
+      }
+    }, [navigate]); 
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setEmployeeToUpdate(prev => ({ ...prev, [name]: value }));
@@ -132,43 +145,46 @@ const EmployeeList = () => {
         <Link to="/employee"><div className='back'>Back</div></Link>
       </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Employee ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Alter</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredData.length > 0 ? (
-            filteredData.map((employee) => (
-              <tr key={employee.E_id}>
-                <td>{employee.E_id}</td>
-                <td>{employee.first_name}</td>
-                <td>{employee.last_name}</td>
-                <td>{employee.email}</td>
-                <td>{employee.phone_number}</td>
-                <td>
-                  <div className='edit-delete-button-list'>
-                    {(userRole === 'HR' || userRole === 'Admin') && (
-                      <FaEdit className="update-icon button-emp-list" onClick={() => openUpdateModal(employee)} />
-                    )}
-                    {(userRole === 'HR' || userRole === 'Admin') && (
-                      <FaTrash className="delete-icon button-emp-list" onClick={() => handleDelete(employee.E_id)} />
-                    )}
-                  </div>
-                </td>
+      <table className='emplist-table'>
+            <thead>
+              <tr className='emplist-row'>
+                <th>Employee ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                { (userRole === 'HR' || userRole === 'Admin') && <th>Action</th> }
               </tr>
-            ))
-          ) : (
-            <tr><td colSpan="6">No matching employees found</td></tr>
-          )}
-        </tbody>
+            </thead>
+            <tbody>
+              {filteredData.length > 0 ? (
+                filteredData.map((employee) => (
+                  <tr key={employee.E_id}>
+                    <td>{employee.E_id}</td>
+                    <td>{employee.first_name}</td>
+                    <td>{employee.last_name}</td>
+                    <td>{employee.email}</td>
+                    <td>{employee.phone_number}</td>
+                    { (userRole === 'HR' || userRole === 'Admin') && (
+                      <td>
+                        <div className='edit-delete-button-list'>
+                          <FaEdit className="update-icon button-emp-list" onClick={() => openUpdateModal(employee)} />
+                          <FaTrash className="delete-icon button-emp-list" onClick={() => handleDelete(employee.E_id)} />
+                        </div>
+                      </td>
+                    )}
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={ (userRole === 'HR' || userRole === 'Admin') ? 6 : 5 }>
+                    No matching employees found
+                  </td>
+                </tr>
+              )}
+            </tbody>
       </table>
+
 
       {showPopup && (
         <div className="popup">

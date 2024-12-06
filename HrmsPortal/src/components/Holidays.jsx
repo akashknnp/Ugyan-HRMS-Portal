@@ -2,14 +2,34 @@ import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import '../Holidays.css';
+import { useNavigate } from 'react-router-dom';
 
 const Holidays = () => {
   const [holidays, setHolidays] = useState([]);
-  const [activeDate, setActiveDate] = useState(new Date()); // Tracks the displayed month/year
+  const [activeDate, setActiveDate] = useState(new Date());
   const [holidayName, setHolidayName] = useState('');
   const [holidayDate, setHolidayDate] = useState('');
+  const [userRole, setUserRole] = useState('');
 
-  // Function to get the general holidays for the active year
+  const navigate = useNavigate();
+
+  // Redirect if not logged in
+  useEffect(() => {
+    const loginFlag = localStorage.getItem("loginFlag");
+    console.log("login flag in dashboard", loginFlag);
+    if (loginFlag === "false") {
+      navigate('/logout1');
+    }
+  }, [navigate]);
+
+  // Fetch the user role from localStorage
+  useEffect(() => {
+    const role = localStorage.getItem('userRole');
+    console.log('Fetched userRole from localStorage:', role);
+    setUserRole(role);
+  }, []);
+
+  // Predefined holidays for the active year
   const getPredefinedHolidays = (year) => {
     return [
       { name: "New Year's Day", date: `${year}-01-01` },
@@ -18,72 +38,86 @@ const Holidays = () => {
     ];
   };
 
+  // Fetch holidays from the API
   useEffect(() => {
     fetchHolidays();
   }, []);
 
   const fetchHolidays = async () => {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}calender/holidays/`);
-    const data = await response.json();
-    setHolidays(data);
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}calender/holidays/`);
+      const data = await response.json();
+      if (Array.isArray(data)) {
+        setHolidays(data);
+      } else {
+        console.error('Unexpected response format:', data);
+        setHolidays([]);
+      }
+    } catch (error) {
+      console.error('Error fetching holidays:', error);
+      setHolidays([]);
+    }
   };
 
+  // Add a holiday
   const addHoliday = async (event) => {
     event.preventDefault();
     const holidayData = {
       name: holidayName,
       date: holidayDate,
     };
-    const response = await fetch(`${import.meta.env.VITE_API_URL}calender/holidays/add/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(holidayData),
-    });
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}calender/holidays/add/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(holidayData),
+      });
 
-    if (response.ok) {
-      fetchHolidays(); // Refresh the list of holidays
-      setHolidayName('');
-      setHolidayDate('');
+      if (response.ok) {
+        fetchHolidays(); // Refresh holidays
+        setHolidayName('');
+        setHolidayDate('');
+      }
+    } catch (error) {
+      console.error('Error adding holiday:', error);
     }
   };
 
+  // Delete a holiday
   const deleteHoliday = async (holiday_id) => {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}calender/holidays/delete/${holiday_id}/`, {
-      method: 'DELETE',
-    });
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}calender/holidays/delete/${holiday_id}/`, {
+        method: 'DELETE',
+      });
 
-    if (response.ok) {
-      fetchHolidays(); // Refresh the list of holidays
-    } else {
-      alert('Failed to delete holiday');
+      if (response.ok) {
+        fetchHolidays(); // Refresh holidays
+      } else {
+        alert('Failed to delete holiday');
+      }
+    } catch (error) {
+      console.error('Error deleting holiday:', error);
     }
   };
 
-  // Function to check if a date is a holiday by comparing the date strings (YYYY-MM-DD)
+  // Check if a date is a holiday
   const isHoliday = (date) => {
-    // Format the date as 'YYYY-MM-DD' without time zone issues
     const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1)
       .toString()
       .padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
-  
-    // Check if the date is in the predefined holidays
     const predefinedHolidays = getPredefinedHolidays(date.getFullYear());
     const isPredefinedHoliday = predefinedHolidays.some(
       (holiday) => holiday.date === formattedDate
     );
-  
-    // Check if the date is in the user-defined holidays
     const isUserDefinedHoliday = holidays.some(
       (holiday) => holiday.date === formattedDate
     );
-  
+
     return isPredefinedHoliday || isUserDefinedHoliday;
   };
-  
-  
-  
+
   const tileClassName = ({ date }) => {
     return isHoliday(date) ? 'holiday' : null;
   };
@@ -93,10 +127,12 @@ const Holidays = () => {
   };
 
   const getHolidaysForMonth = () => {
+    if (!Array.isArray(holidays)) {
+      console.warn('holidays is not iterable:', holidays);
+      return [];
+    }
     const month = activeDate.getMonth();
     const year = activeDate.getFullYear();
-
-    // Get all holidays for the active year
     const predefinedHolidays = getPredefinedHolidays(year);
     const allHolidays = [...predefinedHolidays, ...holidays];
     return allHolidays.filter((holiday) => {
@@ -111,24 +147,26 @@ const Holidays = () => {
     <div className='background-div-holidays'>
       <div className='calender-table'>
         <div className='calender-container-add-holiday'>
-          {/* <h1>Holiday Calendar</h1> */}
-          <form onSubmit={addHoliday} className='input-holiday-detail'>
-            <h1>Add Holidays</h1>
-            <input
-              type="text"
-              placeholder="Holiday Name"
-              value={holidayName}
-              onChange={(e) => setHolidayName(e.target.value)}
-              required
-            />
-            <input
-              type="date"
-              value={holidayDate}
-              onChange={(e) => setHolidayDate(e.target.value)}
-              required
-            />
-            <button type="submit">Add Holiday</button>
-          </form>
+          {userRole === 'HR' || userRole === 'ADMIN' ? (
+            <form onSubmit={addHoliday} className='input-holiday-detail'>
+              <h1>Add Holidays</h1>
+              <input
+                type="text"
+                placeholder="Holiday Name"
+                value={holidayName}
+                onChange={(e) => setHolidayName(e.target.value)}
+                required
+              />
+              <input
+                type="date"
+                value={holidayDate}
+                onChange={(e) => setHolidayDate(e.target.value)}
+                required
+              />
+              <button type="submit">Add Holiday</button>
+            </form>
+          ) : null}
+
           <Calendar
             onChange={setActiveDate}
             onActiveStartDateChange={handleActiveStartDateChange}
@@ -139,43 +177,47 @@ const Holidays = () => {
         </div>
         <div className='holiday-view-table'>
           <div className='month-holidays'>
-            <h2>Holidays in {activeDate.toLocaleString('default', { month: 'long' })} {activeDate.getFullYear()}</h2>
-            <h3>Total Holidays: {activeMonthHolidays.length}</h3>
-            
+            <h2 className='display-num-holidays'>Holidays in {activeDate.toLocaleString('default', { month: 'long' })} {activeDate.getFullYear()}</h2>
+            <h3 className='display-num-holidays'>Total Holidays: {activeMonthHolidays.length}</h3>
+
             {/* Display Holidays in Table */}
-            <table>
+            <table className='calen-table'>
               <thead className='t-head-holiday'>
                 <tr>
                   <th>Holiday Name</th>
                   <th>Date</th>
-                  <th>Action</th>
+                  {userRole === 'HR' || userRole === 'ADMIN' ? <th>Action</th> : null}
                 </tr>
               </thead>
               <tbody>
-                {activeMonthHolidays.map((holiday) => (
-                  <tr key={holiday.id}>
+                {activeMonthHolidays.map((holiday, index) => (
+                  <tr key={index}>
                     <td>{holiday.name}</td>
                     <td>{new Date(holiday.date).toLocaleDateString()}</td>
-                    <td>
-                      <button onClick={() => deleteHoliday(holiday.id)}>Delete</button>
-                    </td>
+                    {userRole === 'HR' || userRole === 'ADMIN' ? (
+                      <td>
+                        {holiday.id && (
+                          <button className="delete-btn" onClick={() => deleteHoliday(holiday.id)}>Delete</button>
+                        )}
+                      </td>
+                    ) : null}
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <hr/>
+          <hr />
           <div className='yearly-holidays'>
-            <h2>Total Holidays in the Year</h2>
-            <p>{holidays.length + getPredefinedHolidays(activeDate.getFullYear()).length} holiday(s) in total</p>
-            
+            <h2 className='display-num-holidays'>Total Holidays in the Year</h2>
+            <p className='display-num-holidays'>{holidays.length + getPredefinedHolidays(activeDate.getFullYear()).length} holiday(s) in total</p>
+
             {/* Display All Holidays in Table */}
-            <table>
+            <table className="calen-table">
               <thead>
                 <tr>
                   <th>Holiday Name</th>
                   <th>Date</th>
-                  <th>Action</th>
+                  {userRole === 'HR' || userRole === 'ADMIN' ? <th>Action</th> : null}
                 </tr>
               </thead>
               <tbody>
@@ -183,11 +225,13 @@ const Holidays = () => {
                   <tr key={index}>
                     <td>{holiday.name}</td>
                     <td>{new Date(holiday.date).toLocaleDateString()}</td>
-                    <td>
-                      {holiday.id && (
-                        <button onClick={() => deleteHoliday(holiday.id)}>Delete</button>
-                      )}
-                    </td>
+                    {userRole === 'HR' || userRole === 'ADMIN' ? (
+                      <td>
+                        {holiday.id && (
+                          <button className="delete-btn" onClick={() => deleteHoliday(holiday.id)}>Delete</button>
+                        )}
+                      </td>
+                    ) : null}
                   </tr>
                 ))}
               </tbody>

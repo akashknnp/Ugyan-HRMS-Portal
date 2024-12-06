@@ -1,0 +1,10 @@
+.background-div {
+  background-image: url(../public/b2.jpeg);
+}
+
+.logout-btn {
+  color: white;
+  background-color: red;
+  margin-left: 45vw;
+  margin-top: 20vh;
+}

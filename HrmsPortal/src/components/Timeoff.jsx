@@ -29,6 +29,41 @@ import { useNavigate } from 'react-router-dom'
 
 
 const Timeoff = () => {
+  const [userRole, setUserRole] = useState('');  // Logged-in user's role
+
+  // Simulate fetching user role from authentication/session
+  useEffect(() => {
+    const roleFromSession = localStorage.getItem('userRole');// Simulate getting from session
+    if (roleFromSession) {
+      setUserRole(roleFromSession);  // Set role from session/local storage
+    } else {
+      // If no role found, set default or handle authentication redirection
+      setUserRole(''); 
+    }
+  }, []);
+
+    const navigate1 = new useNavigate();
+    useEffect(() => {
+      // Check the login status from localStorage
+      const loginFlag = localStorage.getItem("loginFlag");
+  
+      // If the loginFlag is not set or false, redirect to the login page
+      console.log("login flag in dashboard",loginFlag)
+      if (loginFlag=="false") {
+        navigate1('/logout1');
+      }
+    }, [navigate1]); 
+
+    const [userName, setUserName] = useState('');
+    useEffect(() => {
+        const storedUserDetails = localStorage.getItem('userDetails');
+        if (storedUserDetails) {
+          const userDetails = JSON.parse(storedUserDetails); // Parse userDetails from JSON
+          if (userDetails && userDetails.first_name) {
+            setUserName(userDetails.first_name); // Update the userName with the name from userDetails
+          }
+        }
+      }, []);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const navigate = useNavigate();
@@ -56,10 +91,11 @@ const Timeoff = () => {
             <p className='title-bar-timeoff'>Designation</p>
         </div>
         <div>
-            <p className='title-bar-timeoff'>Clock In/Out</p>
+        <p className='title-bar-dashboard'><Link to="/clock-in-out">Clock-In/Out</Link></p>
         </div>
         <div>
             <p className='title-bar-dashboard-profile' onClick={gotoprofile}><CgProfile className='profile-icon-dashboard'/></p>
+            <p className="login-user-name-profile">Hi {userName}</p>
         </div>
         <div className="mobile-menu-icon-timeoff" onClick={toggleMobileMenu}>
             <GiHamburgerMenu />
@@ -100,6 +136,8 @@ const Timeoff = () => {
                         <Link to="/requests"><div className='list-items-div-timeoff'><h1>Leave requests</h1></div></Link>
                         <Link to="/approval"><div className='list-items-div-timeoff'><h1>Approvals</h1></div></Link>
                         <Link to="/balance"><div className='list-items-div-timeoff'><h1>Leave Balance</h1></div></Link>
+                        { (userRole === 'HR' || userRole === 'Admin') &&  <Link to="/addbalance"><div className='list-items-div-timeoff'><h1>Add Leave Balance</h1></div></Link>}
+                        
                     </div>
                    
             </div>     

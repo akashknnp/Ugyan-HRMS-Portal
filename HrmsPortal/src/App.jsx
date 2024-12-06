@@ -55,6 +55,10 @@ import "../src/About.css";
 import AddRequest from "./components/AddRequest";
 import UpdateRequest from './components/UpdateRequest';
 import "../src/Approval.css";
+import Logout from './components/Logout';
+import SessionHandler from './components/SessionHandler';
+import AddBalance from './components/AddBalance';
+import ClockInOut from './components/ClockInOut';
 
 
 // import "../src/Test.css";
@@ -63,10 +67,10 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <SessionHandler />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        
         <Route path="/employee" element={<Employee />} />
         <Route path="/employeelist" element={<EmployeeList />} />
         <Route path="/leaders" element={<Leaders />} />
@@ -97,7 +101,7 @@ const App = () => {
         <Route path="/profilemanage" element={<ProfileManage/>}/>
         <Route path="/integsetting" element={<IntegSetting/>}/>
         <Route path="/notifirefer" element={<NotifiRefer/>}/>
-        <Route path="/logout" element={<Login/>}/>
+        <Route path="/logout1" element={<Login/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/forget" element={<Forget/>}/>
         <Route path="/otp" element={<Otp/>}/>
@@ -106,6 +110,9 @@ const App = () => {
         <Route path="/messagebox" element={<Messagebox/>}/>
         <Route path="/addrequest" element={<AddRequest/>}/>
         <Route path="/UpdateRequest/:id" element={<UpdateRequest/>}/>
+        <Route path="/logout" element={<Logout/>}/>
+        <Route path="/addbalance" element={<AddBalance/>}/>
+        <Route path="/clock-in-out" element={<ClockInOut/>}/>
       </Routes>
     </BrowserRouter>
   );

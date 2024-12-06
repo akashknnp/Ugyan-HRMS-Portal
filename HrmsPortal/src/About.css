@@ -473,3 +473,162 @@
     font-size: 1.9vh;
   }
 }
+
+@media (min-width: 763px) and (max-width: 1024px) {
+  .inner-div-about {
+    position: absolute;
+    top: 10vh;
+  }
+  .outer-div-about {
+    position: absolute;
+    top: 15vh;
+  }
+  .heading-about > h1 {
+    /* background-color: red; */
+    position: absolute;
+    width: max-content;
+    top: -4vh;
+  }
+  .mission-div {
+    /* background-color: red; */
+    margin-top: 0;
+    position: absolute;
+    top: 3vh;
+    left: 30vw;
+    width: 30vw;
+  }
+  .vision-div {
+    position: absolute;
+    left: 2vw;
+    top: 3vh;
+  }
+  .outer-div-about {
+    height: 75vh;
+  }
+  .inner-div-about {
+    height: 85vh;
+  }
+  .welcome-div-about {
+    top: 95vh;
+    height: 70vh;
+  }
+  .image2-about {
+    left: 1vw;
+    width: 30vw;
+    top: 50vh;
+  }
+  .back-to-home-about {
+    z-index: 1000;
+    position: fixed;
+    left: 2vw;
+  }
+  .image-about {
+    position: absolute;
+    left: 5vw;
+  }
+  .image1-about {
+    position: absolute;
+    top: 30vh;
+    left: 20vw;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.459);
+  }
+  .footer {
+    position: absolute;
+    top: -40vh;
+    left: 0.5vw;
+  }
+
+  @media screen and (min-width: 763px) and (max-width: 1024px) {
+    /* Footer container adjustments */
+    .footer {
+      position: absolute;
+      top: 165vh;
+      left: 2vw;
+      /* Maintain original background color */
+    }
+    .background-about-page {
+      height: 300vh;
+    }
+
+    .footer-about {
+      position: static; /* Adjust for responsive layout */
+      display: flex;
+      flex-wrap: wrap; /* Enable wrapping for better layout */
+      width: 95vw; /* Slightly increase width */
+      margin: 0 auto; /* Center the footer on the page */
+      height: auto; /* Adapt height based on content */
+      background-color: #0f234e; /* Retain semi-transparent background */
+      gap: 1vh; /* Reduce gap for better spacing */
+      padding: 2vh 4vw; /* Adjust padding for medium screens */
+      flex-direction: column; /* Stack sections for better readability */
+    }
+
+    .footer-about > div {
+      width: 100%; /* Make sections span full width */
+      margin-bottom: 2vh; /* Add space between sections */
+    }
+
+    .footer-about > div > h1 {
+      font-size: large; /* Adjust font size */
+      font-weight: 400;
+      text-align: center;
+      text-decoration: underline;
+      color: white;
+      letter-spacing: 0.1vw; /* Reduce letter spacing */
+    }
+
+    .quick-links-about > div {
+      color: white;
+      margin-left: 2vw; /* Reduce left margin */
+      margin-top: 0.5vh; /* Adjust top margin */
+      font-size: 1.2rem; /* Adjust font size for readability */
+    }
+
+    .resources-about > div {
+      color: white;
+      margin-left: 2vw; /* Reduce left margin */
+      margin-top: 0.5vh; /* Adjust top margin */
+      font-size: 1rem; /* Adjust font size */
+    }
+
+    .get-in-touch-about > div > p {
+      color: white;
+      padding: 0.5vh 1vw; /* Adjust padding for consistency */
+      font-size: 1rem; /* Adjust font size */
+    }
+
+    .location-about {
+      display: flex;
+      margin-top: 1vh; /* Adjust margin */
+    }
+
+    .location-logo-about {
+      width: 3vw; /* Adjust size */
+      height: 4vh;
+      color: #0a66c2;
+    }
+
+    .location-about > p {
+      color: white;
+      font-size: 1rem; /* Adjust font size */
+    }
+
+    .stay-connected-div-about > Link > div > p {
+      color: white;
+      padding: 0.5vh 1vw; /* Adjust padding */
+      font-size: 1.2rem; /* Adjust font size */
+    }
+
+    .media-logo-about {
+      color: white;
+      width: 4vw; /* Adjust size */
+      height: 4vh;
+      padding-top: 0.5vh; /* Adjust padding */
+    }
+
+    .stay-connect {
+      margin-top: 0.5vh; /* Adjust margin */
+      font-size: 1rem; /* Adjust font size */
+    }
+  }
+}

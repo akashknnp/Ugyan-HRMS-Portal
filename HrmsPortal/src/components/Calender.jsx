@@ -28,17 +28,38 @@ import { useState,useEffect } from 'react';
 
 const Calender = () => {
 
-    const navigate = useNavigate();
+    const navigate1 = useNavigate();
 
     const gotoprofile = (event) => {
         event.preventDefault();  
-        navigate('/profile');
+        navigate1('/profile');
     }
+    const navigate = new useNavigate();
+    useEffect(() => {
+      // Check the login status from localStorage
+      const loginFlag = localStorage.getItem("loginFlag");
+  
+      // If the loginFlag is not set or false, redirect to the login page
+      console.log("login flag in dashboard",loginFlag)
+      if (loginFlag=="false") {
+        navigate('/logout1');
+      }
+    }, [navigate]); 
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     // Toggle mobile menu
     const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+    const [userName, setUserName] = useState('');
+    useEffect(() => {
+        const storedUserDetails = localStorage.getItem('userDetails');
+        if (storedUserDetails) {
+          const userDetails = JSON.parse(storedUserDetails); // Parse userDetails from JSON
+          if (userDetails && userDetails.first_name) {
+            setUserName(userDetails.first_name); // Update the userName with the name from userDetails
+          }
+        }
+      }, []);
     return (
     <div className='outer-calender'>
         <div className='header-calender'>
@@ -56,10 +77,11 @@ const Calender = () => {
             <p className='title-bar-calender'>Designation</p>
         </div>
         <div>
-            <p className='title-bar-calender'>Clock In/Out</p>
+          <p className='title-bar-dashboard'><Link to="/clock-in-out">Clock-In/Out</Link></p>
         </div>
         <div>
             <p className='title-bar-dashboard-profile' onClick={gotoprofile}><CgProfile className='profile-icon-dashboard'/></p>
+            <p className="login-user-name-profile">Hi {userName}</p>
         </div>
         <div className="mobile-menu-icon-calender" onClick={toggleMobileMenu}>
           <GiHamburgerMenu />

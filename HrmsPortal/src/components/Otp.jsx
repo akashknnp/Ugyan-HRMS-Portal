@@ -102,7 +102,7 @@ const Otp = () => {
               maxLength={6}
               pattern='\d{6}' />
           </div>
-          <div className={`message ${isError ? 'error' : 'success'}`}>
+          <div className={`message1 ${isError ? 'error' : 'success'}`}>
               {message}
             </div>
           <button className='Submit' type='submit'>Submit</button>
@@ -112,7 +112,7 @@ const Otp = () => {
         </div> */}
         <button
           onClick={handleResendOtp}
-          className='resend-button'
+          className='resend-button1'
           type='button'
           disabled={isResending}
         >

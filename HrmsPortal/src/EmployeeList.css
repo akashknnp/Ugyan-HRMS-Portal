@@ -1,11 +1,12 @@
-table {
+.emplist-table {
   width: 90%;
   border-collapse: collapse;
   margin-left: 5vw;
   background-color: white;
+  border: 1px solid black;
 }
 
-th,
+.th,
 td {
   border: 1px solid #00013a; /* Adds borders to each cell */
   padding: 8px;
@@ -13,13 +14,14 @@ td {
   font-weight: 500;
 }
 
-th {
+.emplist-row > th {
   background-image: linear-gradient(
     rgba(13, 13, 82, 0.849),
     rgba(0, 57, 133, 0.842)
   );
   font-weight: bold;
   color: white;
+  border: 1px solid black;
 }
 .input {
   padding: 8px;
@@ -243,4 +245,148 @@ button[type="button"]:hover {
 /* Close Button in Modal */
 .modal-buttons button {
   flex: 1;
+}
+
+/* Mobile View - Employee List */
+@media (max-width: 575.98px) {
+  .emplist-table {
+    width: 95%;
+    margin-left: 2.5%;
+    font-size: 14px;
+  }
+
+  .emplist-table th,
+  .emplist-table td {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .emplist-row > th {
+    font-size: 14px;
+  }
+
+  .input {
+    width: 100%;
+    margin: 0;
+    padding: 6px;
+    font-size: 14px;
+  }
+
+  .filter_employeelist {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .filter_employeelist > input {
+    margin-left: 2vw;
+    width: 95%;
+    height: auto;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .back {
+    top: 10.7vh;
+    right: 5vw;
+    width: auto;
+    height: 3vh;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  .background-list > h1 {
+    font-size: 5vw;
+    margin: 10px;
+  }
+
+  .edit-delete-button-list {
+    gap: 5px;
+  }
+
+  .popup {
+    width: 80%;
+    left: 10%;
+    height: auto;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .confirm-delete-list,
+  .cancel-delete-list {
+    margin-top: 10px;
+    margin-left: 0;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .modal {
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .modal-content > h2 {
+    font-size: 16px;
+  }
+
+  .form-data-list {
+    gap: 10px;
+  }
+
+  .form-data-list input {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  button[type="submit"],
+  button[type="button"] {
+    width: 100%;
+  }
+}
+
+/* Large Tablets and Small Laptops (768px to 1023.98px) */
+@media (min-width: 700px) and (max-width: 1024px) {
+  .filter_employeelist > input {
+    margin-left: 25vw;
+    width: 50vw;
+    height: 4vh;
+    /* border: none; */
+    border-radius: 0.5vw;
+    padding: 1vh 1vw;
+    outline: none;
+  }
+  .filter_employeelist {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .back {
+    position: absolute;
+    top: 3.5vh;
+    right: 8vw;
+    background-image: linear-gradient(rgba(0, 0, 207, 0.849), rgb(0, 110, 255));
+    width: 6vw;
+    height: 2.8vh;
+    font-weight: 500;
+    border-radius: 0.2vw;
+    padding-left: 1vw;
+    color: white;
+  }
 }

@@ -3,15 +3,73 @@
   background-image: url(../public/b2.jpeg);
   height: auto;
 }
-/* .month-holidays > h2,
-h3 {
+
+.calen-table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 20px 5vw;
+  font-size: 16px;
+  text-align: left;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+}
+
+.calen-table th,
+.calen-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+.calen-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.calen-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.calen-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.calen-table tbody tr:hover {
+  background-color: #e6f7ff;
+  cursor: pointer;
+}
+
+.calen-table .delete-btn {
+  background-color: #ff4d4f;
+  color: #ffffff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.calen-table .delete-btn:hover {
+  background-color: #d9363e;
+}
+
+.calen-table .delete-btn:focus {
+  outline: none;
+  box-shadow: 0px 0px 4px rgba(255, 77, 79, 0.7);
+}
+
+.display-num-holidays {
   font-size: larger;
   font-weight: 500;
   color: white;
   margin: 2vh;
-} */
-
-/* .yearly-holidays > h2,
+}
+/*
+.yearly-holidays > h2,
 p {
   color: white;
   font-size: large;
@@ -117,5 +175,93 @@ p {
 @media (min-width: 768px) {
   .react-calendar__tile {
     height: 50px; /* Slightly larger tiles on larger screens */
+  }
+}
+
+/* Holidays.css - Mobile View */
+@media (max-width: 575.98px) {
+  .background-div-holidays {
+    background-image: url(../public/b2.jpeg);
+    height: auto;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .calen-table {
+    width: 95%;
+    font-size: 14px;
+    margin: 10px 2.5%;
+  }
+
+  .calen-table th,
+  .calen-table td {
+    padding: 8px;
+  }
+
+  .display-num-holidays {
+    font-size: medium;
+    margin: 2vh 1vw;
+  }
+
+  .input-holiday-detail {
+    margin: 3vh 2.5%;
+    width: 95%;
+    padding: 2vh 1vw;
+  }
+
+  .input-holiday-detail > h1 {
+    font-size: medium;
+    margin-left: 0;
+  }
+
+  .input-holiday-detail > button {
+    margin-top: 1vh;
+    font-size: medium;
+  }
+
+  .calender-container-add-holiday {
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 136, 0.1);
+    border-right: none;
+  }
+
+  .holiday-view-table {
+    width: 100%;
+    margin-bottom: 2vh;
+  }
+
+  .react-calendar {
+    width: 95%;
+    margin-left: 2.5%;
+    padding: 8px;
+    border-radius: 15px;
+  }
+
+  .react-calendar__tile {
+    width: calc(14% - 4px); /* Adjust tiles for smaller screens */
+    height: 30px;
+  }
+
+  .react-calendar__month-view__days__day {
+    font-size: 16px;
+    margin: 2px;
+    padding: 4px;
+    border-radius: 6px;
+  }
+
+  .react-calendar__month-view__weekdays {
+    font-size: 12px;
+    padding: 2px 0;
+  }
+
+  .react-calendar__navigation button {
+    padding: 3px 5px;
+    font-size: 14px;
+  }
+
+  .holiday {
+    font-size: 12px;
+    padding: 3px;
   }
 }

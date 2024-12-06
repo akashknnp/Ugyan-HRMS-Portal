@@ -8,6 +8,17 @@ const UpdateRequest = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
+  const navigate1 = new useNavigate();
+    useEffect(() => {
+      // Check the login status from localStorage
+      const loginFlag = localStorage.getItem("loginFlag");
+  
+      // If the loginFlag is not set or false, redirect to the login page
+      console.log("login flag in dashboard",loginFlag)
+      if (loginFlag=="false") {
+        navigate1('/logout1');
+      }
+    }, [navigate1]); 
   // Form state
   const [leaveType, setLeaveType] = useState('');
   const [startDate, setStartDate] = useState('');
@@ -103,23 +114,23 @@ const UpdateRequest = () => {
   };
 
   return (
-    <div className="main-addrequest">
-      <div className="form-addrequest">
-        <div className="simple-nav">
+    <div className="main-updaterequest-form">
+      <div className="form-updaterequest">
+        <div className="simple-nav-update">
           <h1>Update Leave</h1>
           <Link to="/requests">
-            <div className="simple-nav-icon">
+            <div className="simple-nav-icon-update">
               <i><AiTwotoneCloseSquare /></i>
             </div>
           </Link>
         </div>
-        <div className="leave-addrequest">
+        <div className="leave-addrequest-update">
           <h1>Leave</h1>
           <hr />
           <form>
-            <div className='dropdown-leavetype'>
-              <div><label className="form-label" htmlFor="leave-type">Leave Type</label></div>
-              <div><Select className='form-input-leave'
+            <div className='dropdown-leavetype-update'>
+              <div><label className="form-label-update" htmlFor="leave-type">Leave Type</label></div>
+              <div><Select className='form-input-leave-update'
                 options={leaveOptions}
                 value={leaveOptions.find(option => option.value === leaveType)} // Set selected value
                 onChange={(selectedOption) => setLeaveType(selectedOption.value)}
@@ -128,7 +139,7 @@ const UpdateRequest = () => {
                 required
               /></div><br /><br />
             </div>
-            <label className="form-label" htmlFor="date">Date</label>
+            <label className="form-label-update" htmlFor="date">Date</label>
             <input
               className="form-date-1"
               type="date"
@@ -144,9 +155,9 @@ const UpdateRequest = () => {
               required
             /><br /><br />
 
-            <label className="form-label" htmlFor="email">Email ID</label>
+            <label className="form-label-update" htmlFor="email">Email ID</label>
             <input
-              className="form-input-email"
+              className="form-input-email-update"
               id="form-input-2"
               type="email"
               value={email}
@@ -155,8 +166,8 @@ const UpdateRequest = () => {
             /><br /><br />
 
             <div className="form-label-textbox">
-              <div className="form-label-reason">
-                <label htmlFor="reason">Reason for Leave</label>
+              <div className="form-label-reason-update">
+                <label htmlFor="reason" className='form-label-update'>Reason for Leave</label>
               </div>
               <div>
                 <textarea
@@ -171,7 +182,7 @@ const UpdateRequest = () => {
           </form>
         </div>
         {message && (
-            <div className={`message ${messageType}`}>
+            <div className={`message1 ${messageType}`}>
               {message}
             </div>
           )}

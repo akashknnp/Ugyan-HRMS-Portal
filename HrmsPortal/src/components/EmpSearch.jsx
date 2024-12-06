@@ -1,8 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "../EmpSearch.css";
+import { useNavigate } from 'react-router-dom';
 
 const EmpSearch = () => {
+
+  const navigate = new useNavigate();
+    useEffect(() => {
+      // Check the login status from localStorage
+      const loginFlag = localStorage.getItem("loginFlag");
+  
+      // If the loginFlag is not set or false, redirect to the login page
+      console.log("login flag in dashboard",loginFlag)
+      if (loginFlag=="false") {
+        navigate('/logout1');
+      }
+    }, [navigate]); 
+
+
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedEmployee, setSelectedEmployee] = useState(null); // Selected employee to show details

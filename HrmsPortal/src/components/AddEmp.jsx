@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import "../AddEmp.css";
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const EmployeeForm = () => {
   const [formData, setFormData] = useState({
@@ -85,6 +86,17 @@ const EmployeeForm = () => {
       console.error('Error:', error);
     }
   };
+  const navigate = new useNavigate();
+    useEffect(() => {
+      // Check the login status from localStorage
+      const loginFlag = localStorage.getItem("loginFlag");
+  
+      // If the loginFlag is not set or false, redirect to the login page
+      console.log("login flag in dashboard",loginFlag)
+      if (loginFlag=="false") {
+        navigate('/logout1');
+      }
+    }, [navigate]); 
 
   return (
     <div className='background_add'>

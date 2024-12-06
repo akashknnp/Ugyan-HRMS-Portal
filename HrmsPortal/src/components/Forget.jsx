@@ -93,12 +93,12 @@ const Forget = () => {
               value={email1} 
               onChange={handleEmailChange}
               required
-            /><div className={`message ${isError ? 'error' : 'success'}`}>
+            /><div className={`message1 ${isError ? 'error' : 'success'}`}>
             {message}
           </div>
             <div className='forget-button'>
               <button onClick={handleButtonCancel} className="cancel-button" type='button'>Cancel</button>
-              <button onClick={handleButtonClick} className="search-button" type='submit'>Search</button>
+              <button onClick={handleButtonClick} className="search-button" type='submit'>Submit</button>
             </div>
           </form>
           {/* Pop-up message */}

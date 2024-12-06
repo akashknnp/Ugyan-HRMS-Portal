@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import logo from "../assets/ugyanlogobg_enhanced-transformed.png";
+// import logo from "../assets/ugyanlogobg_enhanced-transformed.png";
+import logo from "../assets/UGYAN1.png";
+import logo1 from "../assets/ugyanlogoo.jpg"
 import { MdPerson } from "react-icons/md";
 import { IoIosPeople } from "react-icons/io";
 import { SlCalender } from "react-icons/sl";
@@ -12,8 +14,31 @@ import { CgLogOut } from "react-icons/cg";
 import { BiCalendarExclamation } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";  
 import "../Requests.css";
+import { CgProfile } from "react-icons/cg";
 
 const Requests = () => {
+  const [userName, setUserName] = useState('');
+  useEffect(() => {
+    const storedUserDetails = localStorage.getItem('userDetails');
+    if (storedUserDetails) {
+      const userDetails = JSON.parse(storedUserDetails); // Parse userDetails from JSON
+      if (userDetails && userDetails.first_name) {
+        setUserName(userDetails.first_name); // Update the userName with the name from userDetails
+      }
+    }
+  }, []);
+
+  const navigate1 = new useNavigate();
+    useEffect(() => {
+      // Check the login status from localStorage
+      const loginFlag = localStorage.getItem("loginFlag");
+  
+      // If the loginFlag is not set or false, redirect to the login page
+      console.log("login flag in dashboard",loginFlag)
+      if (loginFlag=="false") {
+        navigate1('/logout1');
+      }
+    }, [navigate1]); 
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -86,6 +111,10 @@ const Requests = () => {
     event.preventDefault();
     navigate('/AddRequest');
   };
+  const gotoprofile = (event) => {
+    event.preventDefault();  
+    navigate('/profile');
+}
 
   // Toggle mobile menu
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -93,11 +122,16 @@ const Requests = () => {
   return (
     <div className='outer-request'>
       <div className='header-request'>
-        <img src={logo} className='logo-request' alt="Ugyan Logo" />
+      <img src={logo}className='logo'></img> 
+      <img src={logo1}className='logo1-mobile'></img>
         <div><h1 className='title-bar-request'><Link to="/dashboard">Home</Link></h1></div>
         <div><p className='title-bar-request'><Link to="/about">About</Link></p></div>
         <div><p className='title-bar-request'>Designation</p></div>
         <div><p className='title-bar-request'>Clock In/Out</p></div>
+        <div>
+            <p className='title-bar-dashboard-profile' onClick={gotoprofile}><CgProfile className='profile-icon-dashboard'/></p>
+            <p className="login-user-name-profile">Hi {userName}</p>
+        </div>
         <div className="mobile-menu-icon-request" onClick={toggleMobileMenu}>
           <GiHamburgerMenu />
         </div>

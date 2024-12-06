@@ -1,5 +1,4 @@
 @media (min-width: 1024px) and (max-width: 1440px) {
-
   /* Background for centering the form */
   .background-div1-reset {
     background-image: url(../public/b2.jpeg);
@@ -68,7 +67,9 @@
     cursor: pointer;
     text-align: center;
   }
-
+  .password-field-wrapper {
+    display: flex;
+  }
   .submit-button-reset:hover {
     background-color: #2c3e50;
   }
@@ -85,7 +86,6 @@
   .error-reset {
     background-color: #ffe6e6;
     color: #ff2020;
-    
   }
 
   .success-reset {
@@ -111,7 +111,7 @@
     padding: 0.4rem;
     border-radius: 4px;
     font-size: 0.8rem;
-    width:25vw;
+    width: 25vw;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
   }
 }
@@ -137,7 +137,7 @@
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-    margin-top:0;
+    margin-top: 0;
   }
 
   /* Header text */
@@ -166,7 +166,9 @@
     color: #333;
     font-size: 0.9rem; /* Smaller font for labels */
   }
-
+  .password-field-wrapper {
+    display: flex;
+  }
   /* Input fields */
   .pwd-reset input {
     width: 100%;
@@ -174,6 +176,9 @@
     font-size: 0.9rem; /* Reduced font size */
     border: 1px solid #ccc;
     border-radius: 4px;
+  }
+  .password-field-wrapper > input {
+    width: 1100%;
   }
 
   /* Submit button */
@@ -252,17 +257,17 @@
 
   /* Main container */
   .reset-main-reset {
-    width: 70vw; 
+    width: 70vw;
     padding: 2rem;
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-top: 3vh;
   }
 
   /* Header text */
   .header-reset h1 {
-    font-size: 3rem; 
+    font-size: 3rem;
     font-weight: bold;
     color: #063970;
     text-align: center;
@@ -274,14 +279,12 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    
   }
 
   /* Password input section */
   .pwd-reset {
     font-size: xx-large;
     margin-bottom: 1rem;
-    
   }
 
   .pwd-reset label {

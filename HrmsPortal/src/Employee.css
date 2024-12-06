@@ -419,3 +419,62 @@
     right: 0;
   }
 }
+
+/* Large Tablets and Small Laptops (768px to 1023.98px) */
+@media (min-width: 700px) and (max-width: 1024px) {
+  .header-employee {
+    flex-wrap: wrap;
+    flex-direction: row; /* Stack elements vertically on tablets if needed */
+    align-items: center;
+    padding: 3vw;
+  }
+  .side-bar-employee {
+    width: 20%;
+    background-image: linear-gradient(to bottom right, #1c2043, #1e40af);
+  }
+
+  .list-items-div-employee {
+    width: 80%;
+    height: 10vh;
+    padding: 2vw;
+    margin: auto;
+    font-size: x-large;
+  }
+
+  .logo-employee {
+    width: 140vw; /* Increase logo size slightly for tablets */
+    height: 19vh;
+  }
+
+  .features-employee {
+    font-size: 22px;
+    margin: 5px;
+    text-align: center;
+  }
+
+  .employee-options {
+    flex-direction: column;
+    gap: 2vw;
+    margin: 1vw 0;
+  }
+
+  .dash-employee {
+    margin-top: 1vw;
+    margin-right: 2vw;
+  }
+
+  .outer-employee {
+    overflow-y: auto;
+  }
+
+  .side-bar-employee div:hover {
+    font-size: 35px; /* Scale hover effect down for tablets */
+  }
+
+  .mobile-menu-icon-employee {
+    display: none;
+  }
+  .title-bar-employee {
+    font-size: x-large;
+  }
+}

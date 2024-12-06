@@ -1,4 +1,4 @@
-.main-addrequest {
+.main-updaterequest-form {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -7,13 +7,13 @@
   background-color: black;
 }
 
-.form-addrequest {
+.form-updaterequest {
   height: 97.5vh;
   width: 98.5vw;
   background-color: #ebeef3;
   border-radius: 8px;
 }
-.simple-nav {
+.simple-nav-update {
   height: 10vh;
   width: 98.5vw;
   background-color: #ffffff;
@@ -22,19 +22,19 @@
   display: flex;
   justify-content: space-between;
 }
-.simple-nav h1 {
+.simple-nav-update h1 {
   font-size: 5vh;
   font-weight: 450;
   margin-left: 2vw;
   margin-top: 1vh;
 }
-.simple-nav-icon {
+.simple-nav-icon-update {
   margin-top: 2.6vh;
   font-size: 4.5vh;
   margin-right: 1.5vw;
   border-radius: 5px;
 }
-.leave-addrequest {
+.leave-addrequest-update {
   margin-top: 4vh;
   margin-left: 1.8vw;
   height: 60vh;
@@ -43,24 +43,24 @@
   border-radius: 7px;
   position: relative;
 }
-.leave-addrequest h1 {
+.leave-addrequest-update h1 {
   font-size: 3vh;
   padding: 12px 20px;
 }
-.leave-addrequest hr {
+.leave-addrequest-update hr {
   margin-bottom: 4vh;
 }
-.dropdown-leavetype {
+.dropdown-leavetype-update {
   display: flex;
   justify-content: space-between;
   margin-bottom: 2vh;
 }
-.form-input-leave {
+.form-input-leave-update {
   width: 44vw;
   border-radius: 5px;
   margin-left: 2vw;
 }
-.form-input-email {
+.form-input-email-update {
   width: 44vw;
   border: 1px solid lightgray;
   border-radius: 5px;
@@ -69,7 +69,7 @@
   padding: 0.5vh 0.7vw;
   outline-color: #0088ff;
 }
-.form-input-reason {
+.form-input-reason-update {
   width: 44vw;
   border: 1px solid lightgray;
   border-radius: 5px;
@@ -96,20 +96,11 @@
   margin-left: 2vw;
   padding: 0.5vh 0.7vw;
 }
-.form-label {
+.form-label-update {
   font-size: 2.5vh;
   font-weight: 500;
   margin-left: 1.4vw;
   color: #777;
-}
-.form-label-reason {
-  font-size: 2.5vh;
-  font-weight: 500;
-  margin-left: 1.5vw;
-  color: #777;
-  text-align: center;
-  margin-bottom: 2vh;
-  text-align: start;
 }
 .form-label-textbox {
   display: flex;
@@ -126,7 +117,7 @@
   bottom: 1.25vh;
   padding: 2vh 2vw;
 }
-.bottom-nav-submit {
+.bottom-nav-update {
   background-color: #0088ff;
   border: 2px solid #ebeef3;
   border-radius: 5px;
@@ -152,7 +143,7 @@
 }
 
 .message.success {
-  background-color: #d4edda;
+  background-color: #D4EDDA;
   color: #155724;
   border: 1px solid #c3e6cb;
 }

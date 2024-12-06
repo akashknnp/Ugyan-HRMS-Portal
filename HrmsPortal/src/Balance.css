@@ -1,0 +1,319 @@
+.menu-balance {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  background-image: url(../public/b2.jpeg);
+  object-fit: cover;
+  padding: 0.5vw;
+  height: 100vh;
+}
+
+.side-bar-balance div {
+  color: white;
+}
+
+.dash-balance {
+  display: flex;
+  justify-content: flex-end;
+  top: 20px;
+  margin-right: 30px;
+  margin-top: 10px;
+}
+
+.side-bar-balance div:hover {
+  background-color: #607d99;
+  font-size: 50px;
+  cursor: pointer;
+}
+.title-bar-balance {
+  font-size: 2vw;
+  padding-top: 0.7vw;
+  color: white;
+  margin-right: 2vw;
+}
+.outer-balance {
+  height: 100vh;
+  overflow-y: hidden;
+}
+.logo-balance {
+  width: 19.8vw;
+  height: 12vh;
+  display: flex;
+  justify-content: start;
+  background-color: white;
+  background-image: linear-gradient(#1e40af, #1d2e73);
+  object-fit: cover;
+  padding-top: 1vh;
+}
+.features-balance {
+  display: flex;
+  font-size: 23px;
+  margin-top: 9px;
+  margin-left: 10px;
+  right: 0;
+}
+
+.header-balance {
+  display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient(to bottom right, #1e40af, #1c2043);
+}
+.main-balance {
+  display: flex;
+}
+.side-bar-balance {
+  width: 20%;
+  background-image: linear-gradient(to bottom right, #1c2043, #1e40af);
+}
+.leave-balance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  text-align: left;
+  background-color: #f9f9f9;
+}
+
+.leave-balance-table thead {
+  background-color: #1d2c6c;
+  color: white;
+}
+
+.leave-balance-table th,
+.leave-balance-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+.leave-balance-table th {
+  position: sticky;
+  top: 0; /* Keeps the header fixed while scrolling */
+  z-index: 2;
+}
+
+.leave-balance-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.leave-balance-table tbody tr:hover {
+  background-color: #ddd;
+  transition: background-color 0.3s ease;
+}
+
+.leave-balance-table td {
+  text-align: center;
+}
+
+.leave-balance-table th {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.menu-balance {
+  max-width: 90%;
+  overflow-x: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  background: #fff;
+}
+
+.menu-balance p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+/*////////THiS is for responsive side-bar for mobiles*/
+@media (max-width: 768px) {
+  .side-bar-balance {
+    display: none;
+  }
+
+  .mobile-menu-icon-balance {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    margin-right: 2vw;
+    margin-top: 2vw;
+  }
+
+  .mobile-dropdown-balance {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    width: 100%;
+  }
+
+  .mobile-dropdown-balance a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid #eee;
+  }
+
+  .mobile-dropdown-balance a:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+/* For larger screens, hide mobile menu icon */
+@media (min-width: 769px) {
+  .mobile-menu-icon-balance {
+    display: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  /* Add styles for phones here */
+  /* Mobile Screen (max-width: 575.98px) */
+  @media (max-width: 575.98px) {
+    .menu-balance {
+      width: 100%;
+      height: 70vh;
+      padding: 4vw;
+      background-size: cover;
+    }
+
+    .side-bar-balance {
+      width: 100%;
+      display: none; /* Hide sidebar on mobile */
+    }
+
+    .side-bar-balance div {
+      font-size: 4vw;
+    }
+
+    .mobile-menu-icon-balance {
+      padding-bottom: 1vh;
+    }
+    .dash-balance {
+      justify-content: center;
+      margin: 0;
+    }
+
+    .side-bar-balance div:hover {
+      font-size: 4.5vw;
+    }
+
+    .title-bar-balance {
+      font-size: 4vw;
+      font-weight: 700;
+      padding: 1vw;
+      text-align: center;
+      margin: 0;
+    }
+
+    .outer-balance {
+      height: auto;
+      overflow-y: auto;
+    }
+
+    .logo-balance {
+      width: 100%;
+      height: auto;
+      justify-content: center;
+      padding: 2vw;
+    }
+
+    .features-balance {
+      font-size: 4vw;
+      margin: 0;
+      text-align: center;
+    }
+
+    .header-balance {
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      padding: 2vw;
+    }
+
+    .main-balance {
+      display: block;
+      height: auto;
+    }
+  }
+}
+
+/* Medium Devices (tablets, 576px to 767.98px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  /* Add styles for tablets here */
+}
+
+/* Large Tablets and Small Laptops (768px to 1023.98px) */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  /* Add styles for large tablets and small laptops here */
+}
+
+/* Laptops (1024px to 1279.98px) */
+@media (min-width: 1024px) {
+  /* Add styles for laptops here */
+  .menu-balance {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../public/b2.jpeg);
+    object-fit: cover;
+    padding: 0.5vw;
+    height: 100vh;
+  }
+
+  .side-bar-balance div {
+    color: white;
+  }
+
+  .dash-balance {
+    display: flex;
+    justify-content: flex-end;
+    top: 20px;
+    margin-right: 30px;
+    margin-top: 10px;
+  }
+
+  .side-bar-balance div:hover {
+    background-color: #607d99;
+    font-size: 50px;
+    cursor: pointer;
+  }
+  .title-bar-balance {
+    font-size: 2vw;
+    padding-top: 0.7vw;
+    color: white;
+    margin-right: 2vw;
+  }
+  .outer-balance {
+    height: 100vh;
+    overflow-y: hidden;
+  }
+  .logo-balance {
+    width: 19.8vw;
+    height: 12vh;
+    display: flex;
+    justify-content: start;
+    background-color: white;
+  }
+  .features-balance {
+    display: flex;
+    font-size: 23px;
+    margin-top: 9px;
+    margin-left: 10px;
+    right: 0;
+  }
+
+  .header-balance {
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(to bottom right, #1e40af, #1c2043);
+  }
+  .main-balance {
+    display: flex;
+  }
+  .side-bar-balance {
+    width: 20%;
+    background-image: linear-gradient(to bottom right, #1c2043, #1e40af);
+  }
+}

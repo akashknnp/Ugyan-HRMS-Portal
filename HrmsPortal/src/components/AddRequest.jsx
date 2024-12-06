@@ -23,6 +23,18 @@ const AddRequest = () => {
   const [leaveRequests, setLeaveRequests] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+
+  const navigate1 = new useNavigate();
+    useEffect(() => {
+      // Check the login status from localStorage
+      const loginFlag = localStorage.getItem("loginFlag");
+  
+      // If the loginFlag is not set or false, redirect to the login page
+      console.log("login flag in dashboard",loginFlag)
+      if (loginFlag=="false") {
+        navigate1('/logout1');
+      }
+    }, [navigate]); 
   // Dropdown options for leave types
   const leaveOptions = [
     { value: 'Casual Leave', label: 'Casual Leave' },
@@ -102,9 +114,9 @@ const AddRequest = () => {
   };
 
   return (
-    <div className="main-addrequest">
-      <div className="form-addrequest">
-        <div className="simple-nav">
+    <div className="main-addrequest-form">
+      <div className="form-addrequest-leave">
+        <div className="simple-nav-leave">
           <h1>Apply Leave</h1>
           <Link to="/requests">
             <div className="simple-nav-icon">
@@ -112,12 +124,12 @@ const AddRequest = () => {
             </div>
           </Link>
         </div>
-        <div className="leave-addrequest">
+        <div className="leave-addrequest-form">
           <h1>Leave</h1>
           <hr />
-          <form>
+          <form className='form-for-request'>
             <div className='dropdown-leavetype'>
-              <div><label className="form-label" htmlFor="leave-type">Leave Type</label></div>
+              <div><label className="form-label-leave" htmlFor="leave-type">Leave Type</label></div>
               <div><Select className='form-input-leave'
                 options={leaveOptions}
                 onChange={(selectedOption) => setLeaveType(selectedOption.value)}
@@ -126,7 +138,7 @@ const AddRequest = () => {
                 required
               /></div><br /><br />
             </div>
-            <label className="form-label" htmlFor="date">Date</label>
+            <label className="form-label-leave" htmlFor="date">Date</label>
             <input
               className="form-date-1"
               type="date"
@@ -142,7 +154,7 @@ const AddRequest = () => {
               required
             /><br /><br />
 
-            <label className="form-label" htmlFor="email">Email ID</label>
+            <label className="form-label-leave" htmlFor="email">Email ID</label>
             <input
               className="form-input-email"
               id="form-input-2"
@@ -153,8 +165,8 @@ const AddRequest = () => {
             /><br /><br />
 
             <div className="form-label-textbox">
-              <div className="form-label-reason">
-                <label htmlFor="reason">Reason for Leave</label>
+              <div className="form-label-reason-leave">
+                <label htmlFor="reason" className='form-label-leave'>Reason for Leave</label>
               </div>
               <div>
                 <textarea

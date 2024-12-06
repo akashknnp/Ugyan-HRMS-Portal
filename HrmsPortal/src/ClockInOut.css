@@ -1,0 +1,92 @@
+.background-in-out {
+  background-image: url(../public/b2.jpeg);
+  height: 100vh;
+}
+
+.background-in-out > h2 {
+  color: white;
+  font-size: 2vw;
+  text-align: center;
+  padding-top: 1vh;
+}
+.in-out-search {
+  background-color: rgba(1, 37, 153, 0.123);
+  padding: 1vw;
+  width: 30%;
+  margin-left: 35vw;
+  border-radius: 1vw;
+}
+.in-out-search > label {
+  color: white;
+}
+.in-out-check {
+  color: white;
+  background-color: rgb(0, 110, 253);
+  margin-left: 36vw;
+  height: 7vh;
+}
+.back-in-out {
+  background-color: rgb(0, 110, 255);
+  position: absolute;
+  right: 2vw;
+  top: 5vh;
+  color: white;
+}
+/* Table Container */
+.table-in-out {
+  width: 90%;
+  border-collapse: collapse;
+  margin: 20px 5vw;
+  font-size: 16px;
+  text-align: left;
+  background-color: #f9f9f9;
+}
+
+/* Header */
+.thead-in-out {
+  background-color: #0f0b46;
+  color: white;
+  border: 1px solid white;
+}
+
+.tr-in-out {
+  border-bottom: 1px solid #ddd;
+}
+
+.th-in-out {
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Body */
+.tbody-in-out .tr-in-out:hover {
+  background-color: #f1f1f1;
+}
+
+.td-in-out {
+  padding: 10px;
+  text-align: center;
+}
+
+/* Alternating Row Colors */
+.tbody-in-out .tr-in-out:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.in-out-error-message {
+  background-color: white;
+  margin: 2vw;
+  padding: 1vw;
+  width: 20%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .table-in-out {
+    font-size: 14px;
+  }
+  .th-in-out,
+  .td-in-out {
+    padding: 8px;
+  }
+}

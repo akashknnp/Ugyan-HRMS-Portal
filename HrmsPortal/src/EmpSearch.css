@@ -75,3 +75,98 @@
   color: white;
   text-align: center;
 }
+
+@media (min-width: 576px) and (max-width: 1024px) {
+  .back-link-search {
+    position: absolute;
+    width: 6vw;
+    height: 3vh;
+    background-color: blue;
+    padding-bottom: 1vh;
+    color: white;
+    font-weight: 500;
+    top: 7vh;
+    right: 5.5vw;
+    border-radius: 0.5vw;
+    text-align: center;
+  }
+  .emp-detail-search {
+    text-align: center;
+    margin-top: 5vh;
+    background-color: rgba(130, 130, 130, 0.472);
+    width: 40vw;
+    align-items: center;
+    margin-left: 33vw;
+    height: 30vh;
+    border: 1px solid black;
+  }
+}
+
+/* Mobile View - Employee Search */
+@media (max-width: 575.98px) {
+  .back-link-search {
+    width: auto;
+    height: auto;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    top: 1vh;
+    right: 4.6vw;
+    border-radius: 5px;
+  }
+
+  .filter_empsearch {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 2vh;
+  }
+
+  .filter_empsearch > input {
+    width: 90%;
+    margin: 0;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .filter_empsearch > button {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px;
+    width: 90%;
+  }
+
+  .background-emp-search {
+    background-size: cover;
+    background-position: center;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .heading-search {
+    font-size: 5vw;
+    padding: 1vh;
+  }
+
+  .emp-detail-search {
+    width: 80%;
+    margin: 5vh auto;
+    height: auto;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .emp-detail-search > h2 {
+    font-size: 4vw;
+    margin-bottom: 4vh;
+  }
+
+  .emp-detail-search > p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .error-list {
+    font-size: 4vw;
+  }
+}

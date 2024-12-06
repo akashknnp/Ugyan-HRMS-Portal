@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import logo from "../assets/ugyanlogobg_enhanced-transformed.png";
+// import logo from "../assets/ugyanlogobg_enhanced-transformed.png";
+import logo from "../assets/UGYAN1.png";
+import logo1 from "../assets/ugyanlogoo.jpg"
 import { Link } from 'react-router-dom';
 import { MdPerson } from "react-icons/md";
 import { IoIosPeople } from "react-icons/io";
@@ -12,12 +14,31 @@ import { CgLogOut } from "react-icons/cg";
 import { BiCalendarExclamation } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi"; 
 import axios from 'axios';
+import { CgProfile } from "react-icons/cg";
+import { useNavigate } from 'react-router-dom';
 
 const Approval = () => {
+
+  const gotoprofile = (event) => {
+    event.preventDefault();  
+    navigate('/profile');
+}
   
+const navigate = new useNavigate();
+    useEffect(() => {
+      // Check the login status from localStorage
+      const loginFlag = localStorage.getItem("loginFlag");
+  
+      // If the loginFlag is not set or false, redirect to the login page
+      console.log("login flag in dashboard",loginFlag)
+      if (loginFlag=="false") {
+        navigate('/logout1');
+      }
+    }, [navigate]); 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [requests, setRequests] = useState([]);
     const [message, setMessage] = useState('');
+    const [userName, setUserName] = useState('');
 
     useEffect(() => {
       const fetchRequests = async () => {
@@ -106,11 +127,37 @@ const Approval = () => {
         }
       }, [message]);
 
+      useEffect(() => {
+        const storedUserDetails = localStorage.getItem('userDetails');
+        if (storedUserDetails) {
+          const userDetails = JSON.parse(storedUserDetails); // Parse userDetails from JSON
+          if (userDetails && userDetails.first_name) {
+            setUserName(userDetails.first_name); // Update the userName with the name from userDetails
+          }
+        }
+      }, []);
+
+      const [userRole, setUserRole] = useState('');  // Logged-in user's role
+
+  // Simulate fetching user role from authentication/session
+  useEffect(() => {
+    const roleFromSession = localStorage.getItem('userRole');// Simulate getting from session
+    if (roleFromSession) {
+      setUserRole(roleFromSession);  // Set role from session/local storage
+    } else {
+      // If no role found, set default or handle authentication redirection
+      setUserRole(''); 
+    }
+  }, []);
+
+     
+
     return (
     <div className='outer-approval'>
         <div className='header-approval'>
             
-                <img src={logo}className='logo-approval'></img>
+        <img src={logo}className='logo'></img> 
+        <img src={logo1}className='logo1-mobile'></img>
             
             <div>
             <h1 className='title-bar-approval'><Link to="/dashboard">Home</Link></h1>
@@ -123,6 +170,10 @@ const Approval = () => {
         </div>
         <div>
             <p className='title-bar-approval'>Clock In/Out</p>
+        </div>
+        <div>
+            <p className='title-bar-dashboard-profile' onClick={gotoprofile}><CgProfile className='profile-icon-dashboard'/></p>
+            <p className="login-user-name-profile">Hi {userName}</p>
         </div>
         <div className="mobile-menu-icon-approval" onClick={toggleMobileMenu}>
             <GiHamburgerMenu />
@@ -170,7 +221,7 @@ const Approval = () => {
                     <th>Email</th>
                     <th>Reason</th>
                     <th>Status</th> 
-                    <th>Approval</th>
+                    { (userRole === 'HR' || userRole === 'Admin') && <th>Approval</th> }
                   </tr>
                 </thead>
                 <tbody>
@@ -182,10 +233,12 @@ const Approval = () => {
                       <td>{request.email}</td>
                       <td>{request.reason}</td>
                       <td>{request.status}</td>
+                      { (userRole === 'HR' || userRole === 'Admin') && (
                       <td>
                       <button onClick={() => handleApprove(request.id)} className="approved-btn">Approve</button>
                       <button onClick={() => handleDeny(request.id)} className="denied-btn">Deny</button>
                       </td>
+                      )}
                     </tr>
                   ))}
                 </tbody>

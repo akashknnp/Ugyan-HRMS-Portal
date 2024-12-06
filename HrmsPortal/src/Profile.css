@@ -1,12 +1,19 @@
 .profile-container {
   padding: 20px;
   font-family: Arial, sans-serif;
-  max-width: 800px;
+  width: 800px;
   margin: auto;
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
+  background-color: rgba(255, 255, 255, 0.507);
+  position: absolute;
+  left: 22vw;
+  top: 3vh;
+}
+.background-div-profile {
+  background-image: url(../public/b2.jpeg);
+  height: 100vh;
 }
 
 .profile-header {
@@ -19,6 +26,10 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+
+  padding-left: 17vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
 }
 
 .profile-picture {
@@ -26,22 +37,26 @@
   width: 100px;
   height: 100px;
   margin-right: 20px;
-  border: 2px solid #007bff;
+  border: 2px solid #03448a;
+  object-fit: cover;
 }
 
 .profile-info h2 {
   margin: 0;
   font-size: 20px;
-  color: #333;
+  color: white;
 }
 
 .profile-info p {
   margin: 5px 0;
-  color: #555;
+  color: black;
+  font-weight: 500;
+  font-size: larger;
 }
 
 .profile-details {
   margin-top: 20px;
+  margin-right: 5vw;
 }
 
 .profile-details p {
@@ -51,5 +66,24 @@
 }
 
 .profile-details strong {
-  color: #007bff;
+  color: #002f61;
+}
+
+.profile-table {
+  width: 90%;
+  border-collapse: collapse;
+  background-color: rgba(236, 226, 226, 0.541);
+  border-radius: 1vw;
+}
+
+.profile-table td,
+.profile-table th {
+  padding: 8px;
+  text-align: left;
+  border: none; /* Remove borders */
+}
+
+.profile-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
 }

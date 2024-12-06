@@ -23,6 +23,11 @@ import { useNavigate } from 'react-router-dom'
 
 
 const Dashboard = () => {
+  
+  const [userRole,setUserRole]=useState("");
+  const [statusMessage,setStatusMessage]=useState("");
+  const [userName, setUserName] = useState('');
+  
     const navigate = useNavigate();
 
     const gotoprofile = (event) => {
@@ -30,7 +35,17 @@ const Dashboard = () => {
         navigate('/profile');
     }
 
-    
+    useEffect(() => {
+      // Check the login status from localStorage
+      const loginFlag = localStorage.getItem("loginFlag");
+  
+      // If the loginFlag is not set or false, redirect to the login page
+      console.log("login flag in dashboard",loginFlag)
+      if (loginFlag=="false") {
+        navigate('/logout1');
+      }
+    }, [navigate]);  // Dependency array ensures this effect runs only once on component mount
+  
 
     //------ total number of emp---------//
 
@@ -182,12 +197,12 @@ const [newJoiners, setNewJoiners] = useState(0);
   }, [isCounting, timeLeft]);
 
   // Format time in hh:mm:ss
-  const formatTime = () => {
-    const hours = Math.floor(timeLeft / 3600);
-    const minutes = Math.floor((timeLeft % 3600) / 60);
-    const seconds = timeLeft % 60;
-    return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-  };
+  // const formatTime = () => {
+  //   const hours = Math.floor(timeLeft / 3600);
+  //   const minutes = Math.floor((timeLeft % 3600) / 60);
+  //   const seconds = timeLeft % 60;
+  //   return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+  // };
 
   // Handlers for buttons
   const handleStart = () => setIsCounting(true);
@@ -195,6 +210,328 @@ const [newJoiners, setNewJoiners] = useState(0);
   const handleReset = () => {
   setIsCounting(false);
   setTimeLeft(initialTimeInSeconds);
+  };
+//  ----------------------role based----------------
+
+useEffect(() => {
+  const roleFromSession = localStorage.getItem('userRole');// Simulate getting from session
+  if (roleFromSession) {
+    setUserRole(roleFromSession);  // Set role from session/local storage
+  } else {
+    // If no role found, set default or handle authentication redirection
+    setUserRole(''); 
+  }
+}, []);
+
+useEffect(() => {
+  const storedUserDetails = localStorage.getItem('userDetails');
+  if (storedUserDetails) {
+    const userDetails = JSON.parse(storedUserDetails); // Parse userDetails from JSON
+    if (userDetails && userDetails.first_name) {
+      setUserName(userDetails.first_name); // Update the userName with the name from userDetails
+    }
+  }
+}, []);
+
+
+const [leaveCount, setLeaveCount] = useState(0);
+    const [lastRefreshTime, setLastRefreshTime] = useState(null); // State for last refresh time
+
+    const fetchLeaveCount = () => {
+        fetch(`${import.meta.env.VITE_API_URL}leave/get-leave-count/`)
+            .then((response) => response.json())
+            .then((data) => {
+                setLeaveCount(data.leave_count);
+                setLastRefreshTime(new Date()); // Update the last refresh time
+            })
+            .catch((error) => console.error('Error fetching leave count:', error));
+    };
+
+    useEffect(() => {
+        // Fetch leave count initially when the component mounts
+        fetchLeaveCount();
+
+        // Set an interval to fetch data every 1 hour (3600000ms)
+        const intervalId = setInterval(() => {
+            fetchLeaveCount();
+        }, 3600000);
+
+        // Cleanup interval on component unmount
+        return () => clearInterval(intervalId);
+    }, []);
+    const clearMessage = () => {
+      setTimeout(() => setStatusMessage(""),50000);
+    };
+
+    const handleClockOut = async () => {
+      try {
+        // Retrieve the user details from localStorage
+        const userDetails = JSON.parse(localStorage.getItem('userDetails'));
+    
+        // Check if userDetails and userDetails.id are available
+        if (!userDetails || !userDetails.id) {
+          setStatusMessage('User details are missing. Please log in first.');
+          clearMessage();
+          return;
+        }
+    
+        // Extract the ID from userDetails
+        const { id } = userDetails;
+    
+        // Make the API request to clock out with the user ID
+        const response = await fetch(`${import.meta.env.VITE_API_URL}dashboard/clock-out/`, {
+          method: 'POST', // Using POST to match the backend request method
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ E_id: id }), // Sending E_id in the request body
+        });
+    
+        // Parse the response data
+        const data = await response.json();
+    
+        // Handle the response based on whether the request was successful or not
+        if (response.ok) {
+          setStatusMessage(`Success: ${data.message}\nLogout Time: ${data.logout_time}`);
+        } else {
+          setStatusMessage(`Error: ${data.message}`);
+        }
+        clearMessage();
+      } catch (error) {
+        console.error('Error during clock-out:', error);
+        setStatusMessage('An error occurred. Please try again later.');
+        clearMessage();
+      }
+    };
+
+
+  // Fetch the user role from localStorage on component mount
+  useEffect(() => {
+    const userDetails = JSON.parse(localStorage.getItem('userDetails'));
+    if (userDetails && userDetails.role) {
+          setUserRole(userDetails.role);
+        }
+    }, []);
+
+
+    
+
+    const handleClockIn = async () => {
+      try {
+        console.log("inside try")
+        // Retrieve the user details from localStorage
+        const userDetails = JSON.parse(localStorage.getItem('userDetails'));
+        console.log("user-details",userDetails)
+        // Check if userDetails and userDetails.id are available
+        if (!userDetails || !userDetails.id) {
+          setStatusMessage('User details are missing. Please log in first.');
+          clearMessage();
+          return;
+        }
+    
+        // Extract the ID from userDetails
+        const { id } = userDetails;
+        console.log("id",id)
+    
+        // Make the API request to clock in with the user ID
+        const response = await fetch(`${import.meta.env.VITE_API_URL}dashboard/clock-in/`, {
+          method: 'POST', // Changed to POST to match the backend
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ E_id: id }), // Sending E_id in the request body
+        });
+        console.log("response ",response)
+    
+        // Parse the response data
+        const data = await response.json();
+        console.log("data",data)
+    
+        // Handle the response based on whether the request was successful or not
+        if (response.ok) {
+          setStatusMessage(`Success:${data.message}\nLogin Time: ${data.login_time}\nShift End Time: ${data.shift_end_time}`);
+          console.log("error message",{statusMessage})
+        } else {
+          setStatusMessage(`Error: ${data.message}`);
+        }
+        clearMessage();
+      } catch (error) {
+        console.error('Error during clock-in:', error);
+        setStatusMessage('An error occurred. Please try again later.');
+        clearMessage();
+      }
+    };
+    
+    const handleResetLoginAttempts = async () => {
+      try {
+        const userDetails = JSON.parse(localStorage.getItem('userDetails'));
+  
+        if (!userDetails || !userDetails.id) {
+          setStatusMessage('User details are missing. Please log in first.');
+          clearMessage();
+          return;
+        }
+  
+        const { id } = userDetails;
+  
+        const response = await fetch(`${import.meta.env.VITE_API_URL}dashboard/reset-attempts/`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ E_id: id }),
+        });
+  
+        const data = await response.json();
+  
+        console.log('Response:', data);
+  
+        if (response.ok) {
+          setStatusMessage(`Success: ${data.message}\nRemaining Resets: ${data.remaining_resets}\nResets Used: ${data.reset_attempts_used}`);
+        } else {
+          setStatusMessage(`Error: ${data.message}`);
+        }
+        clearMessage();
+      } catch (error) {
+        console.error('Error during reset login attempts:', error);
+        setStatusMessage('An error occurred. Please try again later.');
+        clearMessage();
+      }
+    };
+    
+
+    const [formMessage, setFormMessage] = useState(null); 
+  const [monthlyTarget, setMonthlyTarget] = useState(null);
+  const [formData, setFormData] = useState({
+    emp_id: "",
+    month: "",
+    year: "",
+    target_value: "",
+    actual_value: "",
+    status: "Pending",
+  });
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [showForm, setShowForm] = useState(false); // To toggle form visibility
+
+  // Fetch the current monthly target from the backend
+  useEffect(() => {
+    const fetchMonthlyTarget = async () => {
+      try {
+        // Retrieve userDetails from localStorage
+        const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+        
+        if (!userDetails || !userDetails.id) {
+          console.error("Employee ID not found in localStorage");
+          return;
+        }
+
+        const empId = userDetails.id; // Fetch emp_id from userDetails
+
+        // Construct the URL with the emp_id query parameter
+        const response = await fetch(`${import.meta.env.VITE_API_URL}dashboard/get-monthly-target/?empId=${empId}`);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setMonthlyTarget(data);
+      } catch (error) {
+        console.error("Error fetching target:", error);
+      }
+    };
+
+    fetchMonthlyTarget();
+  }, []);
+
+  // Handle form input changes
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+
+  const addMonthlyTarget = async () => {
+    try {
+      const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+      if (!userDetails || !userDetails.id) {
+        setFormMessage({
+          type: "error",
+          text: "Employee ID not found. Please log in again.",
+        });
+        return;
+      }
+  
+      const empId = userDetails.id;
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}dashboard/add-monthly-target/?emp_ID=${empId}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+  
+      if (!response.ok) {
+        throw new Error("Failed to add monthly target");
+      }
+  
+      const data = await response.json();
+      setFormMessage({ type: "success", text: data.message });
+      setTimeout(() => {
+        setShowForm(false);
+        window.location.reload();
+      }, 2000); // Close after 2 seconds
+    } catch (error) {
+      console.error("Error adding target:", error);
+      setFormMessage({
+        type: "error",
+        text: "An error occurred while adding the monthly target.",
+      });
+    }
+  };
+
+  const updateMonthlyTarget = async () => {
+    try {
+      const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+      if (!userDetails || !userDetails.id) {
+        setFormMessage({
+          type: "error",
+          text: "Employee ID not found. Please log in again.",
+        });
+        return;
+      }
+  
+      const empId = userDetails.id;
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}dashboard/update-monthly-target/?emp_ID=${empId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+  
+      if (!response.ok) {
+        throw new Error("Failed to update monthly target");
+      }
+  
+      const data = await response.json();
+      setFormMessage({ type: "success", text: data.message });
+      setTimeout(() => {
+        setShowForm(false);
+        window.location.reload();
+      }, 2000); // Close after 2 seconds
+    } catch (error) {
+      console.error("Error updating target:", error);
+      setFormMessage({
+        type: "error",
+        text: "An error occurred while updating the monthly target.",
+      });
+    }
   };
 
     return (
@@ -215,10 +552,11 @@ const [newJoiners, setNewJoiners] = useState(0);
             <p className='title-bar-dashboard'>Designation</p>
         </div>
         <div>
-            <p className='title-bar-dashboard'>Clock In/Out</p>
+            <p className='title-bar-dashboard'><Link to="/clock-in-out">Clock-In/Out</Link></p>
         </div>
         <div>
             <p className='title-bar-dashboard-profile' onClick={gotoprofile}><CgProfile className='profile-icon-dashboard'/></p>
+            <p className="login-user-name-profile">Hi {userName}</p>
         </div>
         <div className="mobile-menu-icon" onClick={toggleMobileMenu}>
           <GiHamburgerMenu />
@@ -249,13 +587,13 @@ const [newJoiners, setNewJoiners] = useState(0);
             <Link to="/performance" onClick={() => setIsMobileMenuOpen(false)}>Performance</Link>
             <Link to="/communication" onClick={() => setIsMobileMenuOpen(false)}>Communication</Link>
             <Link to="/settings" onClick={() => setIsMobileMenuOpen(false)}>Settings</Link>
-            <Link to="/profile" onClick={() => setIsMobileMenuOpen(false)}>Profile</Link>
+            <Link to="/profile" onClick={() => setIsMobileMenuOpen(false)}><p>Profile</p></Link>
             <Link to="/logout" onClick={() => setIsMobileMenuOpen(false)}>Logout</Link>
           </div>
         )}
             <div className='menu-dashboard'>
                     <div className='menu-step1-dashboard'>
-                        <div className='first-box1'>
+                        {/* <div className='first-box1'>
                             <div className='total-employee-dashboard '>Resigned Employee</div>
                             <div className='t-number'>
                                 <p>2500</p>
@@ -263,20 +601,22 @@ const [newJoiners, setNewJoiners] = useState(0);
                             <div className='t-text'>
                                 <p>compared to journey</p>
                             </div>
-                        </div>
-                        <div className='first-box1'>
+                        </div> */}
+                        <div className='first-box11'>
                             <div className='total-employee-dashboard'>New joiners</div>
                             <div><p className='t-number'>{newJoiners}</p></div>
                             <div><p className='t-text'>Joined in {joinMonth}</p></div>
                         </div>
-                        <div className='first-box1'><div className='total-employee-dashboard'>On leaves</div>
+                        <div className='first-box11'><div className='total-employee-dashboard'>On leaves</div>
                             <div className='t-number'>
-                                <p>48</p>
+                                <p>{leaveCount}</p>
                             </div>
                             <div className='t-text'>
-                                <p>compared to jan</p>
+                            {lastRefreshTime && (
+                              <p>On: {lastRefreshTime.toLocaleString()}</p>
+                              )}
                             </div></div>
-                        <div className='first-box1'><div className='total-employee-dashboard'>Total employees</div>
+                        <div className='first-box11'><div className='total-employee-dashboard'>Total employees</div>
                             <div className='t-number'>
                                 <p>{totalEmployees} </p>
                             </div>
@@ -292,23 +632,120 @@ const [newJoiners, setNewJoiners] = useState(0);
                             <div className='second-box1 '>
                                 <div><p>Clock-In-Out</p></div>
                                 <div>
-                                <div className='timer'>{formatTime()}</div>
+                                  <div className='timer'>
+                                    {statusMessage && (
+                                      <p style={{ color: "green", marginTop: "1px", fontSize: "14px" }}>
+                                        {statusMessage}
+                                      </p>
+                                  )}
+                                </div>
                                 <div className='timer-btn'>
-                                    <button className='btn' onClick={handleStart}>Login</button>
-                                    <button className='btn' onClick={handleStop}>Stop</button>
-                                    <button className='btn' onClick={handleReset}>Reset</button>
+                                    <button className="btn" onClick={handleClockIn}>Login</button>
+                                    <button className='btn' onClick={handleClockOut}>Logout</button>
+                                    { (userRole === 'HR' || userRole === 'Admin') && <button className='btn' onClick={handleResetLoginAttempts}>Reset</button>}
+                                    
+                                      
+                                    
                                 </div>
                                 </div>
                             </div>
 
-                            <div className='second-box2'>
-                                <div><p className='m-target'>Monthly Target</p></div>
-                                <div>
-                                    <p className='m-number'>0/1,25,000</p>
+                            <div className="dashboard-container">
+                              {/* Display Summary */}
+                              <div className="dashboard-summary">
+                                <h2>Monthly Target</h2>
+                                <p>
+                                  {monthlyTarget
+                                    ? `${monthlyTarget.actual_value}/${monthlyTarget.target_value}`
+                                    : "No target set"}
+                                </p>
+                              </div>
+                              {/* Buttons */}
+                              <div className="dashboard-buttons">
+                                <button
+                                  onClick={() => {
+                                    setIsEditMode(false);
+                                    setShowForm(true);
+                                  }}
+                                >
+                                  Add
+                                </button>
+                                <button
+                                  onClick={() => {
+                                    setIsEditMode(true);
+                                    setShowForm(true);
+                                  }}
+                                >
+                                  Update
+                                </button>
+                              </div>
+                              {/* Modal/Popup Form */}
+                              {showForm && (
+                                <div className="form-modal">
+                                  <h3>{isEditMode ? "Update Monthly Target" : "Add Monthly Target"}</h3>
+                                  <form
+                                    onSubmit={(e) => {
+                                      e.preventDefault();
+                                      isEditMode ? updateMonthlyTarget() : addMonthlyTarget();
+                                    }}
+                                  >
+
+                                    {/* Only show the 'month' and 'year' fields if it's the "Add" form */}
+                                    {!isEditMode && (
+                                      <>
+                                        <input
+                                          type="text"
+                                          name="month"
+                                          placeholder="Month"
+                                          value={formData.month}
+                                          onChange={handleChange}
+                                          required
+                                        />
+                                        <input
+                                          type="text"
+                                          name="year"
+                                          placeholder="Year"
+                                          value={formData.year}
+                                          onChange={handleChange}
+                                          required
+                                        />
+                                      </>
+                                    )}
+                                    <input
+                                      type="number"
+                                      name="target_value"
+                                      placeholder="Target Value"
+                                      value={formData.target_value}
+                                      onChange={handleChange}
+                                    />
+                                    <input
+                                      type="number"
+                                      name="actual_value"
+                                      placeholder="Actual Value"
+                                      value={formData.actual_value}
+                                      onChange={handleChange}
+                                    />
+                                    <div className="modal-buttons">
+                                      <button
+                                        type="button"
+                                        onClick={() => setShowForm(false)}
+                                        className="cancel-button"
+                                      >
+                                        Cancel
+                                      </button>
+                                      <button type="submit">
+                                        {isEditMode ? "Update" : "Add"}
+                                      </button>
+                                    </div>
+                                    {/* Message Display */}
+                                    {formMessage && (
+                                      <div className={`form-message ${formMessage.type}`}>
+                                        {formMessage.text}
+                                      </div>
+                                    )}
+                                  </form>
                                 </div>
-                                <div>
-                                    <p className='add-target'>Add Target</p> 
-                                </div>
+                              )}
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,73 @@
+.background-div-manage {
+  background-image: url(../public/b2.jpeg);
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+}
+.manage-profile-container {
+  width: 60%;
+  height: 95vh;
+  background-color: rgba(6, 6, 34, 0.486);
+  margin-left: 21vw;
+  margin-top: 3vh;
+  border-radius: 1vw;
+}
+.manage-profile-container > h2 {
+  font-size: xx-large;
+  text-align: center;
+  color: white;
+  font-weight: 500;
+}
+
+.current-p-picture {
+  border-radius: 50%;
+  margin-left: 1vw;
+  border: 2px solid white;
+  object-fit: cover;
+}
+.profile-label {
+  margin-left: 24vw;
+  margin-top: 1vh;
+}
+.manage-list-detail {
+  margin-top: 1vh;
+  border-radius: 1vw;
+  background-color: rgba(248, 249, 255, 0.959);
+  width: 80%;
+  padding: 2vh 2vw;
+  margin-left: 6vw;
+}
+.profile-label > p {
+  color: white;
+}
+.change-profile {
+  width: 30%;
+  margin-left: 21vw;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+.update-profile-manage {
+  margin-left: 47vw;
+  margin-top: 1vh;
+}
+@media (max-width: 575.98px) {
+  .manage-profile-container {
+    width: 90vw;
+    margin-left: 3vh;
+    height: 80vh;
+    margin-top: 1vw;
+  }
+
+  .update-profile-manage {
+    margin-left: 0;
+    width: 50vw;
+  }
+  .form-for-update-profile {
+    margin-left: 0;
+  }
+  .manage-profile-container > h2 {
+    font-size: 4vw;
+    padding-top: 1vh;
+  }
+}

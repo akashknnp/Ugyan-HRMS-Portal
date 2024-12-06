@@ -18,6 +18,9 @@ import { ImYoutube } from "react-icons/im";
 import { GrUserExpert } from "react-icons/gr";
 import { FcGraduationCap } from "react-icons/fc";
 import { FaUserGraduate } from "react-icons/fa6";
+import { useState,useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const About = () => {
   const instagram = () => {
@@ -38,10 +41,21 @@ const About = () => {
     const openLinkedInProfile2 = () => {
       window.open("https://www.linkedin.com/in/aswini-thakkellapati?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", "_blank", "noopener,noreferrer");
     };
+    const navigate = new useNavigate();
+    useEffect(() => {
+      // Check the login status from localStorage
+      const loginFlag = localStorage.getItem("loginFlag");
+  
+      // If the loginFlag is not set or false, redirect to the login page
+      console.log("login flag in dashboard",loginFlag)
+      if (loginFlag=="false") {
+        navigate('/logout1');
+      }
+    }, [navigate]); 
   return (
     <div>
       <div className='background-about-page'>
-        <Link to="/dashboard"><div className='back-to-home-about' ><MdArrowBackIos className='back-home-logo-about'/><h1>Home</h1></div></Link>
+        <Link to="/dashboard"><div className='back-to-home-about' ><MdArrowBackIos className='back-home-logo-about'/><h1></h1></div></Link>
         <div className='heading-about'>
               <h1>Our Commitment</h1>
         </div>
