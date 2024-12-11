@@ -59,6 +59,7 @@ import Logout from './components/Logout';
 import SessionHandler from './components/SessionHandler';
 import AddBalance from './components/AddBalance';
 import ClockInOut from './components/ClockInOut';
+import FlowChart from './components/Flowchart';
 
 
 // import "../src/Test.css";
@@ -113,6 +114,7 @@ const App = () => {
         <Route path="/logout" element={<Logout/>}/>
         <Route path="/addbalance" element={<AddBalance/>}/>
         <Route path="/clock-in-out" element={<ClockInOut/>}/>
+        <Route path="/flowchart" element={<FlowChart/>}/>
       </Routes>
     </BrowserRouter>
   );

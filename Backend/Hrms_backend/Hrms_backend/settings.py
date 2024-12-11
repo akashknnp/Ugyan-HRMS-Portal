@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "Calender",
     "Leave",
+    "designation",
     
 ]
 CORS_ALLOWED_ORIGINS =["http://localhost:5173"]
