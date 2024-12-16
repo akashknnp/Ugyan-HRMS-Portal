@@ -126,8 +126,8 @@ const Requests = () => {
       <img src={logo1}className='logo1-mobile'></img>
         <div><h1 className='title-bar-request'><Link to="/dashboard">Home</Link></h1></div>
         <div><p className='title-bar-request'><Link to="/about">About</Link></p></div>
-        <div><p className='title-bar-request'>Designation</p></div>
-        <div><p className='title-bar-request'>Clock In/Out</p></div>
+        <div><p className='title-bar-request'><Link to="/flowchart">Designation</Link></p></div>
+        <div><p className='title-bar-request'><Link to="/clock-in-out">Clock-In/Out</Link></p></div>
         <div>
             <p className='title-bar-dashboard-profile' onClick={gotoprofile}><CgProfile className='profile-icon-dashboard'/></p>
             <p className="login-user-name-profile">Hi {userName}</p>

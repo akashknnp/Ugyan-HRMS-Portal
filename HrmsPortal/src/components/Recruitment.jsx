@@ -64,10 +64,10 @@ const Recruitment = () => {
             <p className='title-bar-recruitment'><Link to="/about">About</Link></p>
         </div>
         <div>
-            <p className='title-bar-recruitment'>Designation</p>
+            <p className='title-bar-recruitment'><Link to="/flowchart">Designation</Link></p>
         </div>
         <div>
-            <p className='title-bar-recruitment'>Clock In/Out</p>
+            <p className='title-bar-recruitment'><Link to="/clock-in-out">Clock-In/Out</Link></p>
         </div>
         <div>
             <p className='title-bar-dashboard-profile' onClick={gotoprofile}><CgProfile className='profile-icon-dashboard'/></p>

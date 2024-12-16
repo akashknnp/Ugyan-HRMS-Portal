@@ -166,10 +166,10 @@ const navigate = new useNavigate();
             <p className='title-bar-approval'><Link to="/about">About</Link></p>
         </div>
         <div>
-            <p className='title-bar-approval'>Designation</p>
+            <p className='title-bar-approval'><Link to="/flowchart">Designation</Link></p>
         </div>
         <div>
-            <p className='title-bar-approval'>Clock In/Out</p>
+            <p className='title-bar-approval'><Link to="/clock-in-out">Clock-In/Out</Link></p>
         </div>
         <div>
             <p className='title-bar-dashboard-profile' onClick={gotoprofile}><CgProfile className='profile-icon-dashboard'/></p>

@@ -76,7 +76,7 @@ const Dashboard = () => {
             <p className='title-bar-communicate'><Link to="/about">About</Link></p>
         </div>
         <div>
-            <p className='title-bar-communicate'>Designation</p>
+            <p className='title-bar-communicate'><Link to="/flowchart">Designation</Link></p>
         </div>
         <div>
         <p className='title-bar-dashboard'><Link to="/clock-in-out">Clock-In/Out</Link></p>

@@ -58,7 +58,7 @@ td {
 
 .background-list {
   background-image: url(../public/b2.jpeg);
-  height: 100vh;
+  height: 300vh;
 }
 .background-list > h1 {
   color: white;

@@ -1,0 +1,860 @@
+.button_add_designation {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.close-popup-btn {
+  position: absolute;
+  top: 2.5px;
+  right: 2.5px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.add-designation-toggle-btn {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-designation-toggle-btn:hover {
+  background-color: #0056b3;
+}
+
+.add-designation-form div {
+  margin-bottom: 15px;
+}
+
+.add-designation-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.add-designation-form input {
+  width: 100%;
+  padding: 4.5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.add-designation-form button {
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-designation-form button:hover {
+  background-color: #218838;
+}
+
+.add-designation-response {
+  margin-top: 10px;
+  color: #28a745;
+}
+
+.button_delete_designation {
+  position: absolute;
+  right: 1%;
+  top: 8%;
+  margin-top: 4vh;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close-popup-btn {
+  position: absolute;
+  top: -0.8vh;
+  right: 0;
+  border: none;
+  background: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ///////////////////////////////////////////////// */
+.menu-flowchart {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  background-image: url(../public/b2.jpeg);
+  object-fit: cover;
+  padding: 0.5vw;
+  height: 120vh;
+}
+
+.side-bar-flowchart div {
+  color: white;
+}
+
+.dash-flowchart {
+  display: flex;
+  justify-content: flex-end;
+  top: 20px;
+  margin-right: 30px;
+  margin-top: 10px;
+}
+
+.side-bar-flowchart div:hover {
+  background-color: #607d99;
+  font-size: 50px;
+  cursor: pointer;
+}
+.title-bar-flowchart {
+  font-size: 2vw;
+  padding-top: 0.7vw;
+  color: white;
+  margin-right: 2vw;
+}
+.outer-flowchart {
+  height: 100vh;
+  overflow-y: hidden;
+}
+.logo-flowchart {
+  width: 19.8vw;
+  height: 12vh;
+  display: flex;
+  justify-content: start;
+  background-color: white;
+  background-image: linear-gradient(#1e40af, #1d2e73);
+  object-fit: cover;
+  padding-top: 1vh;
+}
+.features-flowchart {
+  display: flex;
+  font-size: 23px;
+  margin-top: 9px;
+  margin-left: 10px;
+  right: 0;
+}
+
+.header-flowchart {
+  display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient(to bottom right, #1e40af, #1c2043);
+}
+.main-flowchart {
+  display: flex;
+  height: 100vh;
+}
+.side-bar-flowchart {
+  height: 120vh;
+  width: 20%;
+  background-image: linear-gradient(to bottom right, #1c2043, #1e40af);
+}
+
+/*////////THiS is for responsive side-bar for mobiles*/
+@media (max-width: 768px) {
+  .side-bar-flowchart {
+    display: none;
+  }
+
+  .mobile-menu-icon-flowchart {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    margin-right: 2vw;
+    margin-top: 2vw;
+  }
+
+  .mobile-dropdown-flowchart {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    width: 100%;
+  }
+
+  .mobile-dropdown-flowchart a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid #eee;
+  }
+
+  .mobile-dropdown-flowchart a:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+/* For larger screens, hide mobile menu icon */
+@media (min-width: 769px) {
+  .mobile-menu-icon-flowchart {
+    display: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  /* Add styles for phones here */
+  /* Mobile Screen (max-width: 575.98px) */
+  @media (max-width: 575.98px) {
+    .menu-flowchart {
+      width: 100%;
+      height: 70vh;
+      padding: 4vw;
+      background-size: cover;
+    }
+
+    .side-bar-flowchart {
+      width: 100%;
+      display: none; /* Hide sidebar on mobile */
+    }
+
+    .side-bar-flowchart div {
+      font-size: 4vw;
+    }
+
+    .mobile-menu-icon-flowchart {
+      padding-bottom: 1vh;
+    }
+    .dash-flowchart {
+      justify-content: center;
+      margin: 0;
+    }
+
+    .side-bar-flowchart div:hover {
+      font-size: 4.5vw;
+    }
+
+    .title-bar-flowchart {
+      font-size: 4vw;
+      font-weight: 700;
+      padding: 1vw;
+      text-align: center;
+      margin: 0;
+    }
+
+    .outer-flowchart {
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .logo-flowchart {
+      width: 100%;
+      height: auto;
+      justify-content: center;
+      padding: 2vw;
+    }
+
+    .features-flowchart {
+      font-size: 4vw;
+      margin: 0;
+      text-align: center;
+    }
+
+    .header-flowchart {
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      padding: 2vw;
+    }
+
+    .main-flowchart {
+      display: block;
+      height: 100vh;
+    }
+  }
+}
+/* Node Styles */
+.node {
+  position: absolute;
+  width: 220px;
+  height: 50px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  line-height: 50px;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Node Positions */
+.cofounder1 {
+  top: 0px;
+  left: 450px;
+}
+
+.cofounder2 {
+  top: 0px;
+  left: 850px;
+}
+
+.ceo {
+  top: 100px;
+  left: 650px;
+}
+
+.cto {
+  top: 200px;
+  left: 650px;
+}
+
+.coo {
+  top: 300px;
+  left: 650px;
+}
+
+.cfo {
+  top: 400px;
+  left: 650px;
+}
+
+.floor-manager {
+  top: 500px;
+  left: 650px;
+}
+
+.vertical-manager {
+  top: 600px;
+  left: 650px;
+}
+.team-lead {
+  top: 700px;
+  left: 650px;
+}
+.ATL {
+  top: 800px;
+  left: 650px;
+}
+
+/* Arrow Styles */
+.arrow {
+  position: absolute;
+  width: 2px;
+  background-color: #000;
+}
+
+.vertical {
+  width: 2px;
+}
+
+/* Arrow Positions */
+.arrow-cofounder1 {
+  top: 40px;
+  left: 660px;
+  height: 60px;
+}
+
+.arrow-cofounder2 {
+  top: 40px;
+  left: 860px;
+  height: 60px;
+}
+
+.arrow-ceo {
+  top: 140px;
+  left: 760px;
+  height: 60px;
+}
+
+.arrow-cto {
+  top: 240px;
+  left: 760px;
+  height: 60px;
+}
+
+.arrow-coo {
+  top: 340px;
+  left: 760px;
+  height: 60px;
+}
+
+.arrow-cfo {
+  top: 440px;
+  left: 760px;
+  height: 60px;
+}
+
+.arrow-floor-manager {
+  top: 540px;
+  left: 760px;
+  height: 60px;
+}
+.arrow-team-lead {
+  top: 640px;
+  left: 760px;
+  height: 60px;
+}
+.arrow-ATL {
+  top: 740px;
+  left: 760px;
+  height: 60px;
+}
+
+.popup-flowchart {
+  position: fixed;
+  top: 60%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.popup-ceo-flowchart {
+  position: fixed;
+  top: 40%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.cto-details-popup {
+  position: fixed;
+  top: 40%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cfo-details-popup {
+  position: fixed;
+  top: 70%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.popup-content-flowchart {
+  text-align: left;
+}
+
+.popup-content-flowchart h3 {
+  margin-top: 0;
+}
+
+.popup-content-flowchart ul {
+  list-style: none;
+  padding: 0;
+}
+
+.popup-content-flowchart li {
+  margin-bottom: 10px;
+}
+
+.popup-content-flowchart button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.popup-ceo-flowchart button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.cto-details-popup button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.cfo-details-popup button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.header-flowchart {
+  display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient(to bottom right, #1e40af, #1c2043);
+}
+
+.menu-flowchart {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  background-image: url(../public/b2.jpeg);
+  object-fit: cover;
+  padding: 0.5vw;
+}
+.main-flowchart {
+  display: flex;
+  height: 100vh;
+}
+
+.side-bar-flowchart {
+  width: 25%;
+  background-image: linear-gradient(to bottom right, #1c2043, #1e40af);
+}
+
+.side-bar-flowchart div {
+  color: white;
+}
+.flowchart-options {
+  display: flex;
+  margin-top: 1vw;
+  gap: 1vw;
+  margin-left: 1vw;
+  margin-bottom: 1vw;
+}
+.dash-flowchart {
+  display: flex;
+  justify-content: flex-end;
+  top: 20px;
+  margin-right: 30px;
+  margin-top: 10px;
+}
+
+.side-bar-flowchart div:hover {
+  background-color: #607d99;
+  font-size: 50px;
+  cursor: pointer;
+}
+.title-bar-flowchart {
+  font-size: 2vw;
+  padding-top: 0.7vw;
+  color: white;
+  margin-right: 2vw;
+}
+.outer-flowchart {
+  height: 100vh;
+  overflow-y: hidden;
+}
+.title-bar-flowchart-profile {
+  font-size: 2vw;
+  padding-top: 0.7vw;
+  color: white;
+  margin-right: 2vw;
+}
+.logo-flowchart {
+  width: 19.8vw;
+  height: 12vh;
+  padding-top: 1vh;
+  display: flex;
+  object-fit: cover;
+  justify-content: start;
+  background-color: white;
+  background-image: linear-gradient(#1e40af, #1d2e73);
+}
+.logo1-mobile {
+  display: none;
+}
+.features-flowchart {
+  display: flex;
+  font-size: 23px;
+  margin-top: 9px;
+  margin-left: 10px;
+  right: 0;
+}
+
+/* ////////////////////// */
+/* Container */
+.flowchart-container {
+  position: relative;
+  width: 100%;
+  height: 90vh; /* Full height of the viewport */
+  /* Remove extra margins */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  background-image: url("/b2.jpeg");
+  /* Ensures the image covers the entire container */
+  /* Prevents tiling of the image */
+  background-position: center; /* Centers the image */
+  overflow-y: scroll;
+}
+.flowchart-here {
+  height: 300vh;
+}
+.crop-img {
+  width: 100%;
+  height: 5vh;
+  background-color: red;
+}
+
+/* Node Styles */
+.node {
+  position: absolute;
+  width: 220px;
+  height: 50px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  line-height: 50px;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Node Positions */
+.cofounder1 {
+  top: 0px;
+  left: 250px;
+}
+
+.cofounder2 {
+  top: 0px;
+  left: 650px;
+}
+
+.ceo {
+  top: 100px;
+  left: 450px;
+}
+
+.cto {
+  top: 200px;
+  left: 450px;
+}
+
+.coo {
+  top: 300px;
+  left: 450px;
+}
+
+.cfo {
+  top: 400px;
+  left: 450px;
+}
+
+.floor-manager {
+  top: 500px;
+  left: 450px;
+}
+
+.vertical-manager {
+  top: 600px;
+  left: 450px;
+}
+
+.team-lead {
+  top: 700px;
+  left: 450px;
+}
+.ATL {
+  top: 800px;
+  left: 450px;
+}
+.BDA {
+  top: 900px;
+  left: 450px;
+}
+/* Arrow Styles */
+.arrow {
+  position: absolute;
+  width: 2px;
+  background-color: #000;
+}
+
+.vertical {
+  width: 2px;
+}
+
+/* Arrow Positions */
+.arrow-cofounder1 {
+  top: 50px;
+  left: 460px;
+  height: 50px;
+}
+
+.arrow-cofounder2 {
+  top: 50px;
+  left: 660px;
+  height: 50px;
+}
+
+.arrow-ceo {
+  top: 150px;
+  left: 560px;
+  height: 50px;
+}
+
+.arrow-cto {
+  top: 250px;
+  left: 560px;
+  height: 50px;
+}
+
+.arrow-coo {
+  top: 350px;
+  left: 560px;
+  height: 50px;
+}
+
+.arrow-cfo {
+  top: 450px;
+  left: 560px;
+  height: 50px;
+}
+
+.arrow-floor-manager {
+  top: 550px;
+  left: 560px;
+  height: 50px;
+}
+
+.arrow-team-lead {
+  top: 650px;
+  left: 560px;
+  height: 50px;
+}
+.arrow-ATL {
+  top: 750px;
+  left: 560px;
+  height: 50px;
+}
+.arrow-BDL {
+  top: 850px;
+  left: 560px;
+  height: 50px;
+}
+
+/* Medium Devices (tablets, 576px to 767.98px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  /* Add styles for tablets here */
+}
+
+/* Large Tablets and Small Laptops (768px to 1023.98px) */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  /* Add styles for large tablets and small laptops here */
+}
+
+/* Laptops (1024px to 1279.98px) */
+@media (min-width: 1024px) {
+  /* Add styles for laptops here */
+  .menu-flowchart {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../public/b2.jpeg);
+    object-fit: cover;
+    padding: 0.5vw;
+    height: 100vh;
+  }
+
+  .side-bar-flowchart div {
+    color: white;
+  }
+
+  .dash-flowchart {
+    display: flex;
+    justify-content: flex-end;
+    top: 20px;
+    margin-right: 30px;
+    margin-top: 10px;
+  }
+
+  .side-bar-flowchart div:hover {
+    background-color: #607d99;
+    font-size: 50px;
+    cursor: pointer;
+  }
+  .title-bar-flowchart {
+    font-size: 2vw;
+    padding-top: 0.7vw;
+    color: white;
+    margin-right: 2vw;
+  }
+  .outer-flowchart {
+    height: 100vh;
+    overflow-y: hidden;
+  }
+  .logo-flowchart {
+    width: 19.8vw;
+    height: 12vh;
+    display: flex;
+    justify-content: start;
+    background-color: white;
+  }
+  .features-flowchart {
+    display: flex;
+    font-size: 23px;
+    margin-top: 9px;
+    margin-left: 10px;
+    right: 0;
+  }
+
+  .header-flowchart {
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(to bottom right, #1e40af, #1c2043);
+  }
+  .main-flowchart {
+    display: flex;
+    height: 100vh;
+  }
+  .side-bar-flowchart {
+    width: 20%;
+    background-image: linear-gradient(to bottom right, #1c2043, #1e40af);
+  }
+}

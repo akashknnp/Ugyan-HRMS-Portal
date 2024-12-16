@@ -64,7 +64,7 @@ const Performance = () => {
             <p className='title-bar-performance'><Link to="/about">About</Link></p>
         </div>
         <div>
-            <p className='title-bar-performance'>Designation</p>
+            <p className='title-bar-performance'><Link to="/flowchart">Designation</Link></p>
         </div>
         <div>
         <p className='title-bar-dashboard'><Link to="/clock-in-out">Clock-In/Out</Link></p>

@@ -100,10 +100,10 @@ const Balance = () => {
             <p className='title-bar-balance'><Link to="/about">About</Link></p>
         </div>
         <div>
-            <p className='title-bar-balance'>Designation</p>
+            <p className='title-bar-balance'><Link to="/flowchart">Designation</Link></p>
         </div>
         <div>
-            <p className='title-bar-balance'>Clock In/Out</p>
+            <p className='title-bar-balance'><Link to="/clock-in-out">Clock-In/Out</Link></p>
         </div>
         <div>
             <p className='title-bar-dashboard-profile' onClick={gotoprofile}><CgProfile className='profile-icon-dashboard'/></p>

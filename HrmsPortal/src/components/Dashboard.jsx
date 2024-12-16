@@ -549,7 +549,7 @@ const [leaveCount, setLeaveCount] = useState(0);
             <p className='title-bar-dashboard'><Link to="/about">About</Link></p>
         </div>
         <div>
-            <p className='title-bar-dashboard'>Designation</p>
+            <p className='title-bar-dashboard'><Link to="/flowchart">Designation</Link></p>
         </div>
         <div>
             <p className='title-bar-dashboard'><Link to="/clock-in-out">Clock-In/Out</Link></p>
@@ -662,6 +662,7 @@ const [leaveCount, setLeaveCount] = useState(0);
                               </div>
                               {/* Buttons */}
                               <div className="dashboard-buttons">
+                              {(userRole === 'HR' || userRole === 'Admin')&&(
                                 <button
                                   onClick={() => {
                                     setIsEditMode(false);
@@ -669,7 +670,8 @@ const [leaveCount, setLeaveCount] = useState(0);
                                   }}
                                 >
                                   Add
-                                </button>
+                                </button>)}
+                                {(userRole === 'HR' || userRole === 'Admin')&&(
                                 <button
                                   onClick={() => {
                                     setIsEditMode(true);
@@ -678,6 +680,7 @@ const [leaveCount, setLeaveCount] = useState(0);
                                 >
                                   Update
                                 </button>
+                                )}
                               </div>
                               {/* Modal/Popup Form */}
                               {showForm && (
