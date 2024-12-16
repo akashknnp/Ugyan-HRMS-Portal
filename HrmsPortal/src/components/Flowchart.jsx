@@ -27,7 +27,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { useState,useEffect } from 'react';
 import { CgProfile } from "react-icons/cg";
 import "../Flowchart.css"
-import cropimg from "../assets/ugyanlogoocrop.jpg";
+import image from "../assets/ugyanlogoocrop.jpg";
 
 const flowchart = () => {
   const [responseMessage, setResponseMessage] = useState("");
@@ -527,6 +527,7 @@ const [ceoDetails, setCeoDetails] = useState([]);
                 <Link to="/settings"><div><h3 className='features-flowchart'><IoSettingsOutline className='dash-flowchart'/>Settings</h3></div></Link>
                 <Link to="/logout"><div><h3 className='features-flowchart'><CgLogOut className='dash-flowchart'/>Logout</h3></div></Link>
             </div>
+            
             {isMobileMenuOpen && (
           <div className="mobile-dropdown-flowchart">
             <Link to="/employee" onClick={() => setIsMobileMenuOpen(false)}>Employee</Link>
@@ -544,6 +545,11 @@ const [ceoDetails, setCeoDetails] = useState([]);
         
         
         <div className="flowchart-container">
+
+          <div className='image-flow-designation'>
+            <img src={image} className='appear'/>
+          </div>
+
        
           {(userRole === 'HR' || userRole === 'Admin')&&(
             <div className="add-designation-container">
@@ -698,7 +704,7 @@ const [ceoDetails, setCeoDetails] = useState([]);
       {isModalOpen && (
   <div
     ref={popupRef}
-    className={selectedFounder?.name === 'akash' ? 'akash' : selectedFounder?.name === 'danish' ? 'danish' : ''}
+    className={selectedFounder?.name === 'Leela Krishna Vaka' ? 'krishna' : selectedFounder?.name === 'Aswini Thakkellapati' ? 'aswini' : ''}
   >
     <b><h3>{selectedFounder?.name}</h3></b>
     <p>{selectedFounder?.details}</p>
@@ -979,8 +985,8 @@ const [ceoDetails, setCeoDetails] = useState([]);
     </div>
   </div>
 )}
-<div className="node BDA" onClick={fetchBdaData} style={{ cursor: 'pointer' }}>
-  Bussiness Development 
+<div className="BDA no-gap" onClick={fetchBdaData} style={{ cursor: 'pointer' }}>
+  Bussiness Development Associate
 </div>
 {showPopupBDA && (
         <div className="popup-flowchart" ref={popupRef}>

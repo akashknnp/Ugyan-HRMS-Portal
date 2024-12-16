@@ -757,7 +757,9 @@ const [leaveCount, setLeaveCount] = useState(0);
                         <div className='third-box1'>
                             <div className='box1-heading'>
                                 <p>Announcement</p>
-                                <p>Today,13 Sep 2021</p>
+                                {lastRefreshTime && (
+                              <p>{lastRefreshTime.toLocaleString()}</p>
+                              )}
                             </div>
                             <div className='annonce-boxes'>
                                 <div>
@@ -795,7 +797,9 @@ const [leaveCount, setLeaveCount] = useState(0);
                         <div className='third-box2'>
                             <div className='box2-heading'>
                                 <div><h2>Upcoming Schedule</h2></div>
-                                <div><p>Today,13 Sep 2021</p></div>
+                                <div>{lastRefreshTime && (
+                              <p>{lastRefreshTime.toLocaleString()}</p>
+                              )}</div>
                             </div>
 
                             <div className="wrapper">

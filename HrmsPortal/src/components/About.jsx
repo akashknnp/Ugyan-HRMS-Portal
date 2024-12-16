@@ -127,7 +127,9 @@ const About = () => {
               <h1>Get in Touch</h1>
               <div>
                 <p><i>Get a free consultation with our awesome team.</i></p>
-                <div className='location-about'><MdLocationPin className='location-logo-about'/> <p className='stay-connect'>Seetharampalya, Banglore , karnataka, 560048</p></div>
+                <div className='location-about'><MdLocationPin className='location-logo-about'/> <p className='stay-connect'>6 th Floor, Gamma Block, Sigma Soft Tech Park
+                      White Field Mainroad,Varthurkodi , Banglore ,
+                      karnataka , 560066.</p></div>
                 <div className='location-about'><MdMailOutline className='location-logo-about'/> <p className='stay-connect'>Support@ugyan.in</p></div>
                 <div className='location-about'><IoCall className='location-logo-about'/> <p className='stay-connect'>+91 79751 65470</p></div>
               </div>
@@ -139,7 +141,7 @@ const About = () => {
             </div>
             <div className='quick-links-about'>
               <h1>Quick Links</h1>
-              <div><Link to="/dashboard3">Home</Link></div>
+              <div><Link to="/dashboard">Home</Link></div>
               <div><Link to="https://ugyan.in/">Visit the official website of UGyan</Link></div>
               <div></div>
             </div>
