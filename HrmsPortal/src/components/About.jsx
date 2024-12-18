@@ -19,10 +19,37 @@ import { GrUserExpert } from "react-icons/gr";
 import { FcGraduationCap } from "react-icons/fc";
 import { FaUserGraduate } from "react-icons/fa6";
 import { useState,useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
+import logo from "../assets/UGYAN1.png";
+import logo1 from "../assets/ugyanlogoo.jpg"
+import { CgProfile } from "react-icons/cg";
+import { GiHamburgerMenu } from "react-icons/gi";  
 
 
 const About = () => {
+
+  const [userName, setUserName] = useState('');useEffect(() => {
+          const storedUserDetails = localStorage.getItem('userDetails');
+          if (storedUserDetails) {
+            const userDetails = JSON.parse(storedUserDetails); // Parse userDetails from JSON
+            if (userDetails && userDetails.first_name) {
+              setUserName(userDetails.first_name); // Update the userName with the name from userDetails
+            }
+          }
+        }, []);
+  
+     
+  
+      const gotoprofile = (event) => {
+          event.preventDefault();  
+          navigate('/Dashboard');
+      }
+  
+      const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+      // Toggle mobile menu
+      const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
   const instagram = () => {
     window.open("https://www.instagram.com/ugyan_edu?igsh=dmZibzQ5dWtqdWwz ", "_blank", "noopener,noreferrer");
   };
@@ -54,6 +81,31 @@ const About = () => {
     }, [navigate]); 
   return (
     <div>
+      <div className='header-about'>
+                  
+              <img src={logo}className='logo'></img> 
+              <img src={logo1}className='logo1-mobile'></img> 
+                  
+                  <div>
+                  <h1 className='title-bar-about'><Link to="/dashboard">Home</Link></h1>
+              </div>
+              <div>
+                  <p className='title-bar-about'><Link to="/about">About</Link></p>
+              </div>
+              <div>
+                  <p className='title-bar-about'><Link to="/flowchart">Designation</Link></p>
+              </div>
+              <div>
+              <p className='title-bar-dashboard'><Link to="/clock-in-out">Clock-In/Out</Link></p>
+              </div>
+              <div>
+                  <p className='title-bar-dashboard-profile' onClick={gotoprofile}><CgProfile className='profile-icon-dashboard'/></p>
+                  <p className="login-user-name-profile">Hi {userName}</p>
+              </div>
+              <div className="mobile-menu-icon-about" onClick={toggleMobileMenu}>
+                  <GiHamburgerMenu />
+              </div>
+              </div>
       <div className='background-about-page'>
         <Link to="/dashboard"><div className='back-to-home-about' ><MdArrowBackIos className='back-home-logo-about'/><h1></h1></div></Link>
         <div className='heading-about'>
@@ -128,8 +180,8 @@ const About = () => {
               <div>
                 <p><i>Get a free consultation with our awesome team.</i></p>
                 <div className='location-about'><MdLocationPin className='location-logo-about'/> <p className='stay-connect'>6 th Floor, Gamma Block, Sigma Soft Tech Park
-                      White Field Mainroad,Varthurkodi , Banglore ,
-                      karnataka , 560066.</p></div>
+                      White Field Mainroad,Varthurkodi, Banglore ,
+                      karnataka, 560066.</p></div>
                 <div className='location-about'><MdMailOutline className='location-logo-about'/> <p className='stay-connect'>Support@ugyan.in</p></div>
                 <div className='location-about'><IoCall className='location-logo-about'/> <p className='stay-connect'>+91 79751 65470</p></div>
               </div>
@@ -163,3 +215,4 @@ const About = () => {
 }
 
 export default About
+

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import "../Profilemanage.css";
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const EmployeeDetails = () => {
-    const navigate = new useNavigate();
+    const navigate = useNavigate();
+    const back_to_profile = () => {
+        navigate('/settings');
+      };
     const [formData, setFormData] = useState({
         first_name: '',
         last_name: '',
@@ -110,7 +113,8 @@ const EmployeeDetails = () => {
             profile_picture: e.target.files[0],
         }));
     };
-
+    
+   
     return (
         <div className="background-div-manage">
              {/* Display custom message */}
@@ -208,12 +212,12 @@ const EmployeeDetails = () => {
                             />
                         </div>
                     </div>
-
+                    
                     <button className="update-profile-manage" type="submit">Update</button>
                    
                 </form>
 
-                
+                <button className='back-in-profile' onClick={back_to_profile}>Back</button>
             </div>
         </div>
     );

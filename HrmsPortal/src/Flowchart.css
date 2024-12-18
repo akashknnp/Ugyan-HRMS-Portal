@@ -398,7 +398,7 @@
 }
 .cto-details-popup {
   position: fixed;
-  top: 40%;
+  top: 70%;
   left: 40%;
   transform: translate(-50%, -50%);
   background: white;

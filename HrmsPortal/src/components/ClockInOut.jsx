@@ -1,8 +1,38 @@
 import React, { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import "../ClockInOut.css";
+import { GiHamburgerMenu } from "react-icons/gi";  
+import { useEffect } from 'react';
+import { CgProfile } from "react-icons/cg";
+import logo from "../assets/UGYAN1.png";
+import logo1 from "../assets/ugyanlogoo.jpg"
+import { Link } from 'react-router-dom';
 
 const ClockInOutData = () => {
+
+ const [userName, setUserName] = useState('');useEffect(() => {
+        const storedUserDetails = localStorage.getItem('userDetails');
+        if (storedUserDetails) {
+          const userDetails = JSON.parse(storedUserDetails); // Parse userDetails from JSON
+          if (userDetails && userDetails.first_name) {
+            setUserName(userDetails.first_name); // Update the userName with the name from userDetails
+          }
+        }
+      }, []);
+
+
+
+    const gotoprofile = (event) => {
+        event.preventDefault();  
+        navigate('/Dashboard');
+    }
+
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    // Toggle mobile menu
+    const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+
   const [employeeId, setEmployeeId] = useState('');
   const [clockData, setClockData] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
@@ -45,6 +75,31 @@ const ClockInOutData = () => {
 
   return (
     <div className='background-in-out'>
+      <div className='header-clockinout'>
+            
+            <img src={logo}className='logo'></img> 
+            <img src={logo1}className='logo1-mobile'></img> 
+                
+                <div>
+                <h1 className='title-bar-clockinout'><Link to="/dashboard">Home</Link></h1>
+            </div>
+            <div>
+                <p className='title-bar-clockinout'><Link to="/about">About</Link></p>
+            </div>
+            <div>
+                <p className='title-bar-clockinout'><Link to="/flowchart">Designation</Link></p>
+            </div>
+            <div>
+            <p className='title-bar-dashboard'><Link to="/clock-in-out">Clock-In/Out</Link></p>
+            </div>
+            <div>
+                <p className='title-bar-dashboard-profile' onClick={gotoprofile}><CgProfile className='profile-icon-dashboard'/></p>
+                <p className="login-user-name-profile">Hi {userName}</p>
+            </div>
+            <div className="mobile-menu-icon-clockinout" onClick={toggleMobileMenu}>
+                <GiHamburgerMenu />
+            </div>
+            </div>
       <h2>Clock In/Out Data</h2>
 
       {/* Employee ID Input */}

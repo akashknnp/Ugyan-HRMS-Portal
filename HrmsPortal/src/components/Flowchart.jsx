@@ -395,7 +395,8 @@ const [ceoDetails, setCeoDetails] = useState([]);
 
   const [cooDetails, setCooDetails] = useState([]);
   const [showCooDetails, setShowCooDetails] = useState(false);
-  const popupRef = useRef(null); // Reference to the popup div
+  const popupRef = useRef(null);// Reference to the popup div
+  const scrollContainerRef = useRef(null);
 
   // Function to fetch COO data
   const fetchCooDetails = async () => {
@@ -415,36 +416,54 @@ const [ceoDetails, setCeoDetails] = useState([]);
   };
 
   // Use effect to handle clicking outside the popup
+  const closeAllPopups = () => {
+    setShowCooDetails(false);
+    setCeoDetails(false);
+    setCfoDetails(false);
+    setCtoDetails(false);
+    setShowPopup(false);
+    setSelectedManager(false);
+    setSelectedManager1(false);
+    setSelectedManager2(false);
+    setSelectedManager3(false);
+    setIsModalOpen(false);
+    setShowPopupBDA(false);
+    setShowPopup1(false);
+    setShowPopup2(false);
+    setShowPopup3(false);
+    
+  };
+  
+  // Function to handle click outside the popup
+  const handleClickOutside = (event) => {
+    if (popupRef.current && !popupRef.current.contains(event.target)) {
+      closeAllPopups();
+    }
+  };
+  
+  // Function to handle scroll event
+  const handleScroll = () => {
+    console.log("scrolling");
+    closeAllPopups(); // Close all popups when user scrolls
+  };
+  
+  // useEffect to add event listeners
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (popupRef.current && !popupRef.current.contains(event.target)) {
-        setShowCooDetails(false);
-        setCeoDetails(false);
-        setCfoDetails(false);
-        setCtoDetails(false);
-        setShowPopup(false);
-        setSelectedManager(false);
-        setSelectedManager1(false);
-        setSelectedManager2(false);
-        setSelectedManager3(false);
-        setShowPopup1(false);
-        setShowPopup2(false);
-        setShowPopup3(false);
-        setSelectedFounder(false);
-        setIsModalOpen(false);
-        setShowPopupBDA(false); // Close the popup if clicked outside
-      }
-    };
-
     // Add event listener for clicks outside the popup
     document.addEventListener('mousedown', handleClickOutside);
-
-    // Cleanup the event listener on component unmount
+  
+    // Add event listener for scroll event on the specific scrollable container
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.addEventListener('scroll', handleScroll);
+    }
+  
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      if (scrollContainerRef.current) {
+        scrollContainerRef.current.removeEventListener('scroll', handleScroll);
+      }
     };
-  }, []);
-
+  }, []);// Empty dependency array ensures the effect is only applied once
 
   const [cfoDetails, setCfoDetails] = useState([]);
   const [showCfoDetails, setShowCfoDetails] = useState(false);
@@ -544,7 +563,7 @@ const [ceoDetails, setCeoDetails] = useState([]);
         )}
         
         
-        <div className="flowchart-container">
+        <div className="flowchart-container" ref={scrollContainerRef}>
 
           <div className='image-flow-designation'>
             <img src={image} className='appear'/>
@@ -703,7 +722,7 @@ const [ceoDetails, setCeoDetails] = useState([]);
 
       {isModalOpen && (
   <div
-    ref={popupRef}
+    ref={popupRef} 
     className={selectedFounder?.name === 'Leela Krishna Vaka' ? 'krishna' : selectedFounder?.name === 'Aswini Thakkellapati' ? 'aswini' : ''}
   >
     <b><h3>{selectedFounder?.name}</h3></b>
