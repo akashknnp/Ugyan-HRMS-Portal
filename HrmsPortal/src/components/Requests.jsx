@@ -49,7 +49,7 @@ const Requests = () => {
   useEffect(() => {
     const fetchRequests = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/leave/get-leaves/");
+        const response = await fetch(`${import.meta.env.VITE_API_URL}leave/get-leaves/`);
         if (response.ok) {
           const data = await response.json();
   
@@ -90,7 +90,7 @@ const Requests = () => {
   // Handle delete button click
   const handleDelete = (requestId) => {
     // Make a DELETE request to the backend to remove the leave request
-    fetch(`http://127.0.0.1:8000/leave/delete-leave/${requestId}/`, {
+    fetch(`${import.meta.env.VITE_API_URL}leave/delete-leave/${requestId}/`, {
       method: 'DELETE',
     })
       .then((response) => {

@@ -43,7 +43,7 @@ const navigate = new useNavigate();
     useEffect(() => {
       const fetchRequests = async () => {
         try {
-          const response = await fetch("http://127.0.0.1:8000/leave/get-leaves/");
+          const response = await fetch(`${import.meta.env.VITE_API_URL}leave/get-leaves/`);
           if (response.ok) {
             const data = await response.json();
     
@@ -81,7 +81,7 @@ const navigate = new useNavigate();
       const handleApprove = async (id) => {
         try {
           const response = await axios.post(
-            'http://127.0.0.1:8000/leave/approval/', // Django endpoint for approval
+            `${import.meta.env.VITE_API_URL}leave/approval/`, // Django endpoint for approval
             { id }, // Sending the request ID
             {
               headers: {
@@ -101,7 +101,7 @@ const navigate = new useNavigate();
       const handleDeny = async (id) => {
         try {
           const response = await axios.post(
-            'http://127.0.0.1:8000/leave/deny/', // Django endpoint for denial
+            `${import.meta.env.VITE_API_URL}leave/deny/`, // Django endpoint for denial
             { id }, // Sending the request ID
             {
               headers: {

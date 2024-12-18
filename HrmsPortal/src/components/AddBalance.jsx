@@ -36,7 +36,7 @@ const AddBalance = () => {
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
-        'http://127.0.0.1:8000/leave/add-balance/',
+        `${import.meta.env.VITE_API_URL}leave/add-balance/`,
         {
           ...formData,
           total_sick_leave: parseFloat(formData.total_sick_leave),

@@ -73,7 +73,7 @@ const Balance = () => {
     const fetchLeaveBalances = async () => {
       try {
         const response = await axios.get(
-          'http://127.0.0.1:8000/leave/get-balance/', // API endpoint for fetching leave balances
+          `${import.meta.env.VITE_API_URL}leave/get-balance/`, // API endpoint for fetching leave balances
           { headers: { 'Content-Type': 'application/json' } }
         );
         setLeaveBalances(response.data);

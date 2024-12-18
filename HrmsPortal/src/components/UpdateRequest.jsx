@@ -44,7 +44,7 @@ const UpdateRequest = () => {
     const fetchLeaveRequest = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(`http://127.0.0.1:8000/leave/update-leave/${id}/`);
+        const response = await fetch(`${import.meta.env.VITE_API_URL}leave/update-leave/${id}/`);
         if (response.ok) {
           const data = await response.json();
           setLeaveType(data.leave_type);
@@ -84,7 +84,7 @@ const UpdateRequest = () => {
     };
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/leave/update-leave/${id}/`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}leave/update-leave/${id}/`, {
         method: 'POST', // Change to 'PUT' or 'PATCH' if required by the backend
         headers: {
           'Content-Type': 'application/json',
